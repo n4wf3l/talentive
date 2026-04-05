@@ -97,6 +97,14 @@ export default function ContactSection() {
         {/* ── Big CTA block ── */}
         <AnimatedSection animation="scale-in" delay={300}>
           <div className="relative mt-20 overflow-hidden rounded-3xl bg-primary-800 px-8 py-14 text-center shadow-xl shadow-primary-800/10 sm:px-16 sm:py-20">
+            {/* Background image */}
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80&auto=format&fit=crop"
+                alt=""
+                className="h-full w-full object-cover opacity-10"
+              />
+            </div>
             {/* Decorative shapes */}
             <div className="pointer-events-none absolute inset-0">
               <div className="float-slow absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/[0.05]" />

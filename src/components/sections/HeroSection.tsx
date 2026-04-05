@@ -9,7 +9,15 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
-      {/* ── Animated gradient mesh background ── */}
+      {/* ── Background image ── */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format&fit=crop"
+          alt=""
+          className="h-full w-full object-cover"
+        />
+      </div>
+      {/* ── Animated gradient mesh background (overlay) ── */}
       <div className="hero-mesh absolute inset-0" />
 
       {/* ── Floating decorative shapes ── */}
@@ -58,7 +66,7 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="hero-cta-animate mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link to="/find-employee">
+            <Link to="/find-employee" data-onboarding="cta-employee">
               <Button variant="primary" size="lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -69,18 +77,20 @@ export default function HeroSection() {
                 {t('hero.ctaEmployee')}
               </Button>
             </Link>
-            <Button
-              variant="outline"
-              size="lg"
-              href={FIND_JOB_URL}
-              external
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
-              {t('hero.ctaJob')}
-            </Button>
+            <span data-onboarding="cta-job">
+              <Button
+                variant="outline"
+                size="lg"
+                href={FIND_JOB_URL}
+                external
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+                {t('hero.ctaJob')}
+              </Button>
+            </span>
           </div>
         </div>
 

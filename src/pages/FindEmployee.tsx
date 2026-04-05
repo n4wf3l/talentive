@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
@@ -5,11 +6,28 @@ import JobSeekerForm from '../components/forms/JobSeekerForm';
 import AnimatedSection from '../components/ui/AnimatedSection';
 
 export default function FindEmployee() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      nl: 'Werknemer Zoeken — Talentive',
+      fr: 'Trouver un Travailleur — Talentive',
+      en: 'Find a Worker — Talentive',
+    };
+    document.title = titles[language] ?? titles.nl!;
+  }, [language]);
 
   return (
     <Layout>
       <section className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-50/20 pt-28 pb-20 sm:pt-36">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1920&q=80&auto=format&fit=crop"
+            alt=""
+            className="h-full w-full object-cover opacity-[0.04]"
+          />
+        </div>
         {/* Decorative shapes */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-32 top-20 h-[400px] w-[400px] rounded-full bg-accent-100/30 blur-3xl" />

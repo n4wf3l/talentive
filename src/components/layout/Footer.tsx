@@ -7,10 +7,6 @@ import logo from '../../assets/images/logo.png';
 export default function Footer() {
   const { t } = useTranslation();
 
-  const scrollTo = (section: string) => {
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <footer className="relative overflow-hidden bg-primary-900 text-white">
       {/* Top decorative curve */}
@@ -22,17 +18,17 @@ export default function Footer() {
 
       {/* Decorative gradient blobs */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-secondary-400/5 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-accent-400/5 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent-500/5 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-20 sm:px-6 lg:px-8">
         <AnimatedSection animation="fade-up">
           <div className="grid gap-12 md:grid-cols-12">
             {/* Brand column */}
             <div className="md:col-span-4">
               <Link to="/" className="inline-block">
-                <img src={logo} alt="Talentive" className="h-10 w-auto brightness-0 invert" />
+                <img src={logo} alt="Talentive" className="h-28 w-auto brightness-0 invert" />
               </Link>
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-gray-400">
                 {t('footer.description')}
@@ -40,15 +36,15 @@ export default function Footer() {
 
               {/* Accent bar */}
               <div className="mt-6 flex items-center gap-3">
-                <div className="h-1 w-8 rounded-full bg-secondary-400" />
-                <div className="h-1 w-4 rounded-full bg-secondary-400/40" />
-                <div className="h-1 w-2 rounded-full bg-secondary-400/20" />
+                <div className="h-1 w-8 rounded-full bg-accent-400" />
+                <div className="h-1 w-4 rounded-full bg-accent-400/40" />
+                <div className="h-1 w-2 rounded-full bg-accent-400/20" />
               </div>
             </div>
 
             {/* Quick links */}
             <div className="md:col-span-3 md:col-start-6">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-secondary-400">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
                 {t('footer.quickLinks')}
               </h3>
               <ul className="mt-5 space-y-3.5">
@@ -57,19 +53,19 @@ export default function Footer() {
                     to="/"
                     className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
                   >
-                    <span className="h-px w-0 bg-secondary-400 transition-all duration-300 group-hover:w-4" />
+                    <span className="h-px w-0 bg-accent-400 transition-all duration-300 group-hover:w-4" />
                     {t('nav.home')}
                   </Link>
                 </li>
                 {(['services', 'about', 'contact'] as const).map((section) => (
                   <li key={section}>
-                    <button
-                      onClick={() => scrollTo(section)}
+                    <Link
+                      to={`/${section}`}
                       className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
                     >
-                      <span className="h-px w-0 bg-secondary-400 transition-all duration-300 group-hover:w-4" />
+                      <span className="h-px w-0 bg-accent-400 transition-all duration-300 group-hover:w-4" />
                       {t(`nav.${section}`)}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -77,7 +73,7 @@ export default function Footer() {
 
             {/* Contact info */}
             <div className="md:col-span-4">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-secondary-400">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
                 {t('footer.contactInfo')}
               </h3>
               <ul className="mt-5 space-y-4">
@@ -87,7 +83,7 @@ export default function Footer() {
                     className="flex items-start gap-3 text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     <svg
-                      className="mt-0.5 h-4 w-4 shrink-0 text-secondary-400/70"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -106,7 +102,7 @@ export default function Footer() {
                     className="flex items-start gap-3 text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     <svg
-                      className="mt-0.5 h-4 w-4 shrink-0 text-secondary-400/70"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -122,7 +118,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-gray-400">
                   <svg
-                    className="mt-0.5 h-4 w-4 shrink-0 text-secondary-400/70"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -144,9 +140,15 @@ export default function Footer() {
         <div className="mt-16 border-t border-white/[0.06] py-6">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-gray-600">{t('footer.rights')}</p>
-            <p className="text-xs text-gray-600">
-              Crafted with care in Brussels
-            </p>
+            <div className="flex items-center gap-4">
+              <Link to="/privacy" className="text-xs text-gray-600 transition-colors hover:text-white">
+                {t('footer.legal')}
+              </Link>
+              <span className="text-gray-700">|</span>
+              <p className="text-xs text-gray-600">
+                Crafted with care in Brussels
+              </p>
+            </div>
           </div>
         </div>
       </div>

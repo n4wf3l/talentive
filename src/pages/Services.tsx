@@ -1,7 +1,8 @@
-import { useState, useCallback, type ReactNode } from 'react';
-import { useTranslation } from '../../i18n/LanguageContext';
-import AnimatedSection from '../ui/AnimatedSection';
-import ServiceModal from '../ui/ServiceModal';
+import { useEffect, useState, useCallback, type ReactNode } from 'react';
+import { useTranslation } from '../i18n/LanguageContext';
+import Layout from '../components/layout/Layout';
+import AnimatedSection from '../components/ui/AnimatedSection';
+import ServiceModal from '../components/ui/ServiceModal';
 
 function RecruitmentIcon() {
   return (
@@ -117,48 +118,90 @@ function ServiceCard({
   );
 }
 
-export default function ServicesSection() {
-  const { t } = useTranslation();
+export default function Services() {
+  const { t, language } = useTranslation();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setSelectedIndex(null), []);
 
-  const cards = [...serviceDefs, ...serviceDefs];
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      nl: 'Onze Diensten — Rekrutering & Uitzendwerk | Talentive',
+      fr: 'Nos Services — Recrutement & Intérim | Talentive',
+      en: 'Our Services — Recruitment & Staffing | Talentive',
+    };
+    document.title = titles[language] ?? titles.nl!;
+  }, [language]);
 
+  const cards = [...serviceDefs, ...serviceDefs];
   const selected = selectedIndex !== null ? serviceDefs[selectedIndex % serviceDefs.length] : null;
 
   return (
-    <section id="services" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl text-center">
-          <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
-            {t('services.title')}
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            {t('services.subtitle')}
-          </p>
-        </AnimatedSection>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative mt-16">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-gray-50 to-transparent sm:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-gray-50 to-transparent sm:w-40" />
-
-        <div className="carousel-track flex gap-10 py-6 px-10">
-          {cards.map((service, index) => (
-            <ServiceCard
-              key={`${service.titleKey}-${index}`}
-              icon={service.icon}
-              title={t(service.titleKey)}
-              description={t(service.descKey)}
-              image={service.image}
-              onClick={() => setSelectedIndex(index)}
-            />
-          ))}
+    <Layout>
+      {/* Page hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-800 via-primary-900 to-primary-950 pt-32 pb-20 sm:pt-40 sm:pb-28">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop"
+            alt=""
+            className="h-full w-full object-cover opacity-15"
+          />
         </div>
-      </div>
+        <div className="pointer-events-none absolute inset-0">
+          <div className="float-slow absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full border border-white/[0.04]" />
+          <div className="float-reverse absolute -bottom-16 -left-16 h-[300px] w-[300px] rounded-full bg-accent-500/[0.05]" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection animation="fade-up">
+            <div className="accent-line mb-6" />
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {t('services.title')}
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
+              {t('services.subtitle')}
+            </p>
+          </AnimatedSection>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" className="w-full" preserveAspectRatio="none">
+            <path d="M0,60 C360,5 1080,5 1440,60 L1440,60 L0,60 Z" fill="#f9fafb" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Auto-scrolling carousel */}
+      <section className="bg-gray-50 py-20 sm:py-28 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-400">
+              {language === 'fr'
+                ? 'Cliquez pour en savoir plus'
+                : language === 'nl'
+                  ? 'Klik voor meer info'
+                  : 'Click for more info'}
+            </p>
+          </AnimatedSection>
+        </div>
+
+        {/* Carousel container */}
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-gray-50 to-transparent sm:w-40" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-gray-50 to-transparent sm:w-40" />
+
+          <div className="carousel-track flex gap-10 py-6 px-10">
+            {cards.map((service, index) => (
+              <ServiceCard
+                key={`${service.titleKey}-${index}`}
+                icon={service.icon}
+                title={t(service.titleKey)}
+                description={t(service.descKey)}
+                image={service.image}
+                onClick={() => setSelectedIndex(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Modal */}
       {selected && (
@@ -171,6 +214,6 @@ export default function ServicesSection() {
           image={selected.image}
         />
       )}
-    </section>
+    </Layout>
   );
 }

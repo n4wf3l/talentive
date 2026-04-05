@@ -86,10 +86,82 @@ export interface Translations {
       errorMessage: string;
     };
   };
+  faq: {
+    title: string;
+    subtitle: string;
+    q1: string; a1: string;
+    q2: string; a2: string;
+    q3: string; a3: string;
+    q4: string; a4: string;
+    q5: string; a5: string;
+    q6: string; a6: string;
+  };
+  contactForm: {
+    title: string;
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    submit: string;
+    sending: string;
+    success: string;
+    placeholders: {
+      name: string;
+      email: string;
+      subject: string;
+      message: string;
+    };
+  };
+  privacy: {
+    title: string;
+    subtitle: string;
+    lastUpdated: string;
+    intro: string;
+    dataTitle: string;
+    dataContent: string;
+    purposeTitle: string;
+    purposeContent: string;
+    cookiesTitle: string;
+    cookiesContent: string;
+    rightsTitle: string;
+    rightsContent: string;
+    contactTitle: string;
+    contactContent: string;
+  };
+  bottomBar: {
+    worker: string;
+    job: string;
+    quickContact: string;
+  };
+  quickContact: {
+    title: string;
+    subtitle: string;
+    name: string;
+    email: string;
+    message: string;
+    send: string;
+    sending: string;
+    success: string;
+    placeholders: {
+      name: string;
+      email: string;
+      message: string;
+    };
+  };
+  tutorial: {
+    step1Title: string;
+    step1Desc: string;
+    step2Title: string;
+    step2Desc: string;
+    skip: string;
+    next: string;
+    done: string;
+  };
   footer: {
     description: string;
     quickLinks: string;
     contactInfo: string;
+    legal: string;
     rights: string;
   };
 }

@@ -1,7 +1,6 @@
 import { useTranslation } from '../../i18n/LanguageContext';
 import AnimatedSection from '../ui/AnimatedSection';
-import AnimatedCounter from '../ui/AnimatedCounter';
-import SectionNavigator from '../ui/SectionNavigator';
+
 
 function TrustIcon() {
   return (
@@ -30,13 +29,6 @@ function EfficiencyIcon() {
 export default function AboutSection() {
   const { t } = useTranslation();
 
-  const stats = [
-    { value: parseInt(t('about.stats.years')), suffix: '+', label: t('about.stats.yearsLabel') },
-    { value: parseInt(t('about.stats.clients')), suffix: '+', label: t('about.stats.clientsLabel') },
-    { value: parseInt(t('about.stats.placements')), suffix: '+', label: t('about.stats.placementsLabel') },
-    { value: parseInt(t('about.stats.satisfaction')), suffix: '%', label: t('about.stats.satisfactionLabel') },
-  ];
-
   const values = [
     { icon: <TrustIcon />, titleKey: 'about.values.trust.title', descKey: 'about.values.trust.description' },
     { icon: <ProximityIcon />, titleKey: 'about.values.proximity.title', descKey: 'about.values.proximity.description' },
@@ -46,26 +38,9 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ── Stats bar ── */}
-        <AnimatedSection animation="fade-up">
-          <div className="rounded-3xl bg-primary-800 px-8 py-12 shadow-xl shadow-primary-800/10 sm:px-12">
-            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-extrabold text-white sm:text-4xl">
-                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <p className="mt-2 text-sm font-medium text-white/50">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
 
-        {/* ── Main content ── */}
-        <div className="mt-20 grid gap-16 lg:grid-cols-2 lg:items-start">
+        {/* ── Top row: Text left + Image right ── */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left: text */}
           <div>
             <AnimatedSection animation="fade-up">
@@ -91,42 +66,67 @@ export default function AboutSection() {
             </AnimatedSection>
           </div>
 
-          {/* Right: values */}
-          <div>
-            <AnimatedSection animation="fade-up" delay={100}>
-              <h3 className="text-xl font-bold text-primary-800 mb-8">
+          {/* Right: image */}
+          <AnimatedSection animation="slide-left" delay={150}>
+            <div className="relative">
+              {/* Decorative accent behind image */}
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent-500/10 via-transparent to-primary-800/10 blur-sm" />
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/10">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop"
+                  alt="Team collaboration"
+                  className="h-[320px] w-full object-cover sm:h-[400px] lg:h-[440px]"
+                />
+                {/* Subtle gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 via-transparent to-transparent" />
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+
+        {/* ── Values section below ── */}
+        <div className="mt-24">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center">
+              <div className="accent-line mx-auto mb-6" />
+              <h3 className="text-2xl font-bold text-primary-800 sm:text-3xl">
                 {t('about.values.title')}
               </h3>
-            </AnimatedSection>
-
-            <div className="space-y-5">
-              {values.map((value, index) => (
-                <AnimatedSection
-                  key={value.titleKey}
-                  animation="slide-left"
-                  delay={200 + index * 120}
-                >
-                  <div className="card-premium group flex gap-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-100 text-accent-600 transition-all duration-300 group-hover:bg-accent-200 group-hover:scale-110">
-                      {value.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-primary-800">{t(value.titleKey)}</h4>
-                      <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
-                        {t(value.descKey)}
-                      </p>
-                    </div>
-                  </div>
-                </AnimatedSection>
-              ))}
             </div>
+          </AnimatedSection>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {values.map((value, index) => (
+              <AnimatedSection
+                key={value.titleKey}
+                animation="fade-up"
+                delay={100 + index * 120}
+              >
+                <div className="about-value-card group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center transition-all duration-500 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/8 hover:-translate-y-2">
+                  {/* Hover gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-50/0 via-accent-50/0 to-accent-100/0 transition-all duration-500 group-hover:from-accent-50/60 group-hover:via-accent-50/30 group-hover:to-accent-100/40" />
+
+                  {/* Icon */}
+                  <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-100 to-accent-50 text-accent-600 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-500/15 group-hover:from-accent-200 group-hover:to-accent-100">
+                    {value.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h4 className="relative mt-5 text-lg font-bold text-primary-800">{t(value.titleKey)}</h4>
+
+                  {/* Accent line under title */}
+                  <div className="relative mx-auto mt-3 h-0.5 w-0 rounded-full bg-gradient-to-r from-accent-500 to-accent-300 transition-all duration-500 group-hover:w-12" />
+
+                  {/* Description */}
+                  <p className="relative mt-4 text-sm text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-600">
+                    {t(value.descKey)}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Section navigator */}
-      <div className="mt-20 flex justify-center">
-        <SectionNavigator targetId="contact" />
       </div>
     </section>
   );
