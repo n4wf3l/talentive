@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { FIND_JOB_URL } from '../../constants';
@@ -7,10 +7,19 @@ import QuickContactModal from '../ui/QuickContactModal';
 export default function BottomBar() {
   const { t } = useTranslation();
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const threshold = window.innerHeight * 0.6;
+    const handleScroll = () => setVisible(window.scrollY > threshold);
+    handleScroll(); // check initial position
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-primary-900/95 backdrop-blur-lg">
+      <div className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-primary-900/95 backdrop-blur-lg transition-transform duration-400 ${visible ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-4 font-display">
           {/* Left group: Find worker + Find job */}
           <div className="flex items-center gap-2 sm:gap-3">
