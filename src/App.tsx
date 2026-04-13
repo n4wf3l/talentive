@@ -28,7 +28,7 @@ export default function App() {
     <LanguageProvider>
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       {showOnboarding && <OnboardingOverlay onComplete={() => setShowOnboarding(false)} />}
-      <BrowserRouter>
+      <BrowserRouter basename="/talentive">
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
