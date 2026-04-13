@@ -23,36 +23,27 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
   const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const [rect, setRect] = useState<DOMRect | null>(null);
+  const [cloneHtml, setCloneHtml] = useState('');
   const [phase, setPhase] = useState<'entering' | 'visible' | 'transitioning' | 'exiting'>('entering');
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const measure = useCallback((stepIndex: number) => {
-    const el = document.querySelector(steps[stepIndex]!.selector);
+    const el = document.querySelector(steps[stepIndex]!.selector) as HTMLElement | null;
     if (el) {
       const r = el.getBoundingClientRect();
       setRect(r);
+      // Clone the inner button/anchor to render above the overlay
+      const inner = el.querySelector('a, button') as HTMLElement | null;
+      if (inner) {
+        setCloneHtml(inner.outerHTML);
+      } else {
+        setCloneHtml(el.outerHTML);
+      }
     }
   }, []);
 
-  // Elevate the targeted element above the overlay so its original styling is fully visible
-  useEffect(() => {
-    const el = document.querySelector(steps[current]!.selector) as HTMLElement | null;
-    if (!el) return;
-
-    el.style.position = 'relative';
-    el.style.zIndex = '9999';
-    el.style.pointerEvents = 'none'; // prevent accidental clicks/navigation
-
-    return () => {
-      el.style.position = '';
-      el.style.zIndex = '';
-      el.style.pointerEvents = '';
-    };
-  }, [current]);
-
   // Measure on mount + resize
   useEffect(() => {
-    // Small delay to let hero animations settle
     const timer = setTimeout(() => {
       measure(current);
       setPhase('visible');
@@ -81,24 +72,11 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
     setTimeout(() => {
       setCurrent((prev) => prev + 1);
       setPhase('entering');
-      // 'entering' triggers the useEffect above which will measure + set 'visible'
     }, 300);
   }, [current, finish]);
 
   const step = steps[current]!;
   const padding = 12;
-
-  // Spotlight clip: everything dark except the target rect
-  const clipPath = rect
-    ? `polygon(
-        0% 0%, 0% 100%, 100% 100%, 100% 0%, 0% 0%,
-        ${rect.left - padding}px ${rect.top - padding}px,
-        ${rect.left - padding}px ${rect.bottom + padding}px,
-        ${rect.right + padding}px ${rect.bottom + padding}px,
-        ${rect.right + padding}px ${rect.top - padding}px,
-        ${rect.left - padding}px ${rect.top - padding}px
-      )`
-    : undefined;
 
   // Tooltip position: below the target, centered
   const tooltipStyle: React.CSSProperties = rect
@@ -115,12 +93,27 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
       ref={overlayRef}
       className={`onboarding-root ${phase === 'exiting' ? 'onboarding-exit' : ''}`}
     >
-      {/* Dark overlay with spotlight hole */}
+      {/* Full dark overlay (no clip-path, simpler and more reliable) */}
       <div
         className="onboarding-backdrop"
-        style={{ clipPath }}
         onClick={finish}
       />
+
+      {/* Cloned button rendered above the overlay at the exact same position */}
+      {rect && cloneHtml && (
+        <div
+          className={`onboarding-clone ${phase === 'visible' ? 'onboarding-clone-on' : ''}`}
+          style={{
+            position: 'absolute',
+            top: rect.top,
+            left: rect.left,
+            width: rect.width,
+            height: rect.height,
+            pointerEvents: 'none',
+          }}
+          dangerouslySetInnerHTML={{ __html: cloneHtml }}
+        />
+      )}
 
       {/* Spotlight ring around target */}
       {rect && (
