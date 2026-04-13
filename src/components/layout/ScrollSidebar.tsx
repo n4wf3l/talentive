@@ -155,7 +155,7 @@ export default function ScrollSidebar() {
                   className={`relative flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ${
                     isActive
                       ? 'border-accent-400/60 bg-accent-500/20 backdrop-blur-md'
-                      : 'border-white/[0.08] bg-primary-900/80 backdrop-blur-md group-hover:border-white/20 group-hover:bg-white/[0.06]'
+                      : 'border-white/[0.08] bg-primary-900/80 backdrop-blur-md group-hover:border-accent-400/40 group-hover:bg-primary-800'
                   }`}
                 >
                   <SectionIcon id={section.id} active={isActive} />
