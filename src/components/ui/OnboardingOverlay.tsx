@@ -34,6 +34,22 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
     }
   }, []);
 
+  // Elevate the targeted element above the overlay so its original styling is fully visible
+  useEffect(() => {
+    const el = document.querySelector(steps[current]!.selector) as HTMLElement | null;
+    if (!el) return;
+
+    el.style.position = 'relative';
+    el.style.zIndex = '9999';
+    el.style.pointerEvents = 'none'; // prevent accidental clicks/navigation
+
+    return () => {
+      el.style.position = '';
+      el.style.zIndex = '';
+      el.style.pointerEvents = '';
+    };
+  }, [current]);
+
   // Measure on mount + resize
   useEffect(() => {
     // Small delay to let hero animations settle
