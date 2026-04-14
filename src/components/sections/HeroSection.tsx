@@ -10,11 +10,11 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
       {/* ── Background image (recruitment / handshake) ── */}
-      <div className="absolute inset-0 bg-primary-950">
+      <div className="absolute inset-0 overflow-hidden bg-primary-950">
         <img
           src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80&auto=format&fit=crop"
           alt=""
-          className="h-full w-full object-cover opacity-40"
+          className="hero-bg-animate h-full w-full object-cover opacity-40"
         />
       </div>
       {/* ── Animated gradient mesh background (overlay) ── */}

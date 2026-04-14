@@ -77,6 +77,36 @@ nav, .font-display {
   }
 }
 
+/* Ken Burns effect — slow zoom + pan, GPU-accelerated via transform only */
+@keyframes hero-bg-drift {
+  0%, 100% {
+    transform: scale(1.15) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: scale(1.18) translate3d(-1.5%, -0.8%, 0);
+  }
+  50% {
+    transform: scale(1.2) translate3d(1.2%, 1%, 0);
+  }
+  75% {
+    transform: scale(1.17) translate3d(1%, -0.6%, 0);
+  }
+}
+
+.hero-bg-animate {
+  transform: scale(1.15);
+  will-change: transform;
+  backface-visibility: hidden;
+  animation: hero-bg-drift 40s ease-in-out infinite;
+}
+
+/* Pause animation when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-animate {
+    animation: none;
+  }
+}
+
 .hero-mesh {
   background:
     radial-gradient(ellipse 80% 60% at 20% 40%, rgba(59, 130, 246, 0.18) 0%, transparent 60%),
