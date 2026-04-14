@@ -95,7 +95,7 @@ export default function HeroSection() {
         </div>
 
         {/* ── Scroll down indicator ── */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 sm:bottom-32">
           <SectionNavigator
             targetId="services"
             label={t('hero.scrollDown')}
