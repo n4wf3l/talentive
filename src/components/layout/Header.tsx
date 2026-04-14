@@ -97,24 +97,24 @@ export default function Header() {
           : 'bg-primary-900/95 backdrop-blur-md shadow-lg shadow-primary-950/20'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
         {/* Logo */}
         <Link to="/" className="transition-opacity hover:opacity-80">
-          <img src={logo} alt="Talentive" className="h-14 w-auto sm:h-20 md:h-28 brightness-0 invert" />
+          <img src={logo} alt="Talentive" className="h-16 w-auto sm:h-24 md:h-32 lg:h-36 brightness-0 invert" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1.5 md:flex font-display" aria-label="Main navigation">
+        <nav className="hidden items-center gap-2 md:flex font-display" aria-label="Main navigation">
           {navItems.map(({ key, href, icon }) => {
             const isActive = location.pathname === href;
             return (
               <Link
                 key={key}
                 to={href}
-                className={`group relative flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold tracking-wide transition-all duration-300 ${
+                className={`group relative flex items-center gap-2 rounded-xl px-5 py-3 text-base font-bold tracking-wide transition-all duration-300 ${
                   isActive
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/60 hover:bg-white/[0.06] hover:text-white'
+                    ? 'text-white'
+                    : 'text-white/60 hover:text-white'
                 }`}
               >
                 {/* Icon */}
@@ -123,10 +123,10 @@ export default function Header() {
                 </span>
                 {/* Label */}
                 {t(key)}
-                {/* Active dot */}
+                {/* Purple underline that fills on hover / active */}
                 <span
-                  className={`absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent-400 transition-all duration-300 ${
-                    isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                  className={`absolute -bottom-1 left-3 right-3 h-[3px] rounded-full bg-gradient-to-r from-accent-500 via-purple-500 to-accent-500 origin-left transition-transform duration-400 ease-out ${
+                    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
               </Link>
