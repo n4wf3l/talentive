@@ -111,21 +111,21 @@ export default function Header() {
               <Link
                 key={key}
                 to={href}
-                className={`group relative flex items-center gap-2 rounded-xl px-5 py-3 text-base font-bold tracking-wide transition-all duration-300 ${
+                className={`group relative flex items-center gap-2 px-4 py-3 text-base font-bold tracking-wide transition-colors duration-300 ${
                   isActive
                     ? 'text-white'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
                 {/* Icon */}
-                <span className={`transition-all duration-300 ${isActive ? 'text-accent-400' : 'text-white/40 group-hover:text-accent-400'}`}>
+                <span className={`transition-colors duration-300 ${isActive ? 'text-accent-400' : 'text-white/40 group-hover:text-accent-400'}`}>
                   {icon}
                 </span>
                 {/* Label */}
                 {t(key)}
-                {/* Purple underline that fills on hover / active */}
+                {/* Purple underline that fills left-to-right on hover / stays on active */}
                 <span
-                  className={`absolute -bottom-1 left-3 right-3 h-[3px] rounded-full bg-gradient-to-r from-accent-500 via-purple-500 to-accent-500 origin-left transition-transform duration-400 ease-out ${
+                  className={`pointer-events-none absolute bottom-0 left-2 right-2 h-[3px] rounded-full bg-gradient-to-r from-accent-500 via-purple-500 to-accent-500 origin-left transition-transform duration-500 ease-out ${
                     isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
