@@ -3,7 +3,7 @@ import { useTranslation } from '../../i18n/LanguageContext';
 import AnimatedSection from '../ui/AnimatedSection';
 import ServiceModal from '../ui/ServiceModal';
 
-function RecruitmentIcon() {
+function PermanentIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -14,7 +14,7 @@ function RecruitmentIcon() {
   );
 }
 
-function InterimIcon() {
+function ContractIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
@@ -23,20 +23,12 @@ function InterimIcon() {
   );
 }
 
-function ConsultingIcon() {
+function PayrollIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-    </svg>
-  );
-}
-
-function CareerIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <path d="M9 15l2 2 4-4" />
     </svg>
   );
 }
@@ -50,28 +42,22 @@ interface ServiceDef {
 
 const serviceDefs: ServiceDef[] = [
   {
-    icon: <RecruitmentIcon />,
-    titleKey: 'services.recruitment.title',
-    descKey: 'services.recruitment.description',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80&auto=format&fit=crop',
+    icon: <PermanentIcon />,
+    titleKey: 'services.permanent.title',
+    descKey: 'services.permanent.description',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&auto=format&fit=crop',
   },
   {
-    icon: <InterimIcon />,
-    titleKey: 'services.interim.title',
-    descKey: 'services.interim.description',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    icon: <ConsultingIcon />,
-    titleKey: 'services.consulting.title',
-    descKey: 'services.consulting.description',
+    icon: <ContractIcon />,
+    titleKey: 'services.contract.title',
+    descKey: 'services.contract.description',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format&fit=crop',
   },
   {
-    icon: <CareerIcon />,
-    titleKey: 'services.career.title',
-    descKey: 'services.career.description',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80&auto=format&fit=crop',
+    icon: <PayrollIcon />,
+    titleKey: 'services.payroll.title',
+    descKey: 'services.payroll.description',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop',
   },
 ];
 

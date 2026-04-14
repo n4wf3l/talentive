@@ -15,10 +15,9 @@ export interface Translations {
   services: {
     title: string;
     subtitle: string;
-    recruitment: { title: string; description: string };
-    interim: { title: string; description: string };
-    consulting: { title: string; description: string };
-    career: { title: string; description: string };
+    permanent: { title: string; description: string };
+    contract: { title: string; description: string };
+    payroll: { title: string; description: string };
   };
   about: {
     title: string;

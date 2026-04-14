@@ -12,9 +12,9 @@ export default function Home() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Talentive — Rekrutering & Uitzendwerk in België',
-      fr: 'Talentive — Recrutement & Intérim en Belgique',
-      en: 'Talentive — Recruitment & Staffing in Belgium',
+      nl: 'Talentive — Vast, Contractueel & Payroll Personeel in België',
+      fr: 'Talentive — Personnel Permanent, Contractuel & Payroll en Belgique',
+      en: 'Talentive — Permanent, Contract & Payroll Staffing in Belgium',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);

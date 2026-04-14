@@ -10,9 +10,9 @@ export default function FindEmployee() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Werknemer Zoeken — Talentive',
-      fr: 'Trouver un Travailleur — Talentive',
-      en: 'Find a Worker — Talentive',
+      nl: 'Ik werf aan — Talentive',
+      fr: 'Je recrute — Talentive',
+      en: 'I\'m hiring — Talentive',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);
