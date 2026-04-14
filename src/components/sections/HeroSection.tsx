@@ -14,7 +14,7 @@ export default function HeroSection() {
         <img
           src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80&auto=format&fit=crop"
           alt=""
-          className="h-full w-full object-cover opacity-20"
+          className="h-full w-full object-cover opacity-40"
         />
       </div>
       {/* ── Animated gradient mesh background (overlay) ── */}
