@@ -42,24 +42,54 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
     }
   }, []);
 
-  // Measure on mount + resize
+  // Scroll the target into view (centered) before measuring
+  useEffect(() => {
+    const el = document.querySelector(steps[current]!.selector) as HTMLElement | null;
+    if (!el) return;
+
+    // Check if tooltip + target fits in viewport; if not, scroll target up
+    const rect = el.getBoundingClientRect();
+    const tooltipHeight = 220; // approximate tooltip height including margins
+    const neededSpaceBelow = rect.height + tooltipHeight + 60;
+    const spaceBelow = window.innerHeight - rect.bottom;
+
+    if (spaceBelow < tooltipHeight || rect.bottom + tooltipHeight > window.innerHeight) {
+      // Scroll so the target sits in the upper third of the viewport
+      const targetY = window.scrollY + rect.top - window.innerHeight / 3;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    } else if (rect.top < 80) {
+      // Target too close to top — scroll it down a bit
+      const targetY = window.scrollY + rect.top - 100;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    }
+
+    // Silence the unused var warning
+    void neededSpaceBelow;
+  }, [current]);
+
+  // Measure on mount + resize (after scroll settles)
   useEffect(() => {
     const timer = setTimeout(() => {
       measure(current);
       setPhase('visible');
-    }, 300);
+    }, 500); // longer delay to let smooth scroll finish
 
     const handleResize = () => measure(current);
+    const handleScroll = () => measure(current);
     window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       clearTimeout(timer);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [current, measure]);
 
   const finish = useCallback(() => {
     setPhase('exiting');
     localStorage.setItem(STORAGE_KEY, '1');
+    // Scroll back to top for a clean first view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(onComplete, 500);
   }, [onComplete]);
 
