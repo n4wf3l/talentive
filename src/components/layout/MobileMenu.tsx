@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -96,11 +97,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     return item.descNl;
   };
 
-  return (
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-primary-900/70 backdrop-blur-md transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[60] bg-primary-900/70 backdrop-blur-md transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={onClose}
@@ -109,7 +110,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Panel */}
       <nav
-        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto shadow-2xl transition-transform duration-400 ease-out ${
+        className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto shadow-2xl transition-transform duration-400 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
@@ -221,6 +222,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
         </div>
       </nav>
-    </>
+    </>,
+    document.body,
   );
 }
