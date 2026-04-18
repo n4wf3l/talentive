@@ -13,10 +13,13 @@ export default function QuickContactModal({ isOpen, onClose }: QuickContactModal
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
+  const [closing, setClosing] = useState(false);
 
   const close = useCallback(() => {
-    onClose();
+    setClosing(true);
     setTimeout(() => {
+      onClose();
+      setClosing(false);
       setSent(false);
       setFocused(null);
     }, 300);
@@ -60,14 +63,14 @@ export default function QuickContactModal({ isOpen, onClose }: QuickContactModal
     <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center sm:p-6">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-primary-950/85 backdrop-blur-xl animate-fade-in-overlay"
+        className={`absolute inset-0 bg-primary-950/85 backdrop-blur-xl ${closing ? 'animate-fade-out-overlay' : 'animate-fade-in-overlay'}`}
         onClick={close}
         aria-hidden="true"
       />
 
       {/* Modal */}
       <div
-        className="relative z-10 w-full max-w-lg animate-scale-in-overlay"
+        className={`relative z-10 w-full max-w-lg ${closing ? 'animate-scale-out-overlay' : 'animate-scale-in-overlay'}`}
         role="dialog"
         aria-modal="true"
         aria-label={t('quickContact.title')}
