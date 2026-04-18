@@ -144,9 +144,9 @@ export default function JobSeekerForm() {
       {toast && (
         <Toast message={toast.message} type={toast.type} onClose={dismissToast} />
       )}
-      <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      <form onSubmit={handleSubmit} noValidate className="space-y-3">
         {/* Name row */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           <FormField
             label={t('form.firstName')}
             value={formData.firstName}
@@ -166,7 +166,7 @@ export default function JobSeekerForm() {
         </div>
 
         {/* Contact row */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           <FormField
             label={t('form.phone')}
             type="tel"
@@ -188,7 +188,7 @@ export default function JobSeekerForm() {
         </div>
 
         {/* Location & job type */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           <FormField
             label={t('form.city')}
             value={formData.city}
@@ -207,28 +207,26 @@ export default function JobSeekerForm() {
           />
         </div>
 
-        {/* Availability */}
-        <FormField
-          label={t('form.availability')}
-          value={formData.availability}
-          onChange={(v) => handleChange('availability', v)}
-          placeholder={t('form.placeholders.availability')}
-        />
+        {/* Availability + message */}
+        <div className="grid gap-3 sm:grid-cols-2">
+          <FormField
+            label={t('form.availability')}
+            value={formData.availability}
+            onChange={(v) => handleChange('availability', v)}
+            placeholder={t('form.placeholders.availability')}
+          />
+          <FormField
+            label={t('form.message')}
+            value={formData.message}
+            onChange={(v) => handleChange('message', v)}
+            placeholder={t('form.placeholders.message')}
+          />
+        </div>
 
-        {/* Message */}
-        <FormField
-          label={t('form.message')}
-          value={formData.message}
-          onChange={(v) => handleChange('message', v)}
-          placeholder={t('form.placeholders.message')}
-          multiline
-        />
-
-        <div className="pt-4">
+        <div className="pt-2">
           <Button
             type="submit"
             variant="primary"
-            size="lg"
             disabled={isSubmitting}
             className="w-full sm:w-auto"
           >
@@ -280,14 +278,14 @@ function FormField({
   multiline,
 }: FormFieldProps) {
   const baseClasses =
-    'w-full rounded-xl border bg-white px-4 py-3.5 text-base text-gray-900 placeholder-gray-400 outline-none transition-all duration-300 focus:border-accent-500 focus:ring-4 focus:ring-accent-500/10';
+    'w-full rounded-lg border bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all duration-300 focus:border-accent-500 focus:ring-4 focus:ring-accent-500/10';
   const errorClasses = error
     ? 'border-red-300 focus:border-red-500 focus:ring-red-500/10'
     : 'border-gray-200 hover:border-gray-300';
 
   return (
     <div>
-      <label className="mb-2 block text-sm font-semibold text-gray-700">
+      <label className="mb-1 block text-xs font-semibold text-gray-700">
         {label}
         {required && <span className="ml-0.5 text-red-400">*</span>}
       </label>
@@ -296,7 +294,7 @@ function FormField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          rows={4}
+          rows={2}
           className={`${baseClasses} ${errorClasses} resize-none`}
         />
       ) : (
@@ -309,8 +307,8 @@ function FormField({
         />
       )}
       {error && (
-        <p className="mt-1.5 flex items-center gap-1 text-sm text-red-500">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="10" />
             <line x1="12" y1="8" x2="12" y2="12" />
             <line x1="12" y1="16" x2="12.01" y2="16" />

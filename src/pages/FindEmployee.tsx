@@ -19,7 +19,7 @@ export default function FindEmployee() {
 
   return (
     <Layout>
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-50/20 pt-28 pb-20 sm:pt-36">
+      <section className="relative bg-gradient-to-br from-gray-50 via-white to-accent-50/20 pt-20 pb-12 sm:pt-24">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -50,18 +50,18 @@ export default function FindEmployee() {
 
           {/* Header */}
           <AnimatedSection animation="fade-up" delay={100}>
-            <div className="accent-line mt-6 mb-6" />
-            <h1 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
+            <div className="accent-line mt-4 mb-3" />
+            <h1 className="text-2xl font-bold tracking-tight text-primary-800 sm:text-3xl">
               {t('form.title')}
             </h1>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed sm:text-base">
               {t('form.subtitle')}
             </p>
           </AnimatedSection>
 
           {/* Form card */}
           <AnimatedSection animation="fade-up" delay={200}>
-            <div className="mt-10 rounded-3xl border border-gray-100 bg-white p-6 shadow-lg shadow-gray-200/40 sm:p-10">
+            <div className="mt-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-lg shadow-gray-200/40 sm:p-6">
               <JobSeekerForm />
             </div>
           </AnimatedSection>
