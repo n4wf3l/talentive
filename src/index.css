@@ -78,15 +78,28 @@ textarea {
 
 @media (hover: hover) and (pointer: fine) {
   html,
-  body,
+  body {
+    cursor: none;
+  }
+
+  /* Interactive elements show the native system cursor instead of the custom one */
   a,
   button,
+  [role="button"],
+  label,
+  summary {
+    cursor: pointer;
+  }
+
   input,
   textarea,
-  select,
-  label,
-  [role="button"] {
-    cursor: none;
+  select {
+    cursor: text;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
   }
 }
 
@@ -113,18 +126,16 @@ textarea {
   opacity: 1;
 }
 
-/* Hovering an interactive element: scale up slightly + glow */
+/* Over an interactive element: hide the custom cursor so the native
+   pointer / text cursor takes over for familiar click feedback */
 .cursor-interactive.cursor-arrow {
-  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.6));
+  opacity: 0;
 }
 
-.cursor-interactive.cursor-arrow svg {
-  transform: scale(1.25);
-}
-
-/* Click feedback */
+/* Click feedback on non-interactive areas */
 .cursor-pressed.cursor-arrow svg {
   transform: scale(0.85);
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ═══════════════════════════════════════════════════════
