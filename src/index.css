@@ -66,6 +66,19 @@ nav, .font-display {
   border-radius: 4px;
 }
 
+/* ─── Input cursors: ensure mouse + caret stay visible ─── */
+input,
+textarea,
+select {
+  cursor: text;
+}
+
+/* Default caret color; dark-themed inputs override with caret-white utility */
+input,
+textarea {
+  caret-color: #2563eb;
+}
+
 /* ═══════════════════════════════════════════════════════
    HERO, Animated gradient mesh
    ═══════════════════════════════════════════════════════ */

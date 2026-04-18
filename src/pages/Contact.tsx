@@ -113,7 +113,7 @@ function ContactForm() {
   };
 
   const inputBase =
-    'w-full rounded-xl border bg-white/[0.06] pl-12 pr-5 py-3.5 text-white placeholder:text-white/30 transition-all duration-300 focus:bg-white/[0.1] focus:ring-2 focus:outline-none backdrop-blur-sm';
+    'w-full rounded-xl border bg-white/[0.06] pl-12 pr-5 py-3.5 text-white caret-white placeholder:text-white/30 transition-all duration-300 focus:bg-white/[0.1] focus:ring-2 focus:outline-none';
   const inputOk = 'border-white/10 focus:border-accent-400/50 focus:ring-accent-400/20';
   const inputErr = 'border-red-400/50 focus:border-red-400/50 focus:ring-red-400/20';
 
