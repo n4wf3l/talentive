@@ -28,10 +28,10 @@ export default function FindEmployee() {
             className="h-full w-full object-cover opacity-[0.04]"
           />
         </div>
-        {/* Decorative shapes */}
+        {/* Subtle decorative halos (no filter:blur to keep cursor visible in inputs) */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-32 top-20 h-[400px] w-[400px] rounded-full bg-accent-100/30 blur-3xl" />
-          <div className="absolute -left-20 bottom-20 h-[300px] w-[300px] rounded-full bg-primary-100/20 blur-3xl" />
+          <div className="absolute -right-32 top-20 h-[400px] w-[400px] rounded-full bg-accent-100/15" />
+          <div className="absolute -left-20 bottom-20 h-[300px] w-[300px] rounded-full bg-primary-100/10" />
         </div>
 
         <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">

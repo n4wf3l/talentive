@@ -339,7 +339,7 @@ export default function Contact() {
         {/* Floating shapes */}
         <div className="pointer-events-none absolute inset-0">
           <div className="float-slow absolute -right-32 top-20 h-[500px] w-[500px] rounded-full border border-white/[0.03]" />
-          <div className="float-reverse absolute -left-20 bottom-40 h-[350px] w-[350px] rounded-full bg-accent-500/[0.04] blur-3xl" />
+          <div className="float-reverse absolute -left-20 bottom-40 h-[350px] w-[350px] rounded-full bg-accent-500/[0.04]" />
           <div className="pulse-soft absolute right-[20%] top-[30%] h-2 w-2 rounded-full bg-accent-400/30" />
           <div className="spin-slow absolute right-[40%] bottom-[20%] h-[180px] w-[180px] rounded-full border border-white/[0.02]" />
           <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
@@ -460,7 +460,7 @@ export default function Contact() {
 
                 {/* Right: form */}
                 <div className="lg:col-span-3">
-                  <div className="rounded-3xl border border-white/[0.08] bg-white/[0.04] p-6 backdrop-blur-md sm:p-10">
+                  <div className="rounded-3xl border border-white/[0.08] bg-primary-900/60 p-6 sm:p-10">
                     <h3 className="text-xl font-bold text-white sm:text-2xl">{t('contactForm.title')}</h3>
                     <div className="mt-2 h-0.5 w-10 rounded-full bg-gradient-to-r from-accent-500 to-accent-400" />
                     <div className="mt-8">
