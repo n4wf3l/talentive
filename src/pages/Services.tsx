@@ -79,7 +79,7 @@ function ServiceCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative w-[340px] flex-shrink-0 cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2 sm:w-[380px]"
+      className="group relative w-full cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
     >
       <div className="relative h-52 overflow-hidden">
         <img
@@ -119,8 +119,7 @@ export default function Services() {
     document.title = titles[language] ?? titles.nl!;
   }, [language]);
 
-  const cards = [...serviceDefs, ...serviceDefs];
-  const selected = selectedIndex !== null ? serviceDefs[selectedIndex % serviceDefs.length] : null;
+  const selected = selectedIndex !== null ? serviceDefs[selectedIndex] : null;
 
   return (
     <Layout>
@@ -155,10 +154,10 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Auto-scrolling carousel */}
-      <section className="bg-gray-50 py-20 sm:py-28 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
-          <AnimatedSection animation="fade-up" className="text-center">
+      {/* Services grid */}
+      <section className="bg-gray-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center mb-12">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-400">
               {language === 'fr'
                 ? 'Cliquez pour en savoir plus'
@@ -167,23 +166,22 @@ export default function Services() {
                   : 'Click for more info'}
             </p>
           </AnimatedSection>
-        </div>
 
-        {/* Carousel container */}
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-gray-50 to-transparent sm:w-40" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-gray-50 to-transparent sm:w-40" />
-
-          <div className="carousel-track flex gap-10 py-6 px-10">
-            {cards.map((service, index) => (
-              <ServiceCard
-                key={`${service.titleKey}-${index}`}
-                icon={service.icon}
-                title={t(service.titleKey)}
-                description={t(service.descKey)}
-                image={service.image}
-                onClick={() => setSelectedIndex(index)}
-              />
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {serviceDefs.map((service, index) => (
+              <AnimatedSection
+                key={service.titleKey}
+                animation="fade-up"
+                delay={100 + index * 120}
+              >
+                <ServiceCard
+                  icon={service.icon}
+                  title={t(service.titleKey)}
+                  description={t(service.descKey)}
+                  image={service.image}
+                  onClick={() => setSelectedIndex(index)}
+                />
+              </AnimatedSection>
             ))}
           </div>
         </div>

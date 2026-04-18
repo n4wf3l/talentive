@@ -78,7 +78,7 @@ function ServiceCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative w-[340px] flex-shrink-0 cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2 sm:w-[380px]"
+      className="group relative w-full cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
     >
       <div className="relative h-52 overflow-hidden">
         <img
@@ -109,9 +109,7 @@ export default function ServicesSection() {
 
   const closeModal = useCallback(() => setSelectedIndex(null), []);
 
-  const cards = [...serviceDefs, ...serviceDefs];
-
-  const selected = selectedIndex !== null ? serviceDefs[selectedIndex % serviceDefs.length] : null;
+  const selected = selectedIndex !== null ? serviceDefs[selectedIndex] : null;
 
   return (
     <section id="services" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
@@ -125,23 +123,23 @@ export default function ServicesSection() {
             {t('services.subtitle')}
           </p>
         </AnimatedSection>
-      </div>
 
-      {/* Carousel */}
-      <div className="relative mt-16">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-gray-50 to-transparent sm:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-gray-50 to-transparent sm:w-40" />
-
-        <div className="carousel-track flex gap-10 py-6 px-10">
-          {cards.map((service, index) => (
-            <ServiceCard
-              key={`${service.titleKey}-${index}`}
-              icon={service.icon}
-              title={t(service.titleKey)}
-              description={t(service.descKey)}
-              image={service.image}
-              onClick={() => setSelectedIndex(index)}
-            />
+        {/* Grid of exactly 3 cards */}
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {serviceDefs.map((service, index) => (
+            <AnimatedSection
+              key={service.titleKey}
+              animation="fade-up"
+              delay={100 + index * 120}
+            >
+              <ServiceCard
+                icon={service.icon}
+                title={t(service.titleKey)}
+                description={t(service.descKey)}
+                image={service.image}
+                onClick={() => setSelectedIndex(index)}
+              />
+            </AnimatedSection>
           ))}
         </div>
       </div>
