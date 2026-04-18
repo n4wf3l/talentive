@@ -44,9 +44,9 @@ export default function HeroSection() {
 
       {/* ── Content ── */}
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           {/* Title */}
-          <h1 className="hero-title-animate text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+          <h1 className="hero-title-animate text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
             {t('hero.title').split('\n').map((line, i) => (
               <span key={i}>
                 {i > 0 && <br />}
@@ -60,7 +60,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle-animate mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl md:text-2xl">
+          <p className="hero-subtitle-animate mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
             {t('hero.subtitle')}
           </p>
 
@@ -95,7 +95,7 @@ export default function HeroSection() {
         </div>
 
         {/* ── Scroll down indicator ── */}
-        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 sm:bottom-32">
+        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 sm:bottom-16">
           <SectionNavigator
             targetId="services"
             label={t('hero.scrollDown')}
