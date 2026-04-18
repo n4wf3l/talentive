@@ -87,7 +87,7 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
         </svg>
       </button>
 
-      {/* Full-page overlay — rendered via Portal to escape header stacking context */}
+      {/* Full-page overlay, rendered via Portal to escape header stacking context */}
       {toast &&
         createPortal(
           <Toast

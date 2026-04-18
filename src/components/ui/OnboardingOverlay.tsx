@@ -58,7 +58,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
       const targetY = window.scrollY + rect.top - window.innerHeight / 3;
       window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
     } else if (rect.top < 80) {
-      // Target too close to top — scroll it down a bit
+      // Target too close to top, scroll it down a bit
       const targetY = window.scrollY + rect.top - 100;
       window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
     }

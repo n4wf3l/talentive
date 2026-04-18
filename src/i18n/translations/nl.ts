@@ -10,7 +10,7 @@ const nl: Translations = {
   hero: {
     title: 'Recruiten,\nsimpel en scherp.',
     subtitle:
-      'Vast, contractueel en payroll personeel in heel België. Vertel ons wie u aanwerft — wij leveren de shortlist.',
+      'Vast, contractueel en payroll personeel in heel België. Vertel ons wie u aanwerft, wij leveren de shortlist.',
     ctaEmployee: 'Ik werf aan',
     ctaJob: 'Zoek een werk',
     scrollDown: 'Onze diensten',
@@ -18,11 +18,11 @@ const nl: Translations = {
   services: {
     title: 'Wat wij leveren',
     subtitle:
-      'Drie staffingoplossingen, één betrouwbare partner. Geen gezwets — gewoon de juiste mensen, op het juiste moment.',
+      'Drie staffingoplossingen, één betrouwbare partner. Geen gezwets, gewoon de juiste mensen op het juiste moment.',
     permanent: {
       title: 'Vast Personeel',
       description:
-        'Wij vinden de langetermijnmedewerkers die uw bedrijf nodig heeft. Search, selectie en onboarding — u tekent het aanbod, wij doen de rest.',
+        'Wij vinden de langetermijnmedewerkers die uw bedrijf nodig heeft. Search, selectie en onboarding. U tekent het aanbod, wij doen de rest.',
     },
     contract: {
       title: 'Contractueel Personeel',
@@ -32,14 +32,14 @@ const nl: Translations = {
     payroll: {
       title: 'Payroll / EOR',
       description:
-        'U kiest het talent, wij zijn de werkgever. Contracten, loonadministratie en compliance — wij regelen alles, volledig in orde.',
+        'U kiest het talent, wij zijn de werkgever. Contracten, loonadministratie en compliance, wij regelen alles, volledig in orde.',
     },
   },
   about: {
     title: 'Waarom Talentive',
     subtitle: 'De aanwervingspartner die u écht kunt vertrouwen.',
     description:
-      'Talentive is een Belgisch rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen — vast, contractueel of payroll — helder en snel.',
+      'Talentive is een Belgisch rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen, of het nu vast, contractueel of payroll is, helder en snel.',
     mission:
       'Wij nemen de tijd om uw functie te begrijpen, shortlisten enkel relevante kandidaten en blijven verantwoordelijk tot de plaatsing. Geen templates, geen druk, geen verrassingen.',
     stats: {
@@ -64,14 +64,14 @@ const nl: Translations = {
       },
       efficiency: {
         title: 'Efficiënt',
-        description: 'Gekwalificeerde kandidaten op uw bureau binnen dagen — geen stapels irrelevante CV\'s.',
+        description: 'Gekwalificeerde kandidaten op uw bureau binnen dagen. Geen stapels irrelevante CV\'s.',
       },
     },
   },
   contact: {
     title: 'Laten we over uw aanwerving praten',
     subtitle:
-      'Beschrijf ons de functie, het team, de timing. Wij komen terug met gekwalificeerde kandidaten — snel.',
+      'Beschrijf ons de functie, het team, de timing. Wij komen terug met gekwalificeerde kandidaten, snel.',
     phone: 'Telefoon',
     email: 'Email',
     address: 'Adres',
@@ -134,7 +134,7 @@ const nl: Translations = {
     q5: 'Hoe start het aanwervingsproces?',
     a5: 'Klik op "Ik werf aan", vul de briefing in, en wij nemen binnen 24 uur contact op om de functie en timing af te stemmen. Daarna: snelle gekwalificeerde shortlist.',
     q6: 'Werken jullie in heel België?',
-    a6: 'Ja — Brussel, Wallonië en Vlaanderen. We passen ons aan de specificiteiten, taal en wettelijk kader van elke regio aan.',
+    a6: 'Ja. Brussel, Wallonië en Vlaanderen. We passen ons aan de specificiteiten, taal en wettelijk kader van elke regio aan.',
   },
   contactForm: {
     title: 'Stuur ons een bericht',
@@ -190,7 +190,7 @@ const nl: Translations = {
   },
   tutorial: {
     step1Title: 'Op zoek naar personeel?',
-    step1Desc: 'Klik hier om uw briefing te versturen — antwoord binnen 24 uur.',
+    step1Desc: 'Klik hier om uw briefing te versturen. Antwoord binnen 24 uur.',
     step2Title: 'Op zoek naar werk?',
     step2Desc: 'Bekijk onze vacatures op ons jobsplatform.',
     skip: 'Overslaan',

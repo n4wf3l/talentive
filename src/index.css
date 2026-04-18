@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════
-   TALENTIVE — Premium animation & utility system
+   TALENTIVE, Premium animation & utility system
    ═══════════════════════════════════════════════════════ */
 
 /* ─── Smooth scrolling + no horizontal overflow ─── */
@@ -19,7 +19,7 @@ body {
   max-width: 100vw;
 }
 
-/* ─── Custom scrollbar — navy bg + mauve thumb ─── */
+/* ─── Custom scrollbar, navy bg + mauve thumb ─── */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -67,7 +67,7 @@ nav, .font-display {
 }
 
 /* ═══════════════════════════════════════════════════════
-   HERO — Animated gradient mesh
+   HERO, Animated gradient mesh
    ═══════════════════════════════════════════════════════ */
 
 @keyframes mesh-drift {
@@ -85,7 +85,7 @@ nav, .font-display {
   }
 }
 
-/* Ken Burns effect — slow zoom + pan, GPU-accelerated via transform only */
+/* Ken Burns effect, slow zoom + pan, GPU-accelerated via transform only */
 @keyframes hero-bg-drift {
   0%, 100% {
     transform: scale(1.15) translate3d(0, 0, 0);
@@ -127,7 +127,7 @@ nav, .font-display {
 }
 
 /* ═══════════════════════════════════════════════════════
-   FLOATING SHAPES — Hero decorative elements
+   FLOATING SHAPES, Hero decorative elements
    ═══════════════════════════════════════════════════════ */
 
 @keyframes float-slow {
@@ -233,7 +233,7 @@ nav, .font-display {
 }
 
 /* ═══════════════════════════════════════════════════════
-   SECTION ARROW — Bounce
+   SECTION ARROW, Bounce
    ═══════════════════════════════════════════════════════ */
 
 @keyframes bounce-gentle {

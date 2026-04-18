@@ -10,7 +10,7 @@ const en: Translations = {
   hero: {
     title: 'Recruitment,\ndone right.',
     subtitle:
-      'Permanent, contract, and payroll staffing for businesses across Belgium. Tell us who you\'re hiring — we deliver the shortlist.',
+      'Permanent, contract, and payroll staffing for businesses across Belgium. Tell us who you\'re hiring, we deliver the shortlist.',
     ctaEmployee: 'I\'m hiring',
     ctaJob: 'Find a job',
     scrollDown: 'Our services',
@@ -18,11 +18,11 @@ const en: Translations = {
   services: {
     title: 'What we deliver',
     subtitle:
-      'Three staffing solutions, one reliable partner. No fluff — just the right people, at the right time.',
+      'Three staffing solutions, one reliable partner. No fluff, just the right people at the right time.',
     permanent: {
       title: 'Permanent Staffing',
       description:
-        'We find the long-term hires your business needs. Full search, selection and onboarding handled — you sign the offer, we handle the rest.',
+        'We find the long-term hires your business needs. Full search, selection and onboarding handled. You sign the offer, we handle the rest.',
     },
     contract: {
       title: 'Contract Staffing',
@@ -32,14 +32,14 @@ const en: Translations = {
     payroll: {
       title: 'Payroll / EOR',
       description:
-        'You pick the talent, we employ them. Contracts, payroll and compliance — all managed on our side, fully legal.',
+        'You pick the talent, we employ them. Contracts, payroll and compliance, all managed on our side, fully legal.',
     },
   },
   about: {
     title: 'Why Talentive',
     subtitle: 'The recruitment partner you can actually trust.',
     description:
-      'Talentive is a Belgian recruitment agency built on one principle: hiring shouldn\'t be painful. We match businesses with the right professionals — permanent, contract, or payrolled — cleanly and quickly.',
+      'Talentive is a Belgian recruitment agency built on one principle: hiring shouldn\'t be painful. We match businesses with the right professionals, whether permanent, contract or payrolled, cleanly and quickly.',
     mission:
       'We take the time to understand your role, shortlist only relevant candidates, and stay accountable through placement. No templates, no pressure, no surprises.',
     stats: {
@@ -64,14 +64,14 @@ const en: Translations = {
       },
       efficiency: {
         title: 'Effective',
-        description: 'Qualified candidates on your desk within days — not stacks of irrelevant CVs.',
+        description: 'Qualified candidates on your desk within days. Not stacks of irrelevant CVs.',
       },
     },
   },
   contact: {
     title: 'Let\'s talk about your hiring',
     subtitle:
-      'Tell us about the role, the team, the timeline. We\'ll come back with qualified candidates — fast.',
+      'Tell us about the role, the team, the timeline. We\'ll come back with qualified candidates, fast.',
     phone: 'Phone',
     email: 'Email',
     address: 'Address',
@@ -134,7 +134,7 @@ const en: Translations = {
     q5: 'How does the hiring process start?',
     a5: 'Click "I\'m hiring", fill in the brief, and we\'ll reach out within 24 hours to align on the role and timeline. From there, you get a qualified shortlist fast.',
     q6: 'Do you operate across Belgium?',
-    a6: 'Yes — Brussels, Wallonia, and Flanders. We adapt to each region\'s specifics, language, and legal frameworks.',
+    a6: 'Yes. Brussels, Wallonia, and Flanders. We adapt to each region\'s specifics, language, and legal frameworks.',
   },
   contactForm: {
     title: 'Send us a message',
@@ -190,7 +190,7 @@ const en: Translations = {
   },
   tutorial: {
     step1Title: 'Looking to hire?',
-    step1Desc: 'Click here to send us your hiring brief — we respond within 24 hours.',
+    step1Desc: 'Click here to send us your hiring brief. We respond within 24 hours.',
     step2Title: 'Looking for a job?',
     step2Desc: 'Browse open positions on our jobs platform.',
     skip: 'Skip',

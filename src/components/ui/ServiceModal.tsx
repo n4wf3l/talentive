@@ -65,7 +65,7 @@ export default function ServiceModal({
 
         {/* Card */}
         <div className="overflow-hidden rounded-3xl bg-white shadow-2xl">
-          {/* Image — larger in modal */}
+          {/* Image, larger in modal */}
           <div className="relative h-64 overflow-hidden sm:h-80">
             <img
               src={image}
@@ -80,7 +80,7 @@ export default function ServiceModal({
             </div>
           </div>
 
-          {/* Content — more spacious */}
+          {/* Content, more spacious */}
           <div className="p-8 sm:p-10">
             <h2 className="text-2xl font-bold text-primary-800 sm:text-3xl">
               {title}

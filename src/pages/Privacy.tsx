@@ -8,9 +8,9 @@ export default function Privacy() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Privacybeleid — Talentive',
-      fr: 'Politique de Confidentialité — Talentive',
-      en: 'Privacy Policy — Talentive',
+      nl: 'Privacybeleid | Talentive',
+      fr: 'Politique de Confidentialité | Talentive',
+      en: 'Privacy Policy | Talentive',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);

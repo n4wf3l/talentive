@@ -33,13 +33,13 @@ export default function SectionNavigator({
         }`}
         aria-label={`Scroll to ${targetId}`}
       >
-        {/* Pulse ring — outer */}
+        {/* Pulse ring, outer */}
         <span
           className={`absolute inset-0 rounded-full ring-pulse ${
             light ? 'bg-white/20' : 'bg-primary-800/10'
           }`}
         />
-        {/* Pulse ring — inner (offset) */}
+        {/* Pulse ring, inner (offset) */}
         <span
           className={`absolute inset-0 rounded-full ring-pulse ${
             light ? 'bg-white/10' : 'bg-primary-800/5'

@@ -32,9 +32,9 @@ export default function About() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Over Ons — Talentive',
-      fr: 'À Propos — Talentive',
-      en: 'About Us — Talentive',
+      nl: 'Over Ons | Talentive',
+      fr: 'À Propos | Talentive',
+      en: 'About Us | Talentive',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);

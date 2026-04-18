@@ -10,7 +10,7 @@ const fr: Translations = {
   hero: {
     title: 'Le recrutement,\nfait simplement.',
     subtitle:
-      'Personnel permanent, contractuel et payroll partout en Belgique. Dites-nous qui vous recrutez — on vous livre la shortlist.',
+      'Personnel permanent, contractuel et payroll partout en Belgique. Dites-nous qui vous recrutez, on vous livre la shortlist.',
     ctaEmployee: 'Je recrute',
     ctaJob: 'Chercher un emploi',
     scrollDown: 'Nos services',
@@ -18,11 +18,11 @@ const fr: Translations = {
   services: {
     title: 'Nos solutions',
     subtitle:
-      'Trois solutions de staffing, un seul partenaire fiable. Sans blabla — juste les bonnes personnes, au bon moment.',
+      'Trois solutions de staffing, un seul partenaire fiable. Sans blabla, juste les bonnes personnes au bon moment.',
     permanent: {
       title: 'Personnel Permanent',
       description:
-        'Nous trouvons les talents durables dont votre entreprise a besoin. Recherche, sélection et onboarding — vous signez l\'offre, on s\'occupe du reste.',
+        'Nous trouvons les talents durables dont votre entreprise a besoin. Recherche, sélection et onboarding. Vous signez l\'offre, on s\'occupe du reste.',
     },
     contract: {
       title: 'Personnel Contractuel',
@@ -32,14 +32,14 @@ const fr: Translations = {
     payroll: {
       title: 'Payroll / EOR',
       description:
-        'Vous choisissez le talent, nous l\'employons. Contrats, paie et conformité — tout est géré de notre côté, en toute légalité.',
+        'Vous choisissez le talent, nous l\'employons. Contrats, paie et conformité, tout est géré de notre côté, en toute légalité.',
     },
   },
   about: {
     title: 'Pourquoi Talentive',
     subtitle: 'Le partenaire de recrutement à qui vous pouvez vraiment faire confiance.',
     description:
-      'Talentive est une agence de recrutement belge fondée sur un principe simple : embaucher ne devrait pas être compliqué. Nous mettons en relation entreprises et professionnels — permanent, contractuel ou payroll — proprement et rapidement.',
+      'Talentive est une agence de recrutement belge fondée sur un principe simple : embaucher ne devrait pas être compliqué. Nous mettons en relation entreprises et professionnels, que ce soit en permanent, contractuel ou payroll, proprement et rapidement.',
     mission:
       'Nous prenons le temps de comprendre votre poste, présélectionnons uniquement des candidats pertinents et restons responsables jusqu\'au placement. Pas de templates, pas de pression, pas de surprises.',
     stats: {
@@ -64,14 +64,14 @@ const fr: Translations = {
       },
       efficiency: {
         title: 'Efficace',
-        description: 'Des candidats qualifiés sur votre bureau en quelques jours — pas des piles de CV non pertinents.',
+        description: 'Des candidats qualifiés sur votre bureau en quelques jours. Pas des piles de CV non pertinents.',
       },
     },
   },
   contact: {
     title: 'Parlons de votre recrutement',
     subtitle:
-      'Décrivez-nous le poste, l\'équipe, les délais. Nous revenons vers vous avec des candidats qualifiés — rapidement.',
+      'Décrivez-nous le poste, l\'équipe, les délais. Nous revenons vers vous avec des candidats qualifiés, rapidement.',
     phone: 'Téléphone',
     email: 'Email',
     address: 'Adresse',
@@ -134,7 +134,7 @@ const fr: Translations = {
     q5: 'Comment démarre le processus ?',
     a5: 'Cliquez sur "Je recrute", remplissez le brief, et nous revenons vers vous sous 24 heures pour aligner le poste et le timing. Ensuite : shortlist qualifiée rapide.',
     q6: 'Couvrez-vous toute la Belgique ?',
-    a6: 'Oui — Bruxelles, Wallonie et Flandre. Nous nous adaptons aux spécificités, à la langue et au cadre légal de chaque région.',
+    a6: 'Oui, Bruxelles, Wallonie et Flandre. Nous nous adaptons aux spécificités, à la langue et au cadre légal de chaque région.',
   },
   contactForm: {
     title: 'Envoyez-nous un message',
@@ -190,7 +190,7 @@ const fr: Translations = {
   },
   tutorial: {
     step1Title: 'Vous recrutez ?',
-    step1Desc: 'Cliquez ici pour envoyer votre brief — on répond sous 24h.',
+    step1Desc: 'Cliquez ici pour envoyer votre brief. On répond sous 24h.',
     step2Title: 'Vous cherchez un emploi ?',
     step2Desc: 'Parcourez nos offres sur notre plateforme d\'emploi.',
     skip: 'Passer',

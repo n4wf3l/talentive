@@ -285,9 +285,9 @@ export default function Contact() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Contact — Talentive',
-      fr: 'Contact — Talentive',
-      en: 'Contact — Talentive',
+      nl: 'Contact | Talentive',
+      fr: 'Contact | Talentive',
+      en: 'Contact | Talentive',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);
@@ -370,7 +370,7 @@ export default function Contact() {
               </p>
             </AnimatedSection>
 
-            {/* ── Contact cards — glass style on dark ── */}
+            {/* ── Contact cards | glass style on dark ── */}
             <div className="mt-16 grid gap-5 sm:grid-cols-3">
               {contactItems.map((item, index) => (
                 <AnimatedSection key={item.label} animation="fade-up" delay={150 + index * 100}>
@@ -412,7 +412,7 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* ── Contact form — dark glass ── */}
+            {/* ── Contact form | dark glass ── */}
             <AnimatedSection animation="fade-up" delay={400}>
               <div className="mt-20 grid gap-12 lg:grid-cols-5 lg:items-start">
                 {/* Left: text + map placeholder */}
