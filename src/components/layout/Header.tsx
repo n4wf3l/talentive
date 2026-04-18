@@ -1,4 +1,4 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -64,34 +64,13 @@ export type { NavItem };
 export default function Header() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [headerState, setHeaderState] = useState<'visible' | 'hidden'>('visible');
   const location = useLocation();
 
   const isHomePage = location.pathname === '/';
 
-  useEffect(() => {
-    if (!isHomePage) {
-      setHeaderState('visible');
-      return;
-    }
-
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.8;
-      setHeaderState(window.scrollY > heroHeight ? 'hidden' : 'visible');
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomePage]);
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        headerState === 'hidden' && isHomePage
-          ? 'header-hidden pointer-events-none'
-          : 'header-visible'
-      } ${
+      className={`absolute top-0 left-0 right-0 z-50 ${
         isHomePage
           ? ''
           : 'bg-primary-900/95 backdrop-blur-md shadow-lg shadow-primary-950/20'
