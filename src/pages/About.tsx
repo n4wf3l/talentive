@@ -48,14 +48,15 @@ export default function About() {
   return (
     <Layout>
       {/* Page hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-800 via-primary-900 to-primary-950 pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <section className="relative overflow-hidden bg-primary-950 pt-32 pb-20 sm:pt-40 sm:pb-28">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80&auto=format&fit=crop"
             alt=""
-            className="h-full w-full object-cover opacity-20"
+            className="h-full w-full object-cover opacity-70"
           />
         </div>
+        <div className="hero-mesh absolute inset-0" />
         <div className="pointer-events-none absolute inset-0">
           <div className="float-slow absolute -right-32 -top-32 h-96 w-96 rounded-full border border-white/[0.04]" />
           <div className="float-reverse absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-accent-500/[0.06] blur-3xl" />

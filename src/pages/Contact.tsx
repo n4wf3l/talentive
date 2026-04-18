@@ -336,16 +336,16 @@ export default function Contact() {
   return (
     <Layout>
       {/* ═══ IMMERSIVE DARK HERO + CONTENT SECTION ═══ */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Background: full dark with image + mesh */}
-        <div className="absolute inset-0 hero-mesh" />
+      <section className="relative min-h-screen overflow-hidden bg-primary-950">
+        {/* Background: image + mesh overlay */}
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=1920&q=80&auto=format&fit=crop"
             alt=""
-            className="h-full w-full object-cover opacity-[0.08] mix-blend-luminosity"
+            className="h-full w-full object-cover opacity-70"
           />
         </div>
+        <div className="absolute inset-0 hero-mesh" />
 
         {/* Floating shapes */}
         <div className="pointer-events-none absolute inset-0">
