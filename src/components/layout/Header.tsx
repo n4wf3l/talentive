@@ -97,7 +97,7 @@ export default function Header() {
           : 'bg-primary-900/95 backdrop-blur-md shadow-lg shadow-primary-950/20'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4">
         {/* Logo */}
         <Link to="/" className="transition-opacity hover:opacity-80">
           <img src={logo} alt="Talentive" className="h-16 w-auto sm:h-24 md:h-32 lg:h-36 brightness-0 invert" />

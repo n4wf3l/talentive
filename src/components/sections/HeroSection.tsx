@@ -44,9 +44,9 @@ export default function HeroSection() {
 
       {/* ── Content ── */}
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           {/* Title */}
-          <h1 className="hero-title-animate text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="hero-title-animate text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
             {t('hero.title').split('\n').map((line, i) => (
               <span key={i}>
                 {i > 0 && <br />}
@@ -60,7 +60,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle-animate mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/60 sm:text-xl">
+          <p className="hero-subtitle-animate mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl md:text-2xl">
             {t('hero.subtitle')}
           </p>
 
