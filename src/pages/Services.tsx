@@ -46,7 +46,7 @@ const serviceDefs: ServiceDef[] = [
     icon: <PermanentIcon />,
     titleKey: 'services.permanent.title',
     descKey: 'services.permanent.description',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop',
   },
   {
     icon: <ContractIcon />,
