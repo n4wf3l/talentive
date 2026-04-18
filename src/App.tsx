@@ -10,6 +10,7 @@ import Privacy from './pages/Privacy';
 import ScrollToTop from './components/ui/ScrollToTop';
 import SplashScreen, { shouldShowSplash } from './components/ui/SplashScreen';
 import OnboardingOverlay, { shouldShowOnboarding } from './components/ui/OnboardingOverlay';
+import CustomCursor from './components/ui/CustomCursor';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(shouldShowSplash);
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
+      <CustomCursor />
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       {showOnboarding && <OnboardingOverlay onComplete={() => setShowOnboarding(false)} />}
       <BrowserRouter basename="/talentive">

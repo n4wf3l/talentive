@@ -66,17 +66,95 @@ nav, .font-display {
   border-radius: 4px;
 }
 
-/* ─── Input cursors: ensure mouse + caret stay visible ─── */
-input,
-textarea,
-select {
-  cursor: text;
-}
-
-/* Default caret color; dark-themed inputs override with caret-white utility */
+/* ─── Input caret color (mouse cursor handled by CustomCursor component) ─── */
 input,
 textarea {
   caret-color: #2563eb;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CUSTOM CURSOR (desktop only)
+   ═══════════════════════════════════════════════════════ */
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  will-change: transform, opacity, width, height;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+  transition:
+    opacity 0.2s ease,
+    width 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(37, 99, 235, 0.45);
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    opacity 0.25s ease,
+    width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cursor-on {
+  opacity: 1;
+}
+
+/* Hover an interactive element: ring expands + softly fills, dot shrinks */
+.cursor-interactive.cursor-ring {
+  width: 44px;
+  height: 44px;
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.65);
+}
+
+.cursor-interactive.cursor-dot {
+  width: 3px;
+  height: 3px;
+  opacity: 0.6;
+}
+
+/* Click feedback */
+.cursor-pressed.cursor-ring {
+  width: 28px;
+  height: 28px;
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.cursor-pressed.cursor-dot {
+  width: 8px;
+  height: 8px;
 }
 
 /* ═══════════════════════════════════════════════════════
