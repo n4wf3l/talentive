@@ -100,7 +100,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1 sm:px-6 sm:py-1.5 lg:px-8 lg:py-2">
         {/* Logo */}
         <Link to="/" className="transition-opacity hover:opacity-80">
-          <img src={logo} alt="Talentive" className="h-16 w-auto sm:h-24 md:h-32 lg:h-36 brightness-0 invert" />
+          <img src={logo} alt="Talentive" className="h-10 w-auto sm:h-12 md:h-14 brightness-0 invert" />
         </Link>
 
         {/* Desktop nav */}
