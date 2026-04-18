@@ -62,7 +62,7 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const [form, setForm] = useState({
     name: '',
@@ -91,24 +91,17 @@ function ContactForm() {
   const handleChange = (field: keyof typeof form, value: string) => {
     const next = { ...form, [field]: value };
     setForm(next);
-    // Clear error on change if field was touched
-    if (touched[field]) {
-      const fieldError = validate(next)[field];
-      setErrors((prev) => ({ ...prev, [field]: fieldError }));
+    // After a failed submit, re-validate live so errors clear as the user fixes them
+    if (submitted) {
+      setErrors(validate(next));
     }
-  };
-
-  const handleBlur = (field: keyof typeof form) => {
-    setTouched((prev) => ({ ...prev, [field]: true }));
-    const fieldError = validate(form)[field];
-    setErrors((prev) => ({ ...prev, [field]: fieldError }));
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const allErrors = validate(form);
     setErrors(allErrors);
-    setTouched({ name: true, email: true, subject: true, message: true });
+    setSubmitted(true);
 
     if (Object.keys(allErrors).length > 0) return;
 
@@ -153,12 +146,11 @@ function ContactForm() {
               type="text"
               value={form.name}
               onChange={(e) => handleChange('name', e.target.value)}
-              onBlur={() => handleBlur('name')}
-              className={`${inputBase} ${errors.name && touched.name ? inputErr : inputOk}`}
+              className={`${inputBase} ${errors.name ? inputErr : inputOk}`}
               placeholder={t('contactForm.placeholders.name')}
             />
           </div>
-          {errors.name && touched.name && (
+          {errors.name && (
             <p className="mt-1.5 flex items-center gap-1.5 text-xs text-red-400">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -181,12 +173,11 @@ function ContactForm() {
               type="email"
               value={form.email}
               onChange={(e) => handleChange('email', e.target.value)}
-              onBlur={() => handleBlur('email')}
-              className={`${inputBase} ${errors.email && touched.email ? inputErr : inputOk}`}
+              className={`${inputBase} ${errors.email ? inputErr : inputOk}`}
               placeholder={t('contactForm.placeholders.email')}
             />
           </div>
-          {errors.email && touched.email && (
+          {errors.email && (
             <p className="mt-1.5 flex items-center gap-1.5 text-xs text-red-400">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -210,12 +201,11 @@ function ContactForm() {
             type="text"
             value={form.subject}
             onChange={(e) => handleChange('subject', e.target.value)}
-            onBlur={() => handleBlur('subject')}
-            className={`${inputBase} ${errors.subject && touched.subject ? inputErr : inputOk}`}
+            className={`${inputBase} ${errors.subject ? inputErr : inputOk}`}
             placeholder={t('contactForm.placeholders.subject')}
           />
         </div>
-        {errors.subject && touched.subject && (
+        {errors.subject && (
           <p className="mt-1.5 flex items-center gap-1.5 text-xs text-red-400">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -238,12 +228,11 @@ function ContactForm() {
             rows={5}
             value={form.message}
             onChange={(e) => handleChange('message', e.target.value)}
-            onBlur={() => handleBlur('message')}
-            className={`${inputBase} resize-none !pl-12 ${errors.message && touched.message ? inputErr : inputOk}`}
+            className={`${inputBase} resize-none !pl-12 ${errors.message ? inputErr : inputOk}`}
             placeholder={t('contactForm.placeholders.message')}
           />
         </div>
-        {errors.message && touched.message && (
+        {errors.message && (
           <p className="mt-1.5 flex items-center gap-1.5 text-xs text-red-400">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
