@@ -80,7 +80,7 @@ function ServiceCard({
       onClick={onClick}
       className="group relative w-full cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
     >
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-64 overflow-hidden sm:h-72 lg:h-80">
         <img
           src={image}
           alt={title}
@@ -113,7 +113,7 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
         <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl text-center">
           <div className="accent-line mx-auto mb-6" />
           <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
@@ -125,7 +125,7 @@ export default function ServicesSection() {
         </AnimatedSection>
 
         {/* Grid of exactly 3 cards */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
           {serviceDefs.map((service, index) => (
             <AnimatedSection
               key={service.titleKey}
