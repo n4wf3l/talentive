@@ -37,78 +37,119 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative bg-primary-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Top row: logo + nav links + socials */}
-        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8">
-          {/* Logo */}
-          <Link to="/" className="shrink-0">
-            <img src={logo} alt="Talentive" className="h-10 w-auto brightness-0 invert sm:h-12" />
-          </Link>
+    <footer className="relative overflow-hidden bg-primary-900 text-white">
+      {/* Subtle top decorative curve */}
+      <div className="absolute -top-px left-0 right-0">
+        <svg viewBox="0 0 1440 30" fill="none" className="w-full" preserveAspectRatio="none">
+          <path d="M0,0 C480,30 960,30 1440,0 L1440,30 L0,30 Z" fill="#0a1d3d" />
+        </svg>
+      </div>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-            <Link to="/" className="transition-colors hover:text-white">
-              {t('nav.home')}
+      <div className="relative mx-auto max-w-7xl px-4 pt-14 pb-8 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+          {/* Brand + socials */}
+          <div className="md:col-span-5">
+            <Link to="/" className="inline-block">
+              <img src={logo} alt="Talentive" className="h-14 w-auto brightness-0 invert sm:h-16" />
             </Link>
-            <Link to="/services" className="transition-colors hover:text-white">
-              {t('nav.services')}
-            </Link>
-            <Link to="/about" className="transition-colors hover:text-white">
-              {t('nav.about')}
-            </Link>
-            <Link to="/contact" className="transition-colors hover:text-white">
-              {t('nav.contact')}
-            </Link>
-          </nav>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
+              {t('footer.description')}
+            </p>
 
-          {/* Socials */}
-          <div className="flex items-center gap-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-accent-400/60 hover:bg-accent-400/10 hover:text-accent-400 hover:-translate-y-0.5"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            {/* Socials */}
+            <div className="mt-5 flex items-center gap-2.5">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-accent-400/60 hover:bg-accent-400/10 hover:text-accent-400 hover:-translate-y-0.5"
                 >
-                  {s.path}
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {s.path}
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div className="md:col-span-3">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
+              {t('footer.quickLinks')}
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {(['home', 'services', 'about', 'contact'] as const).map((s) => (
+                <li key={s}>
+                  <Link
+                    to={s === 'home' ? '/' : `/${s}`}
+                    className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
+                  >
+                    <span className="h-px w-0 bg-accent-400 transition-all duration-300 group-hover:w-3" />
+                    {t(`nav.${s}`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="md:col-span-4">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
+              {t('footer.contactInfo')}
+            </h3>
+            <ul className="mt-4 space-y-2.5 text-sm text-gray-400">
+              <li>
+                <a
+                  href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
+                  className="flex items-center gap-2.5 transition-colors hover:text-white"
+                >
+                  <svg className="h-4 w-4 text-accent-400/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                  </svg>
+                  {PHONE_NUMBER}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${INFO_EMAIL}`}
+                  className="flex items-center gap-2.5 transition-colors hover:text-white"
+                >
+                  <svg className="h-4 w-4 text-accent-400/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
+                  </svg>
+                  {INFO_EMAIL}
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <svg className="h-4 w-4 text-accent-400/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
                 </svg>
-              </a>
-            ))}
+                {t('contact.addressValue')}
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="my-6 h-px bg-white/[0.06]" />
-
-        {/* Bottom row: copyright + contact + legal */}
-        <div className="flex flex-col items-center justify-between gap-3 text-xs text-gray-500 sm:flex-row">
+        {/* Bottom bar */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-white/[0.06] pt-5 text-xs text-gray-500 sm:flex-row">
           <p>{t('footer.rights')}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="transition-colors hover:text-white">
-              {PHONE_NUMBER}
-            </a>
-            <span className="text-gray-700">·</span>
-            <a href={`mailto:${INFO_EMAIL}`} className="transition-colors hover:text-white">
-              {INFO_EMAIL}
-            </a>
-            <span className="text-gray-700">·</span>
-            <Link to="/privacy" className="transition-colors hover:text-white">
-              {t('footer.legal')}
-            </Link>
-          </div>
+          <Link to="/privacy" className="transition-colors hover:text-white">
+            {t('footer.legal')}
+          </Link>
         </div>
       </div>
     </footer>
