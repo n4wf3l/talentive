@@ -1,154 +1,113 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
-import AnimatedSection from '../ui/AnimatedSection';
 import logo from '../../assets/images/logo.png';
+
+const socials = [
+  {
+    href: 'https://www.linkedin.com/',
+    label: 'LinkedIn',
+    path: (
+      <>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </>
+    ),
+  },
+  {
+    href: 'https://www.facebook.com/',
+    label: 'Facebook',
+    path: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
+  },
+  {
+    href: 'https://www.instagram.com/',
+    label: 'Instagram',
+    path: (
+      <>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </>
+    ),
+  },
+];
 
 export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative overflow-hidden bg-primary-900 text-white">
-      {/* Top decorative curve */}
-      <div className="absolute -top-px left-0 right-0">
-        <svg viewBox="0 0 1440 40" fill="none" className="w-full" preserveAspectRatio="none">
-          <path d="M0,0 C480,40 960,40 1440,0 L1440,40 L0,40 Z" fill="#0a1d3d" />
-        </svg>
-      </div>
+    <footer className="relative bg-primary-900 text-white">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Top row: logo + nav links + socials */}
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-8">
+          {/* Logo */}
+          <Link to="/" className="shrink-0">
+            <img src={logo} alt="Talentive" className="h-10 w-auto brightness-0 invert sm:h-12" />
+          </Link>
 
-      {/* Decorative gradient blobs */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-accent-400/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent-500/5 blur-3xl" />
-      </div>
+          {/* Nav links */}
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
+            <Link to="/" className="transition-colors hover:text-white">
+              {t('nav.home')}
+            </Link>
+            <Link to="/services" className="transition-colors hover:text-white">
+              {t('nav.services')}
+            </Link>
+            <Link to="/about" className="transition-colors hover:text-white">
+              {t('nav.about')}
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-white">
+              {t('nav.contact')}
+            </Link>
+          </nav>
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-20 sm:px-6 lg:px-8">
-        <AnimatedSection animation="fade-up">
-          <div className="grid gap-12 md:grid-cols-12">
-            {/* Brand column */}
-            <div className="md:col-span-4">
-              <Link to="/" className="inline-block">
-                <img src={logo} alt="Talentive" className="h-28 w-auto brightness-0 invert" />
-              </Link>
-              <p className="mt-5 max-w-xs text-sm leading-relaxed text-gray-400">
-                {t('footer.description')}
-              </p>
-
-              {/* Accent bar */}
-              <div className="mt-6 flex items-center gap-3">
-                <div className="h-1 w-8 rounded-full bg-accent-400" />
-                <div className="h-1 w-4 rounded-full bg-accent-400/40" />
-                <div className="h-1 w-2 rounded-full bg-accent-400/20" />
-              </div>
-            </div>
-
-            {/* Quick links */}
-            <div className="md:col-span-3 md:col-start-6">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
-                {t('footer.quickLinks')}
-              </h3>
-              <ul className="mt-5 space-y-3.5">
-                <li>
-                  <Link
-                    to="/"
-                    className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
-                  >
-                    <span className="h-px w-0 bg-accent-400 transition-all duration-300 group-hover:w-4" />
-                    {t('nav.home')}
-                  </Link>
-                </li>
-                {(['services', 'about', 'contact'] as const).map((section) => (
-                  <li key={section}>
-                    <Link
-                      to={`/${section}`}
-                      className="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
-                    >
-                      <span className="h-px w-0 bg-accent-400 transition-all duration-300 group-hover:w-4" />
-                      {t(`nav.${section}`)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact info */}
-            <div className="md:col-span-4">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-400">
-                {t('footer.contactInfo')}
-              </h3>
-              <ul className="mt-5 space-y-4">
-                <li>
-                  <a
-                    href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
-                    className="flex items-start gap-3 text-sm text-gray-400 transition-colors hover:text-white"
-                  >
-                    <svg
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                    </svg>
-                    {PHONE_NUMBER}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${INFO_EMAIL}`}
-                    className="flex items-start gap-3 text-sm text-gray-400 transition-colors hover:text-white"
-                  >
-                    <svg
-                      className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="2" y="4" width="20" height="16" rx="2" />
-                      <path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
-                    </svg>
-                    {INFO_EMAIL}
-                  </a>
-                </li>
-                <li className="flex items-start gap-3 text-sm text-gray-400">
-                  <svg
-                    className="mt-0.5 h-4 w-4 shrink-0 text-accent-400/70"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {t('contact.addressValue')}
-                </li>
-              </ul>
-            </div>
+          {/* Socials */}
+          <div className="flex items-center gap-2">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-accent-400/60 hover:bg-accent-400/10 hover:text-accent-400 hover:-translate-y-0.5"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {s.path}
+                </svg>
+              </a>
+            ))}
           </div>
-        </AnimatedSection>
+        </div>
 
-        {/* Bottom bar */}
-        <div className="mt-16 border-t border-white/[0.06] py-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-gray-600">{t('footer.rights')}</p>
-            <div className="flex items-center gap-4">
-              <Link to="/privacy" className="text-xs text-gray-600 transition-colors hover:text-white">
-                {t('footer.legal')}
-              </Link>
-              <span className="text-gray-700">|</span>
-              <p className="text-xs text-gray-600">
-                Crafted with care in Brussels
-              </p>
-            </div>
+        {/* Divider */}
+        <div className="my-6 h-px bg-white/[0.06]" />
+
+        {/* Bottom row: copyright + contact + legal */}
+        <div className="flex flex-col items-center justify-between gap-3 text-xs text-gray-500 sm:flex-row">
+          <p>{t('footer.rights')}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="transition-colors hover:text-white">
+              {PHONE_NUMBER}
+            </a>
+            <span className="text-gray-700">·</span>
+            <a href={`mailto:${INFO_EMAIL}`} className="transition-colors hover:text-white">
+              {INFO_EMAIL}
+            </a>
+            <span className="text-gray-700">·</span>
+            <Link to="/privacy" className="transition-colors hover:text-white">
+              {t('footer.legal')}
+            </Link>
           </div>
         </div>
       </div>
