@@ -12,7 +12,7 @@ export default function BottomBar() {
   useEffect(() => {
     const threshold = window.innerHeight * 0.6;
     const handleScroll = () => setVisible(window.scrollY > threshold);
-    handleScroll(); // check initial position
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

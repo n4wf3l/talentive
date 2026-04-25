@@ -44,6 +44,26 @@ html {
   scrollbar-color: #7c3aed #0a1a3a;
 }
 
+/* ─── Light scrollbar (use inside light/white surfaces, e.g. modals) ─── */
+.scrollbar-light::-webkit-scrollbar {
+  width: 10px;
+}
+.scrollbar-light::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 5px;
+  border: 2px solid #f3f4f6;
+}
+.scrollbar-light::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+.scrollbar-light {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+}
+
 /* ─── Display font for headings & nav ─── */
 h1, h2, h3, h4 {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
@@ -994,6 +1014,25 @@ textarea {
 
 .animate-scale-out-overlay {
   animation: overlay-scale-out 0.3s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+/* ─── Team carousel slide transitions ─── */
+@keyframes team-slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes team-slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-team-slide-right {
+  animation: team-slide-in-right 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-team-slide-left {
+  animation: team-slide-in-left 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Language modal staggered items */

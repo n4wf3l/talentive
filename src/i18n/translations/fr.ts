@@ -8,7 +8,7 @@ const fr: Translations = {
     contact: 'Contact',
   },
   hero: {
-    title: 'Le recrutement,\nfait simplement.',
+    title: 'We go deeper\nthan hiring.',
     subtitle:
       'Personnel permanent, contractuel et payroll partout en Belgique. Dites-nous qui vous recrutez, on vous livre la shortlist.',
     ctaEmployee: 'Je recrute',
@@ -22,7 +22,7 @@ const fr: Translations = {
     permanent: {
       title: 'Personnel Permanent',
       description:
-        'Nous trouvons les talents durables dont votre entreprise a besoin. Recherche, sélection et onboarding. Vous signez l\'offre, on s\'occupe du reste.',
+        'Nous trouvons et intégrons les talents durables dont votre entreprise a besoin. Vous n\'avez plus qu\'à signer l\'offre finale.',
     },
     contract: {
       title: 'Personnel Contractuel',
@@ -67,6 +67,25 @@ const fr: Translations = {
         description: 'Des candidats qualifiés sur votre bureau en quelques jours. Pas des piles de CV non pertinents.',
       },
     },
+    team: {
+      title: 'L\'équipe',
+      subtitle: 'Les visages derrière Talentive : des recruteurs qui décrochent vraiment le téléphone.',
+      readMore: 'En savoir plus',
+      members: {
+        founder: {
+          role: 'Managing Director',
+          bio: 'Aizaz dirige Talentive au quotidien. Basé à Anvers et très actif à Bruxelles, il partage sa semaine entre les deux villes pour rester proche des clients et des candidats. Il suit personnellement chaque compte clé et lit chaque brief qui arrive.',
+        },
+        partner: {
+          role: 'Business Development Manager',
+          bio: 'Fatima Zzahra pilote le développement commercial chez Talentive : ouvrir de nouvelles relations clients, cartographier leurs besoins de recrutement, et s\'assurer que chaque brief est prêt à réussir avant que le recrutement ne démarre. Elle couvre la logistique, l\'industrie et la tech, et est régulièrement sur le terrain.',
+        },
+        consultant: {
+          role: 'Consultant en Recrutement',
+          bio: 'Ahrar gère le sourcing et la pré-sélection des candidats au quotidien. Il mène les premiers entretiens, construit la shortlist et reste en contact avec les candidats de l\'intake jusqu\'à l\'onboarding. C\'est la personne qui décroche quand vous appelez à propos d\'un profil.',
+        },
+      },
+    },
   },
   contact: {
     title: 'Parlons de votre recrutement',
@@ -75,7 +94,8 @@ const fr: Translations = {
     phone: 'Téléphone',
     email: 'Email',
     address: 'Adresse',
-    addressValue: 'Bruxelles, Belgique',
+    addressVenue: 'Antwerp Tower',
+    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
     cta: 'Envoyez-nous votre brief',
     ctaDescription:
       'Une urgence à pourvoir ou un plan de recrutement long terme : nous sommes prêts à vous aider.',
@@ -84,6 +104,7 @@ const fr: Translations = {
     title: 'Dites-nous qui vous recrutez',
     subtitle:
       'Remplissez votre brief de recrutement ci-dessous. Nous vous répondons dans les 24 heures avec des candidats adaptés.',
+    viewFullPage: 'Ouvrir la page complète',
     firstName: 'Prénom',
     lastName: 'Nom',
     phone: 'Téléphone',
@@ -118,6 +139,48 @@ const fr: Translations = {
       validationError: 'Veuillez remplir tous les champs obligatoires correctement.',
       successMessage: 'Votre brief a été envoyé avec succès ! Nous vous recontactons sous 24 heures.',
       errorMessage: 'Une erreur est survenue. Veuillez réessayer.',
+    },
+  },
+  findJob: {
+    title: 'Trouvez votre prochain poste',
+    subtitle:
+      'Envoyez-nous vos coordonnées et votre CV. Nous vous mettons en relation avec les offres qui correspondent, rapidement.',
+    viewFullPage: 'Ouvrir la page complète',
+    firstName: 'Prénom',
+    lastName: 'Nom',
+    phone: 'Téléphone',
+    email: 'Email',
+    city: 'Ville / Région',
+    desiredRole: 'Poste recherché',
+    availability: 'Disponibilité',
+    availabilityOptions: {
+      now: 'Maintenant',
+      week: 'Dans une semaine',
+      month: '1 semaine – 1 mois',
+      later: 'Plus d\'un mois',
+    },
+    cv: 'CV',
+    cvHint: 'PDF, DOC ou DOCX, 3 fichiers maximum',
+    cvSelect: 'Ajouter un fichier',
+    cvNoFile: 'Aucun fichier sélectionné',
+    cvReminder: 'Pensez à joindre vos documents à l\'email qui s\'ouvre avant de l\'envoyer.',
+    cvLimitReached: 'Vous pouvez joindre 3 fichiers maximum.',
+    message: 'Informations complémentaires',
+    submit: 'Envoyer ma candidature',
+    success: {
+      title: 'Candidature envoyée !',
+      message: 'Vos informations sont bien reçues. N\'oubliez pas de joindre votre CV à l\'email si ce n\'est pas déjà fait. Nous revenons vers vous sous 48 heures.',
+      back: 'Retour à l\'accueil',
+    },
+    placeholders: {
+      firstName: 'Votre prénom',
+      lastName: 'Votre nom',
+      phone: '+32 XXX XX XX XX',
+      email: 'votre@email.com',
+      city: 'Ex. : Bruxelles, Anvers, Gand...',
+      desiredRole: 'Ex. : Magasinier, Développeur, Chauffeur...',
+      availability: 'Ex. : Immédiatement, dans 2 semaines...',
+      message: 'Autre chose à nous dire...',
     },
   },
   faq: {

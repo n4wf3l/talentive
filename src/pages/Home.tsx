@@ -6,6 +6,7 @@ import ServicesSection from '../components/sections/ServicesSection';
 import AboutSection from '../components/sections/AboutSection';
 import FAQSection from '../components/sections/FAQSection';
 import ContactSection from '../components/sections/ContactSection';
+import BriefCTASection from '../components/sections/BriefCTASection';
 
 export default function Home() {
   const { language } = useTranslation();
@@ -24,8 +25,9 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <AboutSection />
-      <FAQSection />
       <ContactSection />
+      <FAQSection />
+      <BriefCTASection />
     </Layout>
   );
 }

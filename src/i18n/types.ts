@@ -40,6 +40,16 @@ export interface Translations {
       proximity: { title: string; description: string };
       efficiency: { title: string; description: string };
     };
+    team: {
+      title: string;
+      subtitle: string;
+      readMore: string;
+      members: {
+        founder: { role: string; bio: string };
+        partner: { role: string; bio: string };
+        consultant: { role: string; bio: string };
+      };
+    };
   };
   contact: {
     title: string;
@@ -47,6 +57,7 @@ export interface Translations {
     phone: string;
     email: string;
     address: string;
+    addressVenue: string;
     addressValue: string;
     cta: string;
     ctaDescription: string;
@@ -54,6 +65,7 @@ export interface Translations {
   form: {
     title: string;
     subtitle: string;
+    viewFullPage: string;
     firstName: string;
     lastName: string;
     phone: string;
@@ -83,6 +95,43 @@ export interface Translations {
       validationError: string;
       successMessage: string;
       errorMessage: string;
+    };
+  };
+  findJob: {
+    title: string;
+    subtitle: string;
+    viewFullPage: string;
+    firstName: string;
+    lastName: string;
+    phone: string;
+    email: string;
+    city: string;
+    desiredRole: string;
+    availability: string;
+    availabilityOptions: {
+      now: string;
+      week: string;
+      month: string;
+      later: string;
+    };
+    cv: string;
+    cvHint: string;
+    cvSelect: string;
+    cvNoFile: string;
+    cvReminder: string;
+    cvLimitReached: string;
+    message: string;
+    submit: string;
+    success: { title: string; message: string; back: string };
+    placeholders: {
+      firstName: string;
+      lastName: string;
+      phone: string;
+      email: string;
+      city: string;
+      desiredRole: string;
+      availability: string;
+      message: string;
     };
   };
   faq: {

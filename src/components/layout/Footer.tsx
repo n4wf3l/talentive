@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/talentive.png';
 
 const socials = [
   {
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Brand + socials */}
           <div className="md:col-span-5">
             <Link to="/" className="inline-block">
-              <img src={logo} alt="Talentive" className="h-14 w-auto brightness-0 invert sm:h-16" />
+              <img src={logo} alt="Talentive" className="h-14 w-auto sm:h-16" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {t('footer.description')}

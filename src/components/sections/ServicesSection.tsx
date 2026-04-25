@@ -78,9 +78,9 @@ function ServiceCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative w-full cursor-pointer overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
+      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
     >
-      <div className="relative h-64 overflow-hidden sm:h-72 lg:h-80">
+      <div className="relative h-64 shrink-0 overflow-hidden sm:h-72 lg:h-80">
         <img
           src={image}
           alt={title}
@@ -92,12 +92,12 @@ function ServiceCard({
           {icon}
         </div>
       </div>
-      <div className="p-7">
+      <div className="flex flex-1 flex-col p-7">
         <h3 className="text-xl font-bold text-primary-800 transition-colors duration-300 group-hover:text-accent-600">
           {title}
         </h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-gray-500">{description}</p>
-        <div className="mt-5 h-0.5 w-8 rounded-full bg-accent-500 transition-all duration-500 group-hover:w-16 group-hover:bg-accent-400" />
+        <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-[15px] leading-relaxed text-gray-500">{description}</p>
+        <div className="mt-auto h-0.5 w-8 rounded-full bg-accent-500 transition-all duration-500 group-hover:w-16 group-hover:bg-accent-400" />
       </div>
     </button>
   );
@@ -108,6 +108,18 @@ export default function ServicesSection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setSelectedIndex(null), []);
+  const goPrev = useCallback(
+    () =>
+      setSelectedIndex((i) =>
+        i === null ? null : (i - 1 + serviceDefs.length) % serviceDefs.length,
+      ),
+    [],
+  );
+  const goNext = useCallback(
+    () =>
+      setSelectedIndex((i) => (i === null ? null : (i + 1) % serviceDefs.length)),
+    [],
+  );
 
   const selected = selectedIndex !== null ? serviceDefs[selectedIndex] : null;
 
@@ -131,6 +143,7 @@ export default function ServicesSection() {
               key={service.titleKey}
               animation="fade-up"
               delay={100 + index * 120}
+              className="h-full"
             >
               <ServiceCard
                 icon={service.icon}
@@ -153,6 +166,8 @@ export default function ServicesSection() {
           title={t(selected.titleKey)}
           description={t(selected.descKey)}
           image={selected.image}
+          onPrev={serviceDefs.length > 1 ? goPrev : undefined}
+          onNext={serviceDefs.length > 1 ? goNext : undefined}
         />
       )}
     </section>

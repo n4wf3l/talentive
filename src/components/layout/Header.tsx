@@ -1,9 +1,9 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/talentive.png';
 
 interface NavItem {
   key: string;
@@ -64,22 +64,57 @@ export type { NavItem };
 export default function Header() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const lastScrollY = useRef(0);
   const location = useLocation();
 
   const isHomePage = location.pathname === '/';
 
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+    setScrolled(window.scrollY > 8);
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+
+      setScrolled(currentY > 8);
+
+      if (currentY <= 8) {
+        setHidden(false);
+      } else if (delta > 4) {
+        setHidden(true);
+      } else if (delta < -4) {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Always show navbar when mobile menu is open
+  const isHidden = hidden && !isMenuOpen;
+
+  const showOpaque = !isHomePage || scrolled;
+
   return (
     <header
-      className={`absolute top-0 left-0 right-0 z-50 ${
-        isHomePage
-          ? ''
-          : 'bg-primary-900/95 backdrop-blur-md shadow-lg shadow-primary-950/20'
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+        isHidden ? '-translate-y-full' : 'translate-y-0'
+      } ${
+        showOpaque
+          ? 'bg-primary-900/95 backdrop-blur-md shadow-lg shadow-primary-950/20'
+          : ''
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1 sm:px-6 sm:py-1.5 lg:px-8 lg:py-2">
         {/* Logo */}
         <Link to="/" className="transition-opacity hover:opacity-80">
-          <img src={logo} alt="Talentive" className="h-10 w-auto sm:h-12 md:h-14 brightness-0 invert" />
+          <img src={logo} alt="Talentive" className="h-12 w-auto sm:h-14 md:h-16" />
         </Link>
 
         {/* Desktop nav */}

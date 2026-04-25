@@ -101,8 +101,9 @@ export default function AboutSection() {
                 key={value.titleKey}
                 animation="fade-up"
                 delay={100 + index * 120}
+                className="h-full"
               >
-                <div className="about-value-card group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center transition-all duration-500 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/8 hover:-translate-y-2">
+                <div className="about-value-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center transition-all duration-500 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/8 hover:-translate-y-2">
                   {/* Hover gradient background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-50/0 via-accent-50/0 to-accent-100/0 transition-all duration-500 group-hover:from-accent-50/60 group-hover:via-accent-50/30 group-hover:to-accent-100/40" />
 
@@ -118,7 +119,7 @@ export default function AboutSection() {
                   <div className="relative mx-auto mt-3 h-0.5 w-0 rounded-full bg-gradient-to-r from-accent-500 to-accent-300 transition-all duration-500 group-hover:w-12" />
 
                   {/* Description */}
-                  <p className="relative mt-4 text-sm text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-600">
+                  <p className="relative mt-4 line-clamp-3 min-h-[4.125rem] text-sm text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-600">
                     {t(value.descKey)}
                   </p>
                 </div>

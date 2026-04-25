@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import FindEmployee from './pages/FindEmployee';
+import FindJob from './pages/FindJob';
 import Privacy from './pages/Privacy';
 import ScrollToTop from './components/ui/ScrollToTop';
 import SplashScreen, { shouldShowSplash } from './components/ui/SplashScreen';
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/find-employee" element={<FindEmployee />} />
+          <Route path="/find-job" element={<FindJob />} />
           <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </BrowserRouter>

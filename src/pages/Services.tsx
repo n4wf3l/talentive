@@ -109,6 +109,18 @@ export default function Services() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setSelectedIndex(null), []);
+  const goPrev = useCallback(
+    () =>
+      setSelectedIndex((i) =>
+        i === null ? null : (i - 1 + serviceDefs.length) % serviceDefs.length,
+      ),
+    [],
+  );
+  const goNext = useCallback(
+    () =>
+      setSelectedIndex((i) => (i === null ? null : (i + 1) % serviceDefs.length)),
+    [],
+  );
 
   useEffect(() => {
     const titles: Record<string, string> = {
@@ -197,6 +209,8 @@ export default function Services() {
           title={t(selected.titleKey)}
           description={t(selected.descKey)}
           image={selected.image}
+          onPrev={serviceDefs.length > 1 ? goPrev : undefined}
+          onNext={serviceDefs.length > 1 ? goNext : undefined}
         />
       )}
     </Layout>

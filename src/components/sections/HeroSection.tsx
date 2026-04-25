@@ -1,27 +1,33 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
-import { FIND_JOB_URL } from '../../constants';
 import Button from '../ui/Button';
 import SectionNavigator from '../ui/SectionNavigator';
+import HiringModal from '../ui/HiringModal';
+import FindJobModal from '../ui/FindJobModal';
+import coverBg from '../../assets/images/cover-bg.png';
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const [isHiringOpen, setIsHiringOpen] = useState(false);
+  const [isFindJobOpen, setIsFindJobOpen] = useState(false);
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
       {/* ── Background image (recruitment / handshake) ── */}
       <div className="absolute inset-0 overflow-hidden bg-primary-950">
         <img
-          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=80&auto=format&fit=crop"
+          src={coverBg}
           alt=""
-          className="hero-bg-animate h-full w-full object-cover opacity-70"
+          className="hero-bg-animate h-full w-full object-cover opacity-40 sm:opacity-70"
         />
+        {/* Mobile readability overlay */}
+        <div className="absolute inset-0 bg-primary-950/40 sm:hidden" />
       </div>
       {/* ── Animated gradient mesh background (overlay) ── */}
       <div className="hero-mesh absolute inset-0" />
 
-      {/* ── Floating decorative shapes ── */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* ── Floating decorative shapes (desktop only) ── */}
+      <div className="pointer-events-none absolute inset-0 hidden sm:block">
         {/* Large circle - top right */}
         <div className="float-slow absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full border border-white/[0.04]" />
         {/* Medium circle - bottom left */}
@@ -46,7 +52,7 @@ export default function HeroSection() {
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl text-center">
           {/* Title */}
-          <h1 className="hero-title-animate text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="hero-title-animate text-[2.5rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
             {t('hero.title').split('\n').map((line, i) => (
               <span key={i}>
                 {i > 0 && <br />}
@@ -60,14 +66,14 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle-animate mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
+          <p className="hero-subtitle-animate mx-auto mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:mt-8 sm:text-xl sm:text-white/70">
             {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
-          <div className="hero-cta-animate mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link to="/find-employee" data-onboarding="cta-employee">
-              <Button variant="primary" size="lg">
+          <div className="hero-cta-animate mt-7 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4">
+            <span data-onboarding="cta-employee">
+              <Button variant="primary" size="lg" onClick={() => setIsHiringOpen(true)}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
@@ -76,14 +82,9 @@ export default function HeroSection() {
                 </svg>
                 {t('hero.ctaEmployee')}
               </Button>
-            </Link>
+            </span>
             <span data-onboarding="cta-job">
-              <Button
-                variant="outline"
-                size="lg"
-                href={FIND_JOB_URL}
-                external
-              >
+              <Button variant="outline" size="lg" onClick={() => setIsFindJobOpen(true)}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -94,18 +95,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── Scroll down indicator ── */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 sm:bottom-16">
-          <SectionNavigator
-            targetId="services"
-            label={t('hero.scrollDown')}
-            light
-          />
+        {/* ── Scroll down indicator (desktop only) ── */}
+        <div className="absolute bottom-4 left-1/2 z-20 hidden -translate-x-1/2 sm:bottom-6 sm:block">
+          <SectionNavigator targetId="services" />
         </div>
       </div>
 
       {/* ── Curved section divider ── */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0">
         <svg
           viewBox="0 0 1440 80"
           fill="none"
@@ -118,6 +115,9 @@ export default function HeroSection() {
           />
         </svg>
       </div>
+
+      <HiringModal isOpen={isHiringOpen} onClose={() => setIsHiringOpen(false)} />
+      <FindJobModal isOpen={isFindJobOpen} onClose={() => setIsFindJobOpen(false)} />
     </section>
   );
 }

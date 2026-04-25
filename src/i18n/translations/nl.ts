@@ -8,7 +8,7 @@ const nl: Translations = {
     contact: 'Contact',
   },
   hero: {
-    title: 'Recruiten,\nsimpel en scherp.',
+    title: 'We go deeper\nthan hiring.',
     subtitle:
       'Vast, contractueel en payroll personeel in heel België. Vertel ons wie u aanwerft, wij leveren de shortlist.',
     ctaEmployee: 'Ik werf aan',
@@ -22,7 +22,7 @@ const nl: Translations = {
     permanent: {
       title: 'Vast Personeel',
       description:
-        'Wij vinden de langetermijnmedewerkers die uw bedrijf nodig heeft. Search, selectie en onboarding. U tekent het aanbod, wij doen de rest.',
+        'Wij vinden en onboarden het langetermijntalent dat uw bedrijf nodig heeft. U tekent enkel het uiteindelijke aanbod.',
     },
     contract: {
       title: 'Contractueel Personeel',
@@ -67,6 +67,25 @@ const nl: Translations = {
         description: 'Gekwalificeerde kandidaten op uw bureau binnen dagen. Geen stapels irrelevante CV\'s.',
       },
     },
+    team: {
+      title: 'Ontmoet het Team',
+      subtitle: 'De mensen achter Talentive: recruiters die de telefoon écht opnemen.',
+      readMore: 'Meer lezen',
+      members: {
+        founder: {
+          role: 'Managing Director',
+          bio: 'Aizaz leidt Talentive dagelijks. Gevestigd in Antwerpen en zeer actief in Brussel, verdeelt hij zijn week tussen beide steden om dicht bij klanten en kandidaten te blijven. Hij volgt elk sleutelaccount persoonlijk op en leest elke briefing die binnenkomt.',
+        },
+        partner: {
+          role: 'Business Development Manager',
+          bio: 'Fatima Zzahra leidt de business development bij Talentive: nieuwe klantenrelaties opbouwen, hun aanwervingsbehoeften in kaart brengen en ervoor zorgen dat elke briefing klaar is om te slagen voordat de rekrutering start. Zij werkt in logistiek, industrie en tech, en is regelmatig op locatie bij klanten.',
+        },
+        consultant: {
+          role: 'Recruitment Consultant',
+          bio: 'Ahrar staat dagelijks in voor sourcing en screening van kandidaten. Hij voert de eerste gesprekken, stelt de shortlist samen en blijft in contact met kandidaten van intake tot onboarding. De persoon die effectief opneemt als u over een profiel belt.',
+        },
+      },
+    },
   },
   contact: {
     title: 'Laten we over uw aanwerving praten',
@@ -75,7 +94,8 @@ const nl: Translations = {
     phone: 'Telefoon',
     email: 'Email',
     address: 'Adres',
-    addressValue: 'Brussel, België',
+    addressVenue: 'Antwerp Tower',
+    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
     cta: 'Stuur uw briefing',
     ctaDescription:
       'Eén dringende vacature of een langetermijnplan : wij staan klaar om u te helpen.',
@@ -84,6 +104,7 @@ const nl: Translations = {
     title: 'Vertel ons wie u aanwerft',
     subtitle:
       'Vul hieronder uw aanwervingsbriefing in. Wij reageren binnen 24 uur met geschikte kandidaten.',
+    viewFullPage: 'Volledige pagina openen',
     firstName: 'Voornaam',
     lastName: 'Achternaam',
     phone: 'Telefoon',
@@ -118,6 +139,48 @@ const nl: Translations = {
       validationError: 'Vul alle verplichte velden correct in.',
       successMessage: 'Uw briefing is succesvol verzonden! Wij nemen binnen 24 uur contact met u op.',
       errorMessage: 'Er is een fout opgetreden. Probeer het opnieuw.',
+    },
+  },
+  findJob: {
+    title: 'Vind uw volgende job',
+    subtitle:
+      'Stuur ons uw gegevens en CV. Wij koppelen u snel aan relevante openstaande vacatures.',
+    viewFullPage: 'Volledige pagina openen',
+    firstName: 'Voornaam',
+    lastName: 'Achternaam',
+    phone: 'Telefoon',
+    email: 'Email',
+    city: 'Stad / Regio',
+    desiredRole: 'Gezochte functie',
+    availability: 'Beschikbaarheid',
+    availabilityOptions: {
+      now: 'Onmiddellijk',
+      week: 'Binnen een week',
+      month: '1 week – 1 maand',
+      later: 'Meer dan een maand',
+    },
+    cv: 'CV',
+    cvHint: 'PDF, DOC of DOCX, max. 3 bestanden',
+    cvSelect: 'Bestand toevoegen',
+    cvNoFile: 'Geen bestand geselecteerd',
+    cvReminder: 'Vergeet niet uw documenten bij de e-mail te voegen voordat u verstuurt.',
+    cvLimitReached: 'U kunt maximaal 3 bestanden toevoegen.',
+    message: 'Aanvullende info',
+    submit: 'Mijn sollicitatie versturen',
+    success: {
+      title: 'Sollicitatie verzonden!',
+      message: 'Uw gegevens zijn binnen. Vergeet niet uw CV bij de e-mail toe te voegen als dat nog niet is gebeurd. Wij nemen binnen 48 uur contact op.',
+      back: 'Terug naar home',
+    },
+    placeholders: {
+      firstName: 'Uw voornaam',
+      lastName: 'Uw achternaam',
+      phone: '+32 XXX XX XX XX',
+      email: 'uw@email.com',
+      city: 'Bijv.: Brussel, Antwerpen, Gent...',
+      desiredRole: 'Bijv.: Magazijnier, Ontwikkelaar, Chauffeur...',
+      availability: 'Bijv.: Onmiddellijk, binnen 2 weken...',
+      message: 'Iets anders dat we moeten weten...',
     },
   },
   faq: {

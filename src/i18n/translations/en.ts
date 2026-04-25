@@ -8,7 +8,7 @@ const en: Translations = {
     contact: 'Contact',
   },
   hero: {
-    title: 'Recruitment,\ndone right.',
+    title: 'We go deeper\nthan hiring.',
     subtitle:
       'Permanent, contract, and payroll staffing for businesses across Belgium. Tell us who you\'re hiring, we deliver the shortlist.',
     ctaEmployee: 'I\'m hiring',
@@ -22,7 +22,7 @@ const en: Translations = {
     permanent: {
       title: 'Permanent Staffing',
       description:
-        'We find the long-term hires your business needs. Full search, selection and onboarding handled. You sign the offer, we handle the rest.',
+        'We find and onboard the long-term talent your business needs. You just sign the final offer.',
     },
     contract: {
       title: 'Contract Staffing',
@@ -67,6 +67,25 @@ const en: Translations = {
         description: 'Qualified candidates on your desk within days. Not stacks of irrelevant CVs.',
       },
     },
+    team: {
+      title: 'Meet the Team',
+      subtitle: 'The people behind Talentive: recruiters who actually pick up the phone.',
+      readMore: 'Read more',
+      members: {
+        founder: {
+          role: 'Managing Director',
+          bio: 'Aizaz runs Talentive day-to-day. Based in Antwerp and very active in Brussels, he splits his week between the two cities to stay close to clients and candidates. He owns every key account personally and still reads every brief that comes in.',
+        },
+        partner: {
+          role: 'Business Development Manager',
+          bio: 'Fatima Zzahra leads business development at Talentive: opening new client relationships, mapping their hiring needs, and making sure every brief is set up to succeed before recruitment kicks in. She works across logistics, industry and tech, on-site with clients regularly.',
+        },
+        consultant: {
+          role: 'Recruitment Consultant',
+          bio: 'Ahrar handles candidate sourcing and screening day-to-day. He runs the first calls, builds the shortlist, and stays in touch with candidates from intake through onboarding. The person who actually picks up when you call about a profile.',
+        },
+      },
+    },
   },
   contact: {
     title: 'Let\'s talk about your hiring',
@@ -75,7 +94,8 @@ const en: Translations = {
     phone: 'Phone',
     email: 'Email',
     address: 'Address',
-    addressValue: 'Brussels, Belgium',
+    addressVenue: 'Antwerp Tower',
+    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
     cta: 'Send us your brief',
     ctaDescription:
       'Whether you have one urgent vacancy or a long-term hiring plan, we\'re ready to help.',
@@ -84,6 +104,7 @@ const en: Translations = {
     title: 'Tell us who you\'re hiring',
     subtitle:
       'Fill in your hiring brief below. We\'ll respond within 24 hours with suitable candidates.',
+    viewFullPage: 'Open full page',
     firstName: 'First Name',
     lastName: 'Last Name',
     phone: 'Phone',
@@ -118,6 +139,48 @@ const en: Translations = {
       validationError: 'Please fill in all required fields correctly.',
       successMessage: 'Your brief has been sent successfully! We\'ll get back to you within 24 hours.',
       errorMessage: 'An error occurred. Please try again.',
+    },
+  },
+  findJob: {
+    title: 'Find your next role',
+    subtitle:
+      'Send us your details and CV. We\'ll match you with relevant openings, fast.',
+    viewFullPage: 'Open full page',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    phone: 'Phone',
+    email: 'Email',
+    city: 'City / Region',
+    desiredRole: 'Desired role',
+    availability: 'Availability',
+    availabilityOptions: {
+      now: 'Right now',
+      week: 'Within a week',
+      month: '1 week – 1 month',
+      later: 'More than a month',
+    },
+    cv: 'CV / Resume',
+    cvHint: 'PDF, DOC or DOCX, up to 3 files',
+    cvSelect: 'Add file',
+    cvNoFile: 'No file selected',
+    cvReminder: 'Please attach your documents to the email that opens before sending.',
+    cvLimitReached: 'You can attach up to 3 files.',
+    message: 'Additional notes',
+    submit: 'Send my application',
+    success: {
+      title: 'Application sent!',
+      message: 'Your details are in. Don\'t forget to attach your CV to the email if you haven\'t already. We\'ll get back to you within 48 hours.',
+      back: 'Back to home',
+    },
+    placeholders: {
+      firstName: 'Your first name',
+      lastName: 'Your last name',
+      phone: '+32 XXX XX XX XX',
+      email: 'your@email.com',
+      city: 'E.g.: Brussels, Antwerp, Ghent...',
+      desiredRole: 'E.g.: Warehouse operator, Developer, Driver...',
+      availability: 'E.g.: Immediately, in 2 weeks...',
+      message: 'Anything else we should know...',
     },
   },
   faq: {

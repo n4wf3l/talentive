@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/talentive.png';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -110,7 +110,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Panel */}
       <nav
-        className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto shadow-2xl transition-transform duration-400 ease-out ${
+        className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-hidden shadow-2xl transition-transform duration-400 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
@@ -119,15 +119,19 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Mobile navigation"
         aria-hidden={!isOpen}
       >
-        <div className="flex h-full flex-col px-6 py-6 sm:px-8">
+        <div className="flex h-full flex-col px-5 py-4 sm:px-7 sm:py-6">
           {/* Header */}
           <div className="flex items-center justify-between">
             <Link to="/" onClick={onClose}>
-              <img src={logo} alt="Talentive" className="h-20 w-auto brightness-0 invert" />
+              <img
+                src={logo}
+                alt="Talentive"
+                className="h-10 w-36 object-cover object-center sm:h-12 sm:w-44"
+              />
             </Link>
             <button
               onClick={onClose}
-              className="rounded-xl p-2.5 text-white/50 transition-all duration-300 hover:bg-white/10 hover:text-white hover:rotate-90"
+              className="rounded-xl p-2 text-white/50 transition-all duration-300 hover:bg-white/10 hover:text-white hover:rotate-90"
               aria-label="Close menu"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -138,10 +142,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
 
           {/* Decorative line */}
-          <div className="mt-5 h-px bg-gradient-to-r from-accent-500/40 via-accent-400/10 to-transparent" />
+          <div className="mt-3 h-px bg-gradient-to-r from-accent-500/40 via-accent-400/10 to-transparent" />
 
           {/* Nav items */}
-          <div className="mt-6 flex flex-col gap-2">
+          <div className="mt-3 flex flex-col gap-1.5">
             {mobileNavItems.map((item, index) => {
               const isActive = location.pathname === item.href;
               return (
@@ -149,7 +153,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   key={item.key}
                   to={item.href}
                   onClick={onClose}
-                  className={`menu-item-stagger ${isOpen ? 'menu-open' : ''} group relative flex items-start gap-4 rounded-2xl px-4 py-4 transition-all duration-300 ${
+                  className={`menu-item-stagger ${isOpen ? 'menu-open' : ''} group relative flex items-start gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 ${
                     isActive
                       ? 'bg-white/10'
                       : 'hover:bg-white/[0.06] hover:translate-x-1'
@@ -158,14 +162,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 >
                   {/* Active left bar */}
                   <span
-                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 w-1 rounded-r-full transition-all duration-300 ${
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-7 w-1 rounded-r-full transition-all duration-300 ${
                       isActive ? 'bg-accent-400 opacity-100' : 'bg-transparent opacity-0'
                     }`}
                   />
 
                   {/* Icon */}
                   <span
-                    className={`mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
+                    className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
                       isActive
                         ? 'bg-accent-500/20 text-accent-400'
                         : 'bg-white/[0.06] text-white/40 group-hover:bg-accent-500/15 group-hover:text-accent-400'
@@ -175,16 +179,16 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </span>
 
                   {/* Text */}
-                  <div className="flex flex-col gap-0.5">
+                  <div className="flex min-w-0 flex-col gap-0">
                     <span
-                      className={`text-base font-semibold tracking-wide transition-colors duration-300 ${
+                      className={`text-[15px] font-semibold leading-tight tracking-wide transition-colors duration-300 ${
                         isActive ? 'text-white' : 'text-white/80 group-hover:text-white'
                       }`}
                     >
                       {t(item.key)}
                     </span>
                     <span
-                      className={`text-xs leading-relaxed transition-colors duration-300 ${
+                      className={`mt-0.5 text-[11px] leading-snug transition-colors duration-300 ${
                         isActive ? 'text-white/40' : 'text-white/25 group-hover:text-white/35'
                       }`}
                     >
@@ -194,7 +198,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
                   {/* Arrow */}
                   <svg
-                    className={`ml-auto mt-2.5 h-4 w-4 flex-shrink-0 transition-all duration-300 ${
+                    className={`ml-auto mt-2 h-4 w-4 flex-shrink-0 transition-all duration-300 ${
                       isActive ? 'text-accent-400 translate-x-0' : 'text-white/20 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
                     }`}
                     viewBox="0 0 24 24"
@@ -211,12 +215,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             })}
           </div>
 
-          {/* Decorative divider */}
-          <div className="mt-6 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-
           {/* Bottom section */}
-          <div className="mt-auto pb-6 pt-6">
-            <div className="rounded-2xl bg-white/[0.04] p-4">
+          <div className="mt-auto pt-3">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+            <div className="mt-3 rounded-2xl bg-white/[0.04] p-3">
               <LanguageSwitcher variant="dark" />
             </div>
           </div>

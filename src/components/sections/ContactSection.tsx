@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
-import Button from '../ui/Button';
 import AnimatedSection from '../ui/AnimatedSection';
+import antwerpTower from '../../assets/images/antwerp-tower.png';
 
 function PhoneIcon() {
   return (
@@ -38,19 +37,22 @@ export default function ContactSection() {
       icon: <PhoneIcon />,
       label: t('contact.phone'),
       value: PHONE_NUMBER,
+      subtitle: undefined as string | undefined,
       href: `tel:${PHONE_NUMBER.replace(/\s/g, '')}`,
     },
     {
       icon: <EmailIcon />,
       label: t('contact.email'),
       value: INFO_EMAIL,
+      subtitle: undefined as string | undefined,
       href: `mailto:${INFO_EMAIL}`,
     },
     {
       icon: <LocationIcon />,
       label: t('contact.address'),
-      value: t('contact.addressValue'),
-      href: undefined,
+      value: t('contact.addressVenue'),
+      subtitle: t('contact.addressValue'),
+      href: 'https://maps.google.com/?q=Antwerp+Tower+De+Keyserlei+5+Antwerpen',
     },
   ];
 
@@ -68,67 +70,77 @@ export default function ContactSection() {
           </p>
         </AnimatedSection>
 
-        {/* Contact cards */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          {contactItems.map((item, index) => (
-            <AnimatedSection key={item.label} animation="fade-up" delay={index * 120}>
-              <div className="card-premium group rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-all duration-300 group-hover:bg-accent-100 group-hover:scale-110">
-                  {item.icon}
+        {/* Image left + Cards right */}
+        <div className="mt-16 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+          {/* Antwerp Tower image */}
+          <AnimatedSection animation="slide-right">
+            <div className="relative h-full min-h-[420px] overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/15">
+              <img
+                src={antwerpTower}
+                alt="Antwerp Tower"
+                className="h-full w-full object-cover"
+              />
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-primary-950/10 to-transparent" />
+              {/* Location badge */}
+              <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-50 text-accent-600">
+                  <LocationIcon />
                 </div>
-                <h3 className="mt-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
-                  {item.label}
-                </h3>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="mt-2 block text-lg font-semibold text-primary-800 transition-colors hover:text-accent-600"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <p className="mt-2 text-lg font-semibold text-primary-800">{item.value}</p>
-                )}
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
+                    {t('contact.address')}
+                  </p>
+                  <p className="text-sm font-bold text-primary-800">
+                    {t('contact.addressVenue')}
+                  </p>
+                </div>
               </div>
-            </AnimatedSection>
-          ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Contact cards stacked */}
+          <div className="flex flex-col gap-5 lg:justify-center">
+            {contactItems.map((item, index) => {
+              const Inner = (
+                <div className="card-premium group flex items-start gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:p-7">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-all duration-300 group-hover:bg-accent-100 group-hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
+                      {item.label}
+                    </h3>
+                    <p className="mt-1.5 text-lg font-semibold text-primary-800 transition-colors group-hover:text-accent-600 break-words">
+                      {item.value}
+                    </p>
+                    {item.subtitle && (
+                      <p className="mt-1 text-sm text-gray-500">{item.subtitle}</p>
+                    )}
+                  </div>
+                </div>
+              );
+
+              return (
+                <AnimatedSection key={item.label} animation="fade-up" delay={index * 120}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="block"
+                    >
+                      {Inner}
+                    </a>
+                  ) : (
+                    Inner
+                  )}
+                </AnimatedSection>
+              );
+            })}
+          </div>
         </div>
 
-        {/* ── Big CTA block ── */}
-        <AnimatedSection animation="scale-in" delay={300}>
-          <div className="relative mt-20 overflow-hidden rounded-3xl bg-primary-950 px-8 py-14 text-center shadow-xl shadow-primary-800/10 sm:px-16 sm:py-20">
-            {/* Background image */}
-            <div className="absolute inset-0">
-              <img
-                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80&auto=format&fit=crop"
-                alt=""
-                className="h-full w-full object-cover opacity-70"
-              />
-            </div>
-            <div className="hero-mesh absolute inset-0" />
-            {/* Decorative shapes */}
-            <div className="pointer-events-none absolute inset-0">
-              <div className="float-slow absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/[0.05]" />
-              <div className="float-reverse absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-accent-500/[0.08]" />
-            </div>
-
-            <div className="relative">
-              <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
-                {t('contact.cta')}
-              </h3>
-              <p className="mx-auto mt-4 max-w-xl text-white/50 leading-relaxed">
-                {t('contact.ctaDescription')}
-              </p>
-              <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <Link to="/find-employee">
-                  <Button variant="primary" size="lg">
-                    {t('hero.ctaEmployee')}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );

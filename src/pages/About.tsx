@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import TeamMemberModal from '../components/ui/TeamMemberModal';
+import aizazPhoto from '../assets/images/aizaz.png';
+import fatimaPhoto from '../assets/images/fatima.png';
+import ahrarPhoto from '../assets/images/ahrar.png';
 
 function TrustIcon() {
   return (
@@ -27,8 +31,40 @@ function EfficiencyIcon() {
   );
 }
 
+interface TeamMember {
+  key: 'founder' | 'partner' | 'consultant';
+  name: string;
+  image: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    key: 'founder',
+    name: 'Aizaz Khan',
+    image: aizazPhoto,
+  },
+  {
+    key: 'partner',
+    name: 'Fatima Zzahra El Maite',
+    image: fatimaPhoto,
+  },
+  {
+    key: 'consultant',
+    name: 'Ahrar Yousafzai',
+    image: ahrarPhoto,
+  },
+];
+
 export default function About() {
   const { t, language } = useTranslation();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selectedMember = selectedIndex !== null ? teamMembers[selectedIndex] : null;
+  const goPrev = () =>
+    setSelectedIndex((i) =>
+      i === null ? null : (i - 1 + teamMembers.length) % teamMembers.length,
+    );
+  const goNext = () =>
+    setSelectedIndex((i) => (i === null ? null : (i + 1) % teamMembers.length));
 
   useEffect(() => {
     const titles: Record<string, string> = {
@@ -82,18 +118,16 @@ export default function About() {
       {/* About content */}
       <section className="bg-white pb-24 sm:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Team image */}
-          <AnimatedSection animation="fade-up">
-            <div className="mb-16 overflow-hidden rounded-3xl">
-              <img
-                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1200&q=80&auto=format&fit=crop"
-                alt="Professional team"
-                className="h-[300px] w-full object-cover sm:h-[400px]"
-              />
-            </div>
+
+          {/* Section header */}
+          <AnimatedSection animation="fade-up" className="text-center">
+            <div className="accent-line mx-auto mb-6" />
+            <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
+              {t('about.values.title')}
+            </h2>
           </AnimatedSection>
 
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
+          <div className="mt-14 grid gap-16 lg:grid-cols-2 lg:items-center">
             {/* Text */}
             <div>
               <AnimatedSection animation="fade-up">
@@ -105,29 +139,98 @@ export default function About() {
             </div>
 
             {/* Values */}
-            <div>
-              <AnimatedSection animation="fade-up" delay={100}>
-                <h3 className="text-xl font-bold text-primary-800 mb-8">{t('about.values.title')}</h3>
-              </AnimatedSection>
-              <div className="space-y-5">
-                {values.map((value, index) => (
-                  <AnimatedSection key={value.titleKey} animation="slide-left" delay={200 + index * 120}>
-                    <div className="card-premium group flex gap-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-100 text-accent-600 transition-all duration-300 group-hover:bg-accent-200 group-hover:scale-110">
-                        {value.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-primary-800">{t(value.titleKey)}</h4>
-                        <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{t(value.descKey)}</p>
+            <div className="space-y-5">
+              {values.map((value, index) => (
+                <AnimatedSection key={value.titleKey} animation="slide-left" delay={200 + index * 120}>
+                  <div className="card-premium group flex gap-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-100 text-accent-600 transition-all duration-300 group-hover:bg-accent-200 group-hover:scale-110">
+                      {value.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-primary-800">{t(value.titleKey)}</h4>
+                      <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{t(value.descKey)}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Meet the Team ── */}
+          <div className="mt-24 sm:mt-32">
+            <AnimatedSection animation="fade-up" className="text-center">
+              <div className="accent-line mx-auto mb-6" />
+              <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
+                {t('about.team.title')}
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
+                {t('about.team.subtitle')}
+              </p>
+            </AnimatedSection>
+
+            <div className="mt-14 grid gap-8 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
+              {teamMembers.map((member, index) => (
+                <AnimatedSection
+                  key={member.key}
+                  animation="fade-up"
+                  delay={150 + index * 150}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIndex(index)}
+                    className="group relative w-full overflow-hidden rounded-3xl bg-gray-50/50 text-left shadow-lg shadow-gray-200/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-900/10 hover:-translate-y-1.5"
+                  >
+                    {/* Photo */}
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      {/* Bottom gradient for text legibility */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary-950/85 via-primary-950/20 to-transparent" />
+
+                      {/* Read more pill (top-right) */}
+                      <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-primary-800 shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-accent-500 group-hover:text-white">
+                        {t('about.team.readMore')}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </span>
+
+                      {/* Name + role overlay (bottom) */}
+                      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-300">
+                          {t(`about.team.members.${member.key}.role`)}
+                        </p>
+                        <h3 className="mt-1.5 text-2xl font-bold text-white sm:text-3xl">
+                          {member.name}
+                        </h3>
+                        <div className="mt-3 h-0.5 w-10 rounded-full bg-accent-400 transition-all duration-500 group-hover:w-20" />
                       </div>
                     </div>
-                  </AnimatedSection>
-                ))}
-              </div>
+                  </button>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
+      {selectedMember && (
+        <TeamMemberModal
+          isOpen={selectedMember !== null}
+          onClose={() => setSelectedIndex(null)}
+          name={selectedMember.name}
+          role={t(`about.team.members.${selectedMember.key}.role`)}
+          bio={t(`about.team.members.${selectedMember.key}.bio`)}
+          image={selectedMember.image}
+          onPrev={teamMembers.length > 1 ? goPrev : undefined}
+          onNext={teamMembers.length > 1 ? goNext : undefined}
+        />
+      )}
     </Layout>
   );
 }
