@@ -3,5 +3,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/talentive/',
+  base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    target: 'es2020',
+    cssMinify: true,
+    minify: 'esbuild',
+    chunkSizeWarningLimit: 800,
+  },
 });

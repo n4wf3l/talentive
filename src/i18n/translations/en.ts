@@ -227,9 +227,9 @@ const en: Translations = {
     cookiesTitle: 'Cookies',
     cookiesContent: 'Our site uses essential cookies for site functionality (language preference). We do not use advertising or tracking cookies. You can disable cookies at any time in your browser settings.',
     rightsTitle: 'Your Rights',
-    rightsContent: 'Under the GDPR, you have the right to access, rectify, delete, restrict processing, and port your data. You can exercise these rights by contacting us at info@talentive.be.',
+    rightsContent: 'Under the GDPR, you have the right to access, rectify, delete, restrict processing, and port your data. You can exercise these rights by contacting us at info@talentivegroup.be.',
     contactTitle: 'Contact',
-    contactContent: 'For any questions regarding the protection of your data, contact us at info@talentive.be or by mail at our address in Brussels, Belgium.',
+    contactContent: 'For any questions regarding the protection of your data, contact us at info@talentivegroup.be or by mail at Antwerp Tower, De Keyserlei 5, 2018 Antwerpen, Belgium.',
   },
   bottomBar: {
     worker: 'I\'m hiring',

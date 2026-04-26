@@ -31,7 +31,7 @@ export default function App() {
       <CustomCursor />
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       {showOnboarding && <OnboardingOverlay onComplete={() => setShowOnboarding(false)} />}
-      <BrowserRouter basename="/talentive">
+      <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

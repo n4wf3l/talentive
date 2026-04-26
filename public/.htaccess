@@ -1,0 +1,78 @@
+# ─────────────────────────────────────────────────────────────────
+# Talentive — production .htaccess for Apache (One.com)
+# ─────────────────────────────────────────────────────────────────
+
+Options -MultiViews
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Strip leading "www." (canonical = bare domain)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Redirect talentivegroup.com → talentivegroup.be (single canonical)
+# Comment this block out if you want both domains to serve content.
+RewriteCond %{HTTP_HOST} ^talentivegroup\.com$ [NC]
+RewriteRule ^ https://talentivegroup.be%{REQUEST_URI} [L,R=301]
+
+# SPA fallback — let real files/dirs pass through, send everything
+# else to index.html so React Router can handle the route.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# ─── Compression ──────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/ttf font/otf application/font-woff application/font-woff2
+</IfModule>
+
+# ─── Cache headers ────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Hashed JS/CSS bundles from Vite — cache aggressively
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css               "access plus 1 year"
+
+  # Images
+  ExpiresByType image/png  "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType image/x-icon  "access plus 6 months"
+
+  # Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff  "access plus 1 year"
+
+  # HTML — never long-cache so deploys propagate immediately
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# index.html and the manifest must always re-validate
+<FilesMatch "\.(html|json|webmanifest)$">
+  Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+
+# Hashed assets (e.g. /assets/index-abc123.js) — long-cache + immutable
+<FilesMatch "\-[a-zA-Z0-9]{8,}\.(js|css|woff2?|png|jpg|jpeg|webp|svg)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# ─── Security headers ─────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Disable directory listings
+Options -Indexes

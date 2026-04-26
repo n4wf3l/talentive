@@ -227,9 +227,9 @@ const nl: Translations = {
     cookiesTitle: 'Cookies',
     cookiesContent: 'Onze site gebruikt essentiële cookies voor de werking van de site (taalvoorkeur). We gebruiken geen advertentietrackingcookies. U kunt cookies op elk moment uitschakelen in uw browserinstellingen.',
     rightsTitle: 'Uw rechten',
-    rightsContent: 'Op grond van de AVG heeft u het recht op inzage, rectificatie, verwijdering, beperking van verwerking en overdraagbaarheid van uw gegevens. U kunt deze rechten uitoefenen door contact met ons op te nemen via info@talentive.be.',
+    rightsContent: 'Op grond van de AVG heeft u het recht op inzage, rectificatie, verwijdering, beperking van verwerking en overdraagbaarheid van uw gegevens. U kunt deze rechten uitoefenen door contact met ons op te nemen via info@talentivegroup.be.',
     contactTitle: 'Contact',
-    contactContent: 'Voor vragen over de bescherming van uw gegevens kunt u contact met ons opnemen via info@talentive.be of per post op ons adres in Brussel, België.',
+    contactContent: 'Voor vragen over de bescherming van uw gegevens kunt u contact met ons opnemen via info@talentivegroup.be of per post op Antwerp Tower, De Keyserlei 5, 2018 Antwerpen, België.',
   },
   bottomBar: {
     worker: 'Ik werf aan',
