@@ -19,7 +19,7 @@ export default function HeroSection() {
       {/* ── Background image (recruitment / handshake) ── */}
       <div className="absolute inset-0 overflow-hidden bg-primary-950">
         <div
-          className="hero-bg-animate absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 sm:opacity-70"
+          className="hero-bg-animate absolute -inset-[2%] bg-cover bg-center bg-no-repeat opacity-40 sm:opacity-70"
           style={{ backgroundImage: `url(${coverBg})` }}
           aria-hidden="true"
         />
@@ -52,10 +52,10 @@ export default function HeroSection() {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8 [@media(max-height:500px)]:min-h-[420px] [@media(max-height:500px)]:py-12">
+      <div className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8 [@media(max-height:500px)]:min-h-[420px] [@media(max-height:500px)]:py-8">
         <div className="mx-auto max-w-6xl text-center">
           {/* Title */}
-          <h1 className="hero-title-animate text-[2.5rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl [@media(max-height:500px)]:text-4xl">
+          <h1 className="hero-title-animate text-[2.5rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl [@media(max-height:500px)]:!text-3xl">
             {t('hero.title').split('\n').map((line, i) => (
               <span key={i}>
                 {i > 0 && <br />}
@@ -69,12 +69,12 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle-animate mx-auto mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:mt-8 sm:text-xl sm:text-white/70 [@media(max-height:500px)]:mt-3 [@media(max-height:500px)]:text-sm [@media(max-height:500px)]:text-white/80">
+          <p className="hero-subtitle-animate mx-auto mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:mt-8 sm:text-xl sm:text-white/70 [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:!text-xs [@media(max-height:500px)]:text-white/80">
             {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
-          <div className="hero-cta-animate mt-7 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4 [@media(max-height:500px)]:mt-5">
+          <div className="hero-cta-animate mt-7 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4 [@media(max-height:500px)]:mt-4 [@media(max-height:500px)]:flex-row [@media(max-height:500px)]:gap-3">
             <span data-onboarding="cta-employee">
               <Button variant="primary" size="lg" onClick={() => setIsHiringOpen(true)}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
