@@ -126,7 +126,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <img
                 src={logo}
                 alt="Talentive"
-                className="h-10 w-36 object-cover object-center sm:h-12 sm:w-44"
+                className="h-8 w-auto sm:h-9"
               />
             </Link>
             <button
