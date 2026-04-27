@@ -10,7 +10,7 @@ const en: Translations = {
   hero: {
     title: 'We go deeper\nthan hiring.',
     subtitle:
-      'Permanent, contract, and payroll staffing for businesses across Belgium. Tell us who you\'re hiring, we deliver the shortlist.',
+      'Permanent, contract, and payroll staffing for businesses worldwide. Tell us who you\'re hiring, we deliver the shortlist.',
     ctaEmployee: 'I\'m hiring',
     ctaJob: 'Find a job',
     scrollDown: 'Our services',
@@ -39,7 +39,7 @@ const en: Translations = {
     title: 'Why Talentive',
     subtitle: 'The recruitment partner you can actually trust.',
     description:
-      'Talentive is a Belgian recruitment agency built on one principle: hiring shouldn\'t be painful. We match businesses with the right professionals, whether permanent, contract or payrolled, cleanly and quickly.',
+      'Talentive is an international recruitment agency built on one principle: hiring shouldn\'t be painful. We match businesses with the right professionals, whether permanent, contract or payrolled, cleanly and quickly.',
     mission:
       'We take the time to understand your role, shortlist only relevant candidates, and stay accountable through placement. No templates, no pressure, no surprises.',
     stats: {
@@ -95,7 +95,7 @@ const en: Translations = {
     email: 'Email',
     address: 'Address',
     addressVenue: 'Antwerp Tower',
-    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
+    addressValue: 'Frankrijklei 5, 2000 Antwerpen',
     cta: 'Send us your brief',
     ctaDescription:
       'Whether you have one urgent vacancy or a long-term hiring plan, we\'re ready to help.',
@@ -196,8 +196,8 @@ const en: Translations = {
     a4: 'Permanent staffing: a one-time success fee based on the placed salary. Contract and payroll: a transparent hourly markup. No placement, no fee. No surprises.',
     q5: 'How does the hiring process start?',
     a5: 'Click "I\'m hiring", fill in the brief, and we\'ll reach out within 24 hours to align on the role and timeline. From there, you get a qualified shortlist fast.',
-    q6: 'Do you operate across Belgium?',
-    a6: 'Yes. Brussels, Wallonia, and Flanders. We adapt to each region\'s specifics, language, and legal frameworks.',
+    q6: 'Do you operate internationally?',
+    a6: 'Yes. We work across Europe and beyond, adapting to each market\'s specifics, language, and legal frameworks.',
   },
   contactForm: {
     title: 'Send us a message',
@@ -227,9 +227,9 @@ const en: Translations = {
     cookiesTitle: 'Cookies',
     cookiesContent: 'Our site uses essential cookies for site functionality (language preference). We do not use advertising or tracking cookies. You can disable cookies at any time in your browser settings.',
     rightsTitle: 'Your Rights',
-    rightsContent: 'Under the GDPR, you have the right to access, rectify, delete, restrict processing, and port your data. You can exercise these rights by contacting us at info@talentivegroup.be.',
+    rightsContent: 'Under the GDPR, you have the right to access, rectify, delete, restrict processing, and port your data. You can exercise these rights by contacting us at info@talentivegroup.com.',
     contactTitle: 'Contact',
-    contactContent: 'For any questions regarding the protection of your data, contact us at info@talentivegroup.be or by mail at Antwerp Tower, De Keyserlei 5, 2018 Antwerpen, Belgium.',
+    contactContent: 'For any questions regarding the protection of your data, contact us at info@talentivegroup.com or by mail at Antwerp Tower, Frankrijklei 5, 2000 Antwerpen, Belgium.',
   },
   bottomBar: {
     worker: 'I\'m hiring',
@@ -262,7 +262,7 @@ const en: Translations = {
   },
   footer: {
     description:
-      'Permanent, contract, and payroll staffing for businesses across Belgium.',
+      'Permanent, contract, and payroll staffing for businesses worldwide.',
     quickLinks: 'Quick Links',
     contactInfo: 'Contact',
     legal: 'Privacy Policy',

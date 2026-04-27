@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Brand + socials */}
           <div className="md:col-span-5">
             <Link to="/" className="inline-block">
-              <img src={logo} alt="Talentive" className="h-14 w-auto sm:h-16" />
+              <img src={logo} alt="Talentive" className="h-44 w-auto sm:h-48" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-400">
               {t('footer.description')}

@@ -52,7 +52,7 @@ export default function ContactSection() {
       label: t('contact.address'),
       value: t('contact.addressVenue'),
       subtitle: t('contact.addressValue'),
-      href: 'https://maps.google.com/?q=Antwerp+Tower+De+Keyserlei+5+Antwerpen',
+      href: 'https://maps.google.com/?q=Frankrijklei+5+Antwerpen',
     },
   ];
 

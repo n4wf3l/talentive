@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://talentivegroup.be/sitemap.xml
+Sitemap: https://talentivegroup.com/sitemap.xml

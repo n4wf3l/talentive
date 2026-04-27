@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://talentivegroup.be/</loc>
+    <loc>https://talentivegroup.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/services</loc>
+    <loc>https://talentivegroup.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/about</loc>
+    <loc>https://talentivegroup.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/contact</loc>
+    <loc>https://talentivegroup.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/find-employee</loc>
+    <loc>https://talentivegroup.com/find-employee</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/find-job</loc>
+    <loc>https://talentivegroup.com/find-job</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://talentivegroup.be/privacy</loc>
+    <loc>https://talentivegroup.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

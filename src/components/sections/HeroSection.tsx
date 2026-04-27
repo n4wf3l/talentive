@@ -12,13 +12,13 @@ export default function HeroSection() {
   const [isFindJobOpen, setIsFindJobOpen] = useState(false);
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden">
+    <section id="hero" className="relative min-h-screen w-full overflow-hidden">
       {/* ── Background image (recruitment / handshake) ── */}
       <div className="absolute inset-0 overflow-hidden bg-primary-950">
-        <img
-          src={coverBg}
-          alt=""
-          className="hero-bg-animate h-full w-full object-cover opacity-40 sm:opacity-70"
+        <div
+          className="hero-bg-animate absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 sm:opacity-70"
+          style={{ backgroundImage: `url(${coverBg})` }}
+          aria-hidden="true"
         />
         {/* Mobile readability overlay */}
         <div className="absolute inset-0 bg-primary-950/40 sm:hidden" />

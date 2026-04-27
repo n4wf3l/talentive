@@ -8,9 +8,9 @@ const fr: Translations = {
     contact: 'Contact',
   },
   hero: {
-    title: 'We go deeper\nthan hiring.',
+    title: 'On va plus loin\nque le recrutement.',
     subtitle:
-      'Personnel permanent, contractuel et payroll partout en Belgique. Dites-nous qui vous recrutez, on vous livre la shortlist.',
+      'Personnel permanent, contractuel et payroll à l\'international. Dites-nous qui vous recrutez, on vous livre la shortlist.',
     ctaEmployee: 'Je recrute',
     ctaJob: 'Chercher un emploi',
     scrollDown: 'Nos services',
@@ -39,7 +39,7 @@ const fr: Translations = {
     title: 'Pourquoi Talentive',
     subtitle: 'Le partenaire de recrutement à qui vous pouvez vraiment faire confiance.',
     description:
-      'Talentive est une agence de recrutement belge fondée sur un principe simple : embaucher ne devrait pas être compliqué. Nous mettons en relation entreprises et professionnels, que ce soit en permanent, contractuel ou payroll, proprement et rapidement.',
+      'Talentive est une agence de recrutement internationale fondée sur un principe simple : embaucher ne devrait pas être compliqué. Nous mettons en relation entreprises et professionnels, que ce soit en permanent, contractuel ou payroll, proprement et rapidement.',
     mission:
       'Nous prenons le temps de comprendre votre poste, présélectionnons uniquement des candidats pertinents et restons responsables jusqu\'au placement. Pas de templates, pas de pression, pas de surprises.',
     stats: {
@@ -95,7 +95,7 @@ const fr: Translations = {
     email: 'Email',
     address: 'Adresse',
     addressVenue: 'Antwerp Tower',
-    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
+    addressValue: 'Frankrijklei 5, 2000 Antwerpen',
     cta: 'Envoyez-nous votre brief',
     ctaDescription:
       'Une urgence à pourvoir ou un plan de recrutement long terme : nous sommes prêts à vous aider.',
@@ -196,8 +196,8 @@ const fr: Translations = {
     a4: 'Permanent : honoraire unique au succès basé sur le salaire placé. Contractuel et payroll : un markup horaire transparent. Pas de placement, pas de frais. Pas de surprise.',
     q5: 'Comment démarre le processus ?',
     a5: 'Cliquez sur "Je recrute", remplissez le brief, et nous revenons vers vous sous 24 heures pour aligner le poste et le timing. Ensuite : shortlist qualifiée rapide.',
-    q6: 'Couvrez-vous toute la Belgique ?',
-    a6: 'Oui, Bruxelles, Wallonie et Flandre. Nous nous adaptons aux spécificités, à la langue et au cadre légal de chaque région.',
+    q6: 'Intervenez-vous à l\'international ?',
+    a6: 'Oui. Nous opérons à travers l\'Europe et au-delà. Nous nous adaptons aux spécificités, à la langue et au cadre légal de chaque marché.',
   },
   contactForm: {
     title: 'Envoyez-nous un message',
@@ -227,9 +227,9 @@ const fr: Translations = {
     cookiesTitle: 'Cookies',
     cookiesContent: 'Notre site utilise des cookies essentiels au fonctionnement du site (préférence de langue). Nous n\'utilisons pas de cookies de suivi publicitaire. Vous pouvez à tout moment désactiver les cookies dans les paramètres de votre navigateur.',
     rightsTitle: 'Vos droits',
-    rightsContent: 'Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, de suppression, de limitation du traitement et de portabilité de vos données. Vous pouvez exercer ces droits en nous contactant à info@talentivegroup.be.',
+    rightsContent: 'Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, de suppression, de limitation du traitement et de portabilité de vos données. Vous pouvez exercer ces droits en nous contactant à info@talentivegroup.com.',
     contactTitle: 'Contact',
-    contactContent: 'Pour toute question relative à la protection de vos données, contactez-nous à info@talentivegroup.be ou par courrier à Antwerp Tower, De Keyserlei 5, 2018 Antwerpen, Belgique.',
+    contactContent: 'Pour toute question relative à la protection de vos données, contactez-nous à info@talentivegroup.com ou par courrier à Antwerp Tower, Frankrijklei 5, 2000 Antwerpen, Belgique.',
   },
   bottomBar: {
     worker: 'Je recrute',
@@ -262,7 +262,7 @@ const fr: Translations = {
   },
   footer: {
     description:
-      'Personnel permanent, contractuel et payroll pour les entreprises en Belgique.',
+      'Personnel permanent, contractuel et payroll pour les entreprises à l\'international.',
     quickLinks: 'Liens Rapides',
     contactInfo: 'Contact',
     legal: 'Politique de confidentialité',

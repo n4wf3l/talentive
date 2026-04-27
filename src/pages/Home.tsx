@@ -13,9 +13,9 @@ export default function Home() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Talentive | Vast, Contractueel & Payroll Personeel in België',
-      fr: 'Talentive | Personnel Permanent, Contractuel & Payroll en Belgique',
-      en: 'Talentive | Permanent, Contract & Payroll Staffing in Belgium',
+      nl: 'Talentive | Vast, Contractueel & Payroll Personeel wereldwijd',
+      fr: 'Talentive | Personnel Permanent, Contractuel & Payroll à l\'international',
+      en: 'Talentive | Permanent, Contract & Payroll Staffing Worldwide',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);

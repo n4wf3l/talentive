@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from '../../i18n/LanguageContext';
+import logo from '../../assets/images/talentive.png';
 
 const STORAGE_KEY = 'talentive_splash_seen';
 
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
+  const { t } = useTranslation();
   const [phase, setPhase] = useState<'particles' | 'logo' | 'reveal' | 'done'>('particles');
+  const titleLines = t('hero.title').split('\n');
 
   const finish = useCallback(() => {
     setPhase('done');
@@ -15,8 +19,8 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
   useEffect(() => {
     // Phase timeline
     const t1 = setTimeout(() => setPhase('logo'), 400);
-    const t2 = setTimeout(() => setPhase('reveal'), 2200);
-    const t3 = setTimeout(finish, 3400);
+    const t2 = setTimeout(() => setPhase('reveal'), 1200);
+    const t3 = setTimeout(finish, 3000);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -51,25 +55,16 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
 
       {/* Logo + tagline */}
       <div className={`splash-content ${phase !== 'particles' ? 'splash-content-visible' : ''}`}>
-        {/* Wordmark built with spans for letter-stagger */}
-        <h1 className="splash-wordmark" aria-label="talentive.">
-          {'talentive.'.split('').map((char, i) => (
-            <span
-              key={i}
-              className="splash-letter"
-              style={{ animationDelay: `${0.6 + i * 0.06}s` }}
-            >
-              {char}
+        <img src={logo} alt="Talentive" className="splash-logo" />
+        <p
+          className={`splash-tagline ${phase === 'reveal' || phase === 'done' ? 'splash-tagline-on' : ''}`}
+        >
+          {titleLines.map((line, i) => (
+            <span key={i}>
+              {i > 0 && <br />}
+              {i === 0 ? line : <span className="text-gradient">{line}</span>}
             </span>
           ))}
-        </h1>
-
-        {/* Accent line */}
-        <div className={`splash-line ${phase === 'logo' || phase === 'reveal' ? 'splash-line-on' : ''}`} />
-
-        {/* Tagline */}
-        <p className={`splash-tagline ${phase === 'reveal' ? 'splash-tagline-on' : ''}`}>
-          Connecting talent with opportunity
         </p>
       </div>
     </div>

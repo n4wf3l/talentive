@@ -8,9 +8,9 @@ const nl: Translations = {
     contact: 'Contact',
   },
   hero: {
-    title: 'We go deeper\nthan hiring.',
+    title: 'Wij gaan dieper\ndan rekrutering.',
     subtitle:
-      'Vast, contractueel en payroll personeel in heel België. Vertel ons wie u aanwerft, wij leveren de shortlist.',
+      'Vast, contractueel en payroll personeel wereldwijd. Vertel ons wie u aanwerft, wij leveren de shortlist.',
     ctaEmployee: 'Ik werf aan',
     ctaJob: 'Zoek een werk',
     scrollDown: 'Onze diensten',
@@ -39,7 +39,7 @@ const nl: Translations = {
     title: 'Waarom Talentive',
     subtitle: 'De aanwervingspartner die u écht kunt vertrouwen.',
     description:
-      'Talentive is een Belgisch rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen, of het nu vast, contractueel of payroll is, helder en snel.',
+      'Talentive is een internationaal rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen, of het nu vast, contractueel of payroll is, helder en snel.',
     mission:
       'Wij nemen de tijd om uw functie te begrijpen, shortlisten enkel relevante kandidaten en blijven verantwoordelijk tot de plaatsing. Geen templates, geen druk, geen verrassingen.',
     stats: {
@@ -95,7 +95,7 @@ const nl: Translations = {
     email: 'Email',
     address: 'Adres',
     addressVenue: 'Antwerp Tower',
-    addressValue: 'De Keyserlei 5, 2018 Antwerpen',
+    addressValue: 'Frankrijklei 5, 2000 Antwerpen',
     cta: 'Stuur uw briefing',
     ctaDescription:
       'Eén dringende vacature of een langetermijnplan : wij staan klaar om u te helpen.',
@@ -196,8 +196,8 @@ const nl: Translations = {
     a4: 'Vast: een eenmalig succesfee op basis van het geplaatste salaris. Contractueel en payroll: een transparante uurlijkse markup. Geen plaatsing, geen kost. Geen verrassingen.',
     q5: 'Hoe start het aanwervingsproces?',
     a5: 'Klik op "Ik werf aan", vul de briefing in, en wij nemen binnen 24 uur contact op om de functie en timing af te stemmen. Daarna: snelle gekwalificeerde shortlist.',
-    q6: 'Werken jullie in heel België?',
-    a6: 'Ja. Brussel, Wallonië en Vlaanderen. We passen ons aan de specificiteiten, taal en wettelijk kader van elke regio aan.',
+    q6: 'Werken jullie internationaal?',
+    a6: 'Ja. Wij werken in heel Europa en daarbuiten, en passen ons aan de specificiteiten, taal en wettelijk kader van elke markt aan.',
   },
   contactForm: {
     title: 'Stuur ons een bericht',
@@ -227,9 +227,9 @@ const nl: Translations = {
     cookiesTitle: 'Cookies',
     cookiesContent: 'Onze site gebruikt essentiële cookies voor de werking van de site (taalvoorkeur). We gebruiken geen advertentietrackingcookies. U kunt cookies op elk moment uitschakelen in uw browserinstellingen.',
     rightsTitle: 'Uw rechten',
-    rightsContent: 'Op grond van de AVG heeft u het recht op inzage, rectificatie, verwijdering, beperking van verwerking en overdraagbaarheid van uw gegevens. U kunt deze rechten uitoefenen door contact met ons op te nemen via info@talentivegroup.be.',
+    rightsContent: 'Op grond van de AVG heeft u het recht op inzage, rectificatie, verwijdering, beperking van verwerking en overdraagbaarheid van uw gegevens. U kunt deze rechten uitoefenen door contact met ons op te nemen via info@talentivegroup.com.',
     contactTitle: 'Contact',
-    contactContent: 'Voor vragen over de bescherming van uw gegevens kunt u contact met ons opnemen via info@talentivegroup.be of per post op Antwerp Tower, De Keyserlei 5, 2018 Antwerpen, België.',
+    contactContent: 'Voor vragen over de bescherming van uw gegevens kunt u contact met ons opnemen via info@talentivegroup.com of per post op Antwerp Tower, Frankrijklei 5, 2000 Antwerpen, België.',
   },
   bottomBar: {
     worker: 'Ik werf aan',
@@ -262,7 +262,7 @@ const nl: Translations = {
   },
   footer: {
     description:
-      'Vast, contractueel en payroll personeel voor bedrijven in België.',
+      'Vast, contractueel en payroll personeel voor bedrijven wereldwijd.',
     quickLinks: 'Snelle Links',
     contactInfo: 'Contact',
     legal: 'Privacybeleid',

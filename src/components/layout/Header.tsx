@@ -99,7 +99,10 @@ export default function Header() {
   // Always show navbar when mobile menu is open
   const isHidden = hidden && !isMenuOpen;
 
-  const showOpaque = !isHomePage || scrolled;
+  // Only paint the opaque bg when the navbar is actually visible — otherwise
+  // the user sees a brief navy flash as the bg fades in while the navbar is
+  // sliding up out of view on the first scroll-down.
+  const showOpaque = (!isHomePage || scrolled) && !isHidden;
 
   return (
     <header
@@ -114,7 +117,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1 sm:px-6 sm:py-1.5 lg:px-8 lg:py-2">
         {/* Logo */}
         <Link to="/" className="transition-opacity hover:opacity-80">
-          <img src={logo} alt="Talentive" className="h-12 w-auto sm:h-14 md:h-16" />
+          <img src={logo} alt="Talentive" className="h-36 w-auto sm:h-44 md:h-48" />
         </Link>
 
         {/* Desktop nav */}

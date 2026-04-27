@@ -13,10 +13,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# Redirect talentivegroup.com → talentivegroup.be (single canonical)
+# Redirect talentivegroup.be → talentivegroup.com (single canonical)
 # Comment this block out if you want both domains to serve content.
-RewriteCond %{HTTP_HOST} ^talentivegroup\.com$ [NC]
-RewriteRule ^ https://talentivegroup.be%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^talentivegroup\.be$ [NC]
+RewriteRule ^ https://talentivegroup.com%{REQUEST_URI} [L,R=301]
 
 # SPA fallback — let real files/dirs pass through, send everything
 # else to index.html so React Router can handle the route.

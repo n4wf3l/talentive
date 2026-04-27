@@ -124,9 +124,9 @@ export default function Services() {
 
   useEffect(() => {
     const titles: Record<string, string> = {
-      nl: 'Diensten | Staffing in België | Talentive',
-      fr: 'Services | Staffing en Belgique | Talentive',
-      en: 'Services | Staffing in Belgium | Talentive',
+      nl: 'Diensten | Internationale Staffing | Talentive',
+      fr: 'Services | Staffing International | Talentive',
+      en: 'Services | International Staffing | Talentive',
     };
     document.title = titles[language] ?? titles.nl!;
   }, [language]);
