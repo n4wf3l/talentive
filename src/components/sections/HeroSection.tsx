@@ -73,28 +73,36 @@ export default function HeroSection() {
             {t('hero.subtitle')}
           </p>
 
-          {/* CTA Buttons */}
-          <div className="hero-cta-animate mt-7 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4 [@media(max-height:500px)]:mt-4 [@media(max-height:500px)]:flex-row [@media(max-height:500px)]:gap-3">
-            <span data-onboarding="cta-employee">
-              <Button variant="primary" size="lg" onClick={() => setIsHiringOpen(true)}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-                {t('hero.ctaEmployee')}
-              </Button>
-            </span>
-            <span data-onboarding="cta-job">
-              <Button variant="outline" size="lg" onClick={() => setIsFindJobOpen(true)}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                </svg>
-                {t('hero.ctaJob')}
-              </Button>
-            </span>
+          {/* CTA Buttons — always side-by-side, even on the smallest mobile */}
+          <div className="hero-cta-animate mt-7 flex !flex-row flex-nowrap items-stretch gap-2 w-full max-w-md mx-auto px-4 sm:mt-10 sm:gap-4 sm:max-w-none sm:px-0 sm:w-auto [@media(max-height:500px)]:mt-4">
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => setIsHiringOpen(true)}
+              data-onboarding="cta-employee"
+              className="flex-1 min-w-0 sm:flex-none text-xs leading-tight sm:text-base !px-2.5 !py-3 sm:!px-8 sm:!py-4 !gap-1.5 sm:!gap-2"
+            >
+              <svg className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <span className="truncate min-w-0">{t('hero.ctaEmployee')}</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setIsFindJobOpen(true)}
+              data-onboarding="cta-job"
+              className="flex-1 min-w-0 sm:flex-none text-xs leading-tight sm:text-base !px-2.5 !py-3 sm:!px-8 sm:!py-4 !gap-1.5 sm:!gap-2"
+            >
+              <svg className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+              <span className="truncate min-w-0">{t('hero.ctaJob')}</span>
+            </Button>
           </div>
         </div>
 

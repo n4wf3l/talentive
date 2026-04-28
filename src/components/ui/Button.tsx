@@ -35,7 +35,7 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseClasses = `btn-hover inline-flex items-center justify-center gap-2 rounded-xl font-display font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer ${sizes[size]} ${variants[variant]}`;
+  const baseClasses = `btn-hover inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl font-display font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer whitespace-nowrap ${sizes[size]} ${variants[variant]}`;
 
   if (href) {
     return (
