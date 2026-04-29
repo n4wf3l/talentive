@@ -74,7 +74,7 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons — always side-by-side, even on the smallest mobile */}
-          <div className="hero-cta-animate mt-7 flex !flex-row flex-nowrap items-stretch gap-2 w-full max-w-md mx-auto px-4 sm:mt-10 sm:gap-4 sm:max-w-none sm:px-0 sm:w-auto [@media(max-height:500px)]:mt-4">
+          <div className="hero-cta-animate mt-7 flex !flex-row flex-nowrap items-stretch justify-center gap-2 w-full max-w-md mx-auto px-4 sm:mt-10 sm:gap-4 sm:max-w-none sm:px-0 [@media(max-height:500px)]:mt-4">
             <Button
               variant="primary"
               size="lg"
