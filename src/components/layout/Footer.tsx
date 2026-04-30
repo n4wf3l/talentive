@@ -37,7 +37,7 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative overflow-hidden bg-primary-900 text-white">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-primary-900 via-primary-900 to-purple-950 text-white">
       {/* Subtle top decorative curve */}
       <div className="absolute -top-px left-0 right-0">
         <svg viewBox="0 0 1440 30" fill="none" className="w-full" preserveAspectRatio="none">

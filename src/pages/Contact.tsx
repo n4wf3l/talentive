@@ -291,8 +291,8 @@ export default function Contact() {
       label: t('contact.phone'),
       value: PHONE_NUMBER,
       href: `tel:${PHONE_NUMBER.replace(/\s/g, '')}`,
-      color: 'from-blue-500/20 to-cyan-500/20',
-      iconBg: 'bg-blue-500/20 text-blue-400',
+      color: 'from-accent-500/20 to-purple-500/20',
+      iconBg: 'bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30',
     },
     {
       icon: (
@@ -305,7 +305,7 @@ export default function Contact() {
       value: INFO_EMAIL,
       href: `mailto:${INFO_EMAIL}`,
       color: 'from-accent-500/20 to-purple-500/20',
-      iconBg: 'bg-accent-500/20 text-accent-400',
+      iconBg: 'bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30',
     },
     {
       icon: (
@@ -317,8 +317,8 @@ export default function Contact() {
       label: t('contact.address'),
       value: t('contact.addressValue'),
       href: undefined,
-      color: 'from-emerald-500/20 to-teal-500/20',
-      iconBg: 'bg-emerald-500/20 text-emerald-400',
+      color: 'from-accent-500/20 to-purple-500/20',
+      iconBg: 'bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30',
     },
   ];
 
@@ -326,12 +326,12 @@ export default function Contact() {
     <Layout>
       {/* ═══ IMMERSIVE DARK HERO + CONTENT SECTION ═══ */}
       <section className="relative min-h-screen overflow-hidden bg-primary-950">
-        {/* Background: image + mesh overlay */}
-        <div className="absolute inset-0">
+        {/* Background: image + mesh overlay (slow fade-in + Ken Burns drift) */}
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=1920&q=80&auto=format&fit=crop"
             alt=""
-            className="h-full w-full object-cover opacity-70"
+            className="contact-bg-animate h-full w-full object-cover"
           />
         </div>
         <div className="absolute inset-0 hero-mesh" />

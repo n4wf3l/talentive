@@ -54,17 +54,21 @@ const nl: Translations = {
     },
     values: {
       title: 'Waarom voor ons kiezen',
+      readMore: 'Meer lezen',
       trust: {
         title: 'Betrouwbaar',
         description: 'Wij zetten onze naam onder elke plaatsing. Directe communicatie, eerlijke tarieven, volledige transparantie.',
+        details: 'Vertrouwen verdient men, het wordt niet beloofd. Bij Talentive volgen we elke plaatsing van briefing tot integratie persoonlijk op. Geen verborgen kosten, geen automatische verlengingen, geen verrassingen op de factuur. U krijgt vooraf een duidelijk voorstel met vaste tarieven, en wij staan in voor de kwaliteit van elke kandidaat die we voorstellen. Werkt iemand niet zoals afgesproken? Dan vinden we kosteloos een vervanger. Onze beste klanten werken al jaren met ons, niet door een contract, maar omdat ze weten dat we doen wat we beloven.',
       },
       proximity: {
         title: 'Responsief',
         description: 'Eén vast aanspreekpunt dat snel antwoordt en uw bedrijf écht begrijpt.',
+        details: 'U belt geen callcenter. U krijgt geen ticketnummer. U werkt rechtstreeks samen met de consultant die uw dossier kent, uw team kent en uw cultuur kent. Concrete antwoorden binnen vier werkuren tijdens kantoortijden, en bij dringende behoeften staan we ook ’s avonds en in het weekend voor u klaar. Wij komen ook ter plaatse: voor een briefing, een teamintegratie of gewoon om de werkomgeving te begrijpen. Want een goede match begint met écht weten wie u bent en hoe u werkt.',
       },
       efficiency: {
         title: 'Efficiënt',
         description: 'Gekwalificeerde kandidaten op uw bureau binnen dagen. Geen stapels irrelevante CV\'s.',
+        details: 'Onze gemiddelde levertijd voor een eerste shortlist? 72 uur. Voor moeilijkere profielen werken we met een vooraf afgestemde planning, zodat u nooit in het ongewisse zit. We sturen u maximaal drie tot vijf gescreende profielen, geen tien CV\'s waar u zelf doorheen moet ploeteren. Elk profiel komt met onze nota: waarom we hem of haar voorstellen, sterke punten, aandachtspunten en beschikbaarheid. U beslist, wij organiseren de gesprekken. Snelheid zonder de kwaliteit op te offeren, dat is waar we elke dag voor werken.',
       },
     },
     team: {

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import TeamMemberModal from '../components/ui/TeamMemberModal';
+import ValueModal from '../components/ui/ValueModal';
 import aizazPhoto from '../assets/images/aizaz.png';
 import fatimaPhoto from '../assets/images/fatima.png';
 import ahrarPhoto from '../assets/images/ahrar.png';
@@ -66,6 +67,18 @@ export default function About() {
   const goNext = () =>
     setSelectedIndex((i) => (i === null ? null : (i + 1) % teamMembers.length));
 
+  // Value modal state
+  const [valueIndex, setValueIndex] = useState<number | null>(null);
+  const closeValue = useCallback(() => setValueIndex(null), []);
+  const valuePrev = useCallback(
+    () => setValueIndex((i) => (i === null ? null : (i - 1 + 3) % 3)),
+    [],
+  );
+  const valueNext = useCallback(
+    () => setValueIndex((i) => (i === null ? null : (i + 1) % 3)),
+    [],
+  );
+
   useEffect(() => {
     const titles: Record<string, string> = {
       nl: 'Over Ons | Talentive',
@@ -76,10 +89,27 @@ export default function About() {
   }, [language]);
 
   const values = [
-    { icon: <TrustIcon />, titleKey: 'about.values.trust.title', descKey: 'about.values.trust.description' },
-    { icon: <ProximityIcon />, titleKey: 'about.values.proximity.title', descKey: 'about.values.proximity.description' },
-    { icon: <EfficiencyIcon />, titleKey: 'about.values.efficiency.title', descKey: 'about.values.efficiency.description' },
+    {
+      icon: <TrustIcon />,
+      titleKey: 'about.values.trust.title',
+      descKey: 'about.values.trust.description',
+      detailsKey: 'about.values.trust.details',
+    },
+    {
+      icon: <ProximityIcon />,
+      titleKey: 'about.values.proximity.title',
+      descKey: 'about.values.proximity.description',
+      detailsKey: 'about.values.proximity.details',
+    },
+    {
+      icon: <EfficiencyIcon />,
+      titleKey: 'about.values.efficiency.title',
+      descKey: 'about.values.efficiency.description',
+      detailsKey: 'about.values.efficiency.details',
+    },
   ];
+
+  const selectedValue = valueIndex !== null ? values[valueIndex] : null;
 
   return (
     <Layout>
@@ -138,19 +168,49 @@ export default function About() {
               </AnimatedSection>
             </div>
 
-            {/* Values */}
+            {/* Values — white cards with mauve/blue accents */}
             <div className="space-y-5">
               {values.map((value, index) => (
                 <AnimatedSection key={value.titleKey} animation="slide-left" delay={200 + index * 120}>
-                  <div className="card-premium group flex gap-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-6">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-100 text-accent-600 transition-all duration-300 group-hover:bg-accent-200 group-hover:scale-110">
-                      {value.icon}
+                  <button
+                    type="button"
+                    onClick={() => setValueIndex(index)}
+                    className="group relative w-full overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-sm transition-all duration-500 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-1"
+                  >
+                    <div className="relative flex items-start gap-5">
+                      {/* Icon — mauve/blue gradient (visible on white) */}
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-md shadow-purple-600/25 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-purple-600/40">
+                        {value.icon}
+                      </div>
+
+                      {/* Text */}
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold text-primary-800">{t(value.titleKey)}</h4>
+                        <p className="mt-1.5 text-sm leading-relaxed text-gray-600">
+                          {t(value.descKey)}
+                        </p>
+
+                        {/* Read more pill — mauve/blue gradient */}
+                        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-600 via-accent-600 to-purple-600 px-3 py-1.5 text-xs font-bold text-white shadow-md shadow-purple-600/30 transition-all duration-300 group-hover:from-accent-500 group-hover:to-purple-500 group-hover:shadow-lg group-hover:shadow-purple-600/40">
+                          {t('about.values.readMore')}
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="transition-transform duration-300 group-hover:translate-x-0.5"
+                          >
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-primary-800">{t(value.titleKey)}</h4>
-                      <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{t(value.descKey)}</p>
-                    </div>
-                  </div>
+                  </button>
                 </AnimatedSection>
               ))}
             </div>
@@ -191,8 +251,8 @@ export default function About() {
                       {/* Bottom gradient for text legibility */}
                       <div className="absolute inset-0 bg-gradient-to-t from-primary-950/85 via-primary-950/20 to-transparent" />
 
-                      {/* Read more pill (top-right) */}
-                      <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-primary-800 shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-accent-500 group-hover:text-white">
+                      {/* Read more pill (top-right) — mauve/blue gradient on hover */}
+                      <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-primary-800 shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-accent-600 group-hover:via-accent-600 group-hover:to-purple-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-purple-600/40">
                         {t('about.team.readMore')}
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12" />
@@ -229,6 +289,19 @@ export default function About() {
           image={selectedMember.image}
           onPrev={teamMembers.length > 1 ? goPrev : undefined}
           onNext={teamMembers.length > 1 ? goNext : undefined}
+        />
+      )}
+
+      {selectedValue && (
+        <ValueModal
+          isOpen={selectedValue !== null}
+          onClose={closeValue}
+          icon={selectedValue.icon}
+          title={t(selectedValue.titleKey)}
+          description={t(selectedValue.descKey)}
+          details={t(selectedValue.detailsKey)}
+          onPrev={values.length > 1 ? valuePrev : undefined}
+          onNext={values.length > 1 ? valueNext : undefined}
         />
       )}
     </Layout>

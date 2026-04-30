@@ -88,7 +88,7 @@ function ServiceCard({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-        <div className="absolute bottom-4 left-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/95 text-accent-600 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+        <div className="absolute bottom-4 left-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
           {icon}
         </div>
       </div>
@@ -97,7 +97,7 @@ function ServiceCard({
           {title}
         </h3>
         <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-[15px] leading-relaxed text-gray-500">{description}</p>
-        <div className="mt-auto h-0.5 w-8 rounded-full bg-accent-500 transition-all duration-500 group-hover:w-16 group-hover:bg-accent-400" />
+        <div className="mt-auto h-0.5 w-8 rounded-full bg-gradient-to-r from-accent-500 to-purple-500 transition-all duration-500 group-hover:w-16" />
       </div>
     </button>
   );

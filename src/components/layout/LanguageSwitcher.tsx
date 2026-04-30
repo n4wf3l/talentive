@@ -101,13 +101,23 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
 
       {isOpen &&
         createPortal(
-          <div className="fixed inset-0 z-[100] flex items-center justify-center">
-            {/* Backdrop */}
+          <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden">
+            {/* Backdrop — dark base */}
             <div
-              className="absolute inset-0 bg-primary-900/80 backdrop-blur-md animate-fade-in-overlay"
+              className="absolute inset-0 bg-primary-950/85 backdrop-blur-md animate-fade-in-overlay"
               onClick={close}
               aria-hidden="true"
             />
+
+            {/* Mauve/blue ambient gradient glows */}
+            <div
+              className="pointer-events-none absolute inset-0 animate-fade-in-overlay"
+              aria-hidden="true"
+            >
+              <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-accent-600/20 blur-3xl" />
+              <div className="absolute -bottom-32 -right-32 h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-3xl" />
+              <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-accent-500/10 via-purple-500/10 to-transparent blur-2xl" />
+            </div>
 
             {/* Content */}
             <div className="relative z-10 w-full max-w-md px-6 animate-scale-in-overlay">
@@ -131,10 +141,13 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
                 </svg>
               </button>
 
-              {/* Title */}
-              <p className="mb-10 text-center text-sm font-medium uppercase tracking-[0.2em] text-white/50 animate-lang-title">
-                Language
-              </p>
+              {/* Title with gradient accent */}
+              <div className="mb-10 text-center animate-lang-title">
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/50">
+                  Language
+                </p>
+                <div className="mx-auto mt-3 h-0.5 w-12 rounded-full bg-gradient-to-r from-accent-500 to-purple-500" />
+              </div>
 
               {/* Language options */}
               <div className="flex flex-col gap-4">
@@ -144,18 +157,26 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
                     <button
                       key={code}
                       onClick={() => handleSelect(code)}
-                      className={`animate-lang-item-${index} group relative flex items-center justify-between rounded-2xl border px-6 py-5 transition-all duration-300 ${
+                      className={`animate-lang-item-${index} group relative flex items-center justify-between overflow-hidden rounded-2xl border px-6 py-5 transition-all duration-300 ${
                         isActive
-                          ? 'border-accent-500/40 bg-gradient-to-r from-accent-600/15 via-accent-500/10 to-transparent text-white lang-glow-active'
-                          : 'border-white/10 bg-white/5 text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white hover:translate-x-2'
+                          ? 'border-white/15 bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-xl shadow-purple-600/40 lang-glow-active'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:border-white/25 hover:bg-gradient-to-r hover:from-accent-600/20 hover:via-purple-600/15 hover:to-transparent hover:text-white hover:translate-x-2'
                       }`}
                     >
-                      <div className="flex items-center gap-4">
+                      {/* Decorative shapes — only for active card */}
+                      {isActive && (
+                        <>
+                          <span className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full border border-white/15" />
+                          <span className="pointer-events-none absolute -left-6 -bottom-6 h-16 w-16 rounded-full bg-white/[0.08] blur-xl" />
+                        </>
+                      )}
+
+                      <div className="relative flex items-center gap-4">
                         <span
                           className={`relative flex h-12 w-12 items-center justify-center rounded-xl text-sm font-bold tracking-wider transition-all duration-300 ${
                             isActive
-                              ? 'bg-accent-600 text-white shadow-lg shadow-accent-600/30'
-                              : 'bg-white/10 text-white/60 group-hover:bg-white/20 group-hover:text-white group-hover:scale-110'
+                              ? 'bg-white/20 text-white shadow-md ring-1 ring-white/30 backdrop-blur-sm'
+                              : 'bg-white/10 text-white/60 group-hover:bg-gradient-to-br group-hover:from-accent-600 group-hover:to-purple-600 group-hover:text-white group-hover:scale-110 group-hover:ring-1 group-hover:ring-white/20'
                           }`}
                         >
                           {label}
@@ -166,21 +187,21 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
                           <span
                             className={`h-0.5 rounded-full transition-all duration-500 origin-left ${
                               isActive
-                                ? 'w-full bg-accent-500/50'
-                                : 'w-0 bg-white/30 group-hover:w-full'
+                                ? 'w-full bg-white/60'
+                                : 'w-0 bg-gradient-to-r from-accent-400 to-purple-400 group-hover:w-full'
                             }`}
                           />
                         </div>
                       </div>
                       {/* Active indicator */}
                       <div
-                        className={`flex items-center justify-center transition-all duration-300 ${
+                        className={`relative flex items-center justify-center transition-all duration-300 ${
                           isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
                         }`}
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-500/20">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/25 ring-1 ring-white/30 backdrop-blur-sm">
                           <svg
-                            className="h-4 w-4 text-accent-400"
+                            className="h-4 w-4 text-white"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -195,7 +216,7 @@ export default function LanguageSwitcher({ variant = 'light' }: LanguageSwitcher
                       {/* Left accent bar for active item */}
                       <span
                         className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 w-1 rounded-r-full transition-all duration-300 ${
-                          isActive ? 'bg-accent-500 opacity-100' : 'bg-transparent opacity-0'
+                          isActive ? 'bg-white opacity-100' : 'bg-transparent opacity-0'
                         }`}
                       />
                     </button>

@@ -55,22 +55,32 @@ export default function ScrollSidebar() {
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
-    if (!isHomePage) {
-      const handleScroll = () => {
-        setVisible(window.scrollY > 100);
-      };
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll();
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
+    // Hide the sidebar when the footer enters the viewport so the floating
+    // dots don't overlap the footer's social icons / quick links.
+    const isOverFooter = () => {
+      const footer = document.querySelector('footer');
+      if (!footer) return false;
+      const rect = footer.getBoundingClientRect();
+      // Footer's top is above the vertical midpoint of the viewport
+      // = sidebar (centered vertically) is overlapping the footer area.
+      return rect.top < window.innerHeight - 80;
+    };
+
+    const minScroll = isHomePage ? window.innerHeight * 0.8 : 100;
 
     const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.8;
-      setVisible(window.scrollY > heroHeight);
+      const scrolledEnough = window.scrollY > minScroll;
+      const overFooter = isOverFooter();
+      setVisible(scrolledEnough && !overFooter);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [isHomePage]);
 
   const activeIndex = sections.findIndex((s) => s.path === location.pathname);
@@ -88,7 +98,7 @@ export default function ScrollSidebar() {
 
         {/* Active progress line */}
         <div
-          className="absolute left-1/2 top-5 w-px -translate-x-1/2 bg-gradient-to-b from-accent-400 to-accent-600 transition-all duration-700 ease-out"
+          className="absolute left-1/2 top-5 w-px -translate-x-1/2 bg-gradient-to-b from-accent-400 via-accent-500 to-purple-500 transition-all duration-700 ease-out"
           style={{
             height: activeIndex >= 0 ? `${(activeIndex / (sections.length - 1)) * (sections.length * 56 - 56)}px` : '0px',
           }}
@@ -145,7 +155,7 @@ export default function ScrollSidebar() {
                 <div
                   className={`absolute inset-1 rounded-full transition-all duration-500 ${
                     isActive
-                      ? 'bg-accent-500/20 shadow-[0_0_20px_rgba(59,130,246,0.3)] scale-100'
+                      ? 'bg-gradient-to-br from-accent-500/30 to-purple-500/30 shadow-[0_0_24px_rgba(124,58,237,0.4)] scale-100'
                       : 'bg-transparent scale-75'
                   }`}
                 />
@@ -154,8 +164,8 @@ export default function ScrollSidebar() {
                 <div
                   className={`relative flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ${
                     isActive
-                      ? 'border-accent-400/60 bg-accent-500/20 backdrop-blur-md'
-                      : 'border-white/[0.08] bg-primary-900/80 backdrop-blur-md group-hover:border-accent-400/40 group-hover:bg-primary-800'
+                      ? 'border-purple-400/60 bg-gradient-to-br from-accent-500/25 to-purple-500/25 backdrop-blur-md'
+                      : 'border-white/[0.08] bg-primary-900/80 backdrop-blur-md group-hover:border-purple-400/40 group-hover:bg-primary-800'
                   }`}
                 >
                   <SectionIcon id={section.id} active={isActive} />
@@ -163,7 +173,7 @@ export default function ScrollSidebar() {
 
                 {/* Ping on active */}
                 {isActive && (
-                  <span className="absolute inset-1 rounded-full border border-accent-400/30 animate-ping" style={{ animationDuration: '2.5s' }} />
+                  <span className="absolute inset-1 rounded-full border border-purple-400/40 animate-ping" style={{ animationDuration: '2.5s' }} />
                 )}
               </Link>
             </div>

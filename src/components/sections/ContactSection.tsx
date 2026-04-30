@@ -84,7 +84,7 @@ export default function ContactSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-primary-950/10 to-transparent" />
               {/* Location badge */}
               <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-50 text-accent-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-md shadow-purple-600/25">
                   <LocationIcon />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ export default function ContactSection() {
             {contactItems.map((item, index) => {
               const Inner = (
                 <div className="card-premium group flex items-start gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:p-7">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-all duration-300 group-hover:bg-accent-100 group-hover:scale-110">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/25 transition-all duration-300 group-hover:from-accent-500 group-hover:to-purple-500 group-hover:scale-110 group-hover:shadow-purple-600/40">
                     {item.icon}
                   </div>
                   <div className="min-w-0 flex-1">

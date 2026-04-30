@@ -36,9 +36,10 @@ export interface Translations {
     };
     values: {
       title: string;
-      trust: { title: string; description: string };
-      proximity: { title: string; description: string };
-      efficiency: { title: string; description: string };
+      readMore: string;
+      trust: { title: string; description: string; details: string };
+      proximity: { title: string; description: string; details: string };
+      efficiency: { title: string; description: string; details: string };
     };
     team: {
       title: string;

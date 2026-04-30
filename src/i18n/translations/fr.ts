@@ -54,17 +54,21 @@ const fr: Translations = {
     },
     values: {
       title: 'Pourquoi nous choisir',
+      readMore: 'En lire plus',
       trust: {
         title: 'Fiable',
         description: 'Nous engageons notre nom sur chaque placement. Communication directe, honoraires justes, transparence totale.',
+        details: 'La confiance se mérite, elle ne se promet pas. Chez Talentive, nous suivons chaque placement personnellement, du briefing à l’intégration. Pas de frais cachés, pas de reconductions automatiques, aucune surprise sur la facture. Vous recevez à l’avance une proposition claire avec des honoraires fixes, et nous garantissons la qualité de chaque candidat présenté. Si quelqu’un ne convient pas comme convenu ? Nous trouvons un remplaçant sans frais. Nos meilleurs clients travaillent avec nous depuis des années — pas par contrat, mais parce qu’ils savent que nous tenons parole.',
       },
       proximity: {
         title: 'Réactif',
         description: 'Un interlocuteur dédié qui répond vite et comprend vraiment votre activité.',
+        details: 'Vous n’appelez pas un centre d’appels. Vous n’obtenez pas un numéro de ticket. Vous travaillez directement avec le consultant qui connaît votre dossier, votre équipe et votre culture. Des réponses concrètes en moins de quatre heures ouvrées en journée, et pour les besoins urgents nous sommes joignables en soirée et le week-end. Nous nous déplaçons aussi : pour un briefing, une intégration d’équipe, ou simplement pour comprendre votre environnement de travail. Parce qu’un bon match commence par bien savoir qui vous êtes et comment vous fonctionnez.',
       },
       efficiency: {
         title: 'Efficace',
         description: 'Des candidats qualifiés sur votre bureau en quelques jours. Pas des piles de CV non pertinents.',
+        details: 'Notre délai moyen pour une première shortlist ? 72 heures. Pour les profils plus difficiles, nous travaillons avec un planning aligné en amont, vous n’êtes jamais laissé dans le flou. Nous vous envoyons trois à cinq profils maximum, déjà filtrés, jamais dix CV à éplucher vous-même. Chaque profil est accompagné de notre note : pourquoi nous le proposons, ses points forts, ses points d’attention, sa disponibilité. Vous décidez, nous organisons les entretiens. La rapidité sans sacrifier la qualité — c’est ce sur quoi nous travaillons chaque jour.',
       },
     },
     team: {

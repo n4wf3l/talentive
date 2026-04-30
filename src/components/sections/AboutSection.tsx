@@ -103,12 +103,12 @@ export default function AboutSection() {
                 delay={100 + index * 120}
                 className="h-full"
               >
-                <div className="about-value-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center transition-all duration-500 hover:border-accent-200 hover:shadow-xl hover:shadow-accent-500/8 hover:-translate-y-2">
+                <div className="about-value-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center transition-all duration-500 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-2">
                   {/* Hover gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-50/0 via-accent-50/0 to-accent-100/0 transition-all duration-500 group-hover:from-accent-50/60 group-hover:via-accent-50/30 group-hover:to-accent-100/40" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-50/0 via-purple-50/0 to-purple-100/0 transition-all duration-500 group-hover:from-accent-50/60 group-hover:via-purple-50/30 group-hover:to-purple-100/40" />
 
-                  {/* Icon */}
-                  <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-100 to-accent-50 text-accent-600 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-500/15 group-hover:from-accent-200 group-hover:to-accent-100">
+                  {/* Icon — solid blue → purple gradient that's actually visible */}
+                  <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/25 transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-purple-600/40 group-hover:from-accent-500 group-hover:to-purple-500">
                     {value.icon}
                   </div>
 
@@ -116,7 +116,7 @@ export default function AboutSection() {
                   <h4 className="relative mt-5 text-lg font-bold text-primary-800">{t(value.titleKey)}</h4>
 
                   {/* Accent line under title */}
-                  <div className="relative mx-auto mt-3 h-0.5 w-0 rounded-full bg-gradient-to-r from-accent-500 to-accent-300 transition-all duration-500 group-hover:w-12" />
+                  <div className="relative mx-auto mt-3 h-0.5 w-0 rounded-full bg-gradient-to-r from-accent-500 to-purple-500 transition-all duration-500 group-hover:w-12" />
 
                   {/* Description */}
                   <p className="relative mt-4 line-clamp-3 min-h-[4.125rem] text-sm text-gray-500 leading-relaxed transition-colors duration-300 group-hover:text-gray-600">

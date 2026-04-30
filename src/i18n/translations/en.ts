@@ -54,17 +54,21 @@ const en: Translations = {
     },
     values: {
       title: 'Why choose us',
+      readMore: 'Read more',
       trust: {
         title: 'Trustworthy',
         description: 'We put our name on every placement. Straightforward communication, fair fees, full transparency.',
+        details: 'Trust is earned, not promised. At Talentive, we follow every placement personally — from briefing to integration. No hidden costs, no automatic renewals, no surprises on the invoice. You get a clear proposal with fixed fees up front, and we stand behind the quality of every candidate we send. If someone doesn’t work out as agreed, we replace them at no charge. Our best clients have stayed with us for years — not because of a contract, but because they know we deliver on what we say.',
       },
       proximity: {
         title: 'Responsive',
         description: 'One dedicated contact who answers fast and actually understands your business.',
+        details: 'You don’t call a call center. You don’t get a ticket number. You work directly with the consultant who knows your file, your team and your culture. Concrete answers within four working hours during business hours, and for urgent needs we stay reachable evenings and weekends. We also come to you — for a briefing, a team integration, or just to understand your environment. Because a good match starts with truly knowing who you are and how you work.',
       },
       efficiency: {
         title: 'Effective',
         description: 'Qualified candidates on your desk within days. Not stacks of irrelevant CVs.',
+        details: 'Our average time to a first shortlist? 72 hours. For harder profiles we work with a planning aligned upfront, so you’re never left in the dark. We send you three to five screened profiles maximum — never ten CVs to wade through yourself. Every profile comes with our note: why we’re putting them forward, strengths, things to watch, availability. You decide, we organise the interviews. Speed without sacrificing quality — that’s what we work on every day.',
       },
     },
     team: {
