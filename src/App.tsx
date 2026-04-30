@@ -29,7 +29,7 @@ export default function App() {
     <LanguageProvider>
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       {showOnboarding && <OnboardingOverlay onComplete={() => setShowOnboarding(false)} />}
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  // GitHub Pages serves the site under /talentive/ (the repo name).
+  // This must match the repo name exactly (case-sensitive on GH Pages).
+  base: '/talentive/',
   build: {
     outDir: 'dist',
     sourcemap: false,
