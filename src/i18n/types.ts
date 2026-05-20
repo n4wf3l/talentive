@@ -112,6 +112,19 @@ export interface Translations {
       errorMessage: string;
     };
   };
+  findEmployee: {
+    eyebrow: string;
+    titleLead: string;
+    titleAccent: string;
+    subtitle: string;
+    whyTitle: string;
+    benefits: {
+      fast: { title: string; description: string };
+      vetted: { title: string; description: string };
+      results: { title: string; description: string };
+    };
+    trustedBy: string;
+  };
   findJob: {
     title: string;
     subtitle: string;

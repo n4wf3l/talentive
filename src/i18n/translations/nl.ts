@@ -159,6 +159,32 @@ const nl: Translations = {
       errorMessage: 'Er is een fout opgetreden. Probeer het opnieuw.',
     },
   },
+  findEmployee: {
+    eyebrow: 'Contact opnemen',
+    titleLead: 'Vertel ons wie',
+    titleAccent: 'u zoekt',
+    subtitle:
+      'Vul hieronder uw rekruteringsbriefing in. Wij reageren binnen 24 uur met geschikte kandidaten.',
+    whyTitle: 'Waarom Talentive?',
+    benefits: {
+      fast: {
+        title: 'Snelle, betrouwbare plaatsingen',
+        description:
+          'Wij leveren snel voorgescreende kandidaten, zodat uw bedrijf vooruit blijft gaan.',
+      },
+      vetted: {
+        title: 'Gescreend & gekwalificeerd talent',
+        description:
+          'Elke kandidaat wordt zorgvuldig beoordeeld op skills, ervaring en bedrijfscultuur.',
+      },
+      results: {
+        title: 'Geen gezwets. Resultaten.',
+        description:
+          'Wij focussen op wat telt — de juiste mensen vinden voor uw team.',
+      },
+    },
+    trustedBy: 'Vertrouwd door bedrijven wereldwijd.',
+  },
   findJob: {
     title: 'Vind uw volgende job',
     subtitle:

@@ -159,6 +159,32 @@ const en: Translations = {
       errorMessage: 'An error occurred. Please try again.',
     },
   },
+  findEmployee: {
+    eyebrow: 'Get in touch',
+    titleLead: 'Tell us who',
+    titleAccent: 'you\'re hiring',
+    subtitle:
+      'Fill in your hiring brief below. We\'ll respond within 24 hours with suitable candidates.',
+    whyTitle: 'Why Talentive?',
+    benefits: {
+      fast: {
+        title: 'Fast & reliable placements',
+        description:
+          'We deliver pre-vetted candidates quickly, so you can keep your business moving.',
+      },
+      vetted: {
+        title: 'Vetted & qualified talent',
+        description:
+          'Every candidate is carefully screened for skills, experience, and cultural fit.',
+      },
+      results: {
+        title: 'No fluff. Just results.',
+        description:
+          'We focus on what matters most — finding the right people for your team.',
+      },
+    },
+    trustedBy: 'Trusted by businesses worldwide.',
+  },
   findJob: {
     title: 'Find your next role',
     subtitle:

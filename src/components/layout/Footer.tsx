@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
-import logo from '../../assets/images/talentive.png';
+import logo from '../../assets/images/footer-logo.png';
 
 const socials = [
   {
