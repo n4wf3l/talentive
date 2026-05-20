@@ -116,6 +116,7 @@ const en: Translations = {
     cta: 'Send us your brief',
     ctaDescription:
       'Whether you have one urgent vacancy or a long-term hiring plan, we\'re ready to help.',
+    getInTouch: 'Get in touch',
   },
   form: {
     title: 'Tell us who you\'re hiring',

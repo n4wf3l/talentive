@@ -1,7 +1,7 @@
-import { useState, useCallback, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import AnimatedSection from '../ui/AnimatedSection';
-import ServiceModal from '../ui/ServiceModal';
 
 function PermanentIcon() {
   return (
@@ -66,19 +66,16 @@ function ServiceCard({
   title,
   description,
   image,
-  onClick,
 }: {
   icon: ReactNode;
   title: string;
   description: string;
   image: string;
-  onClick: () => void;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-2"
+    <Link
+      to="/services"
+      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl bg-white shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-2"
     >
       {/* Image */}
       <div className="relative h-56 shrink-0 overflow-hidden sm:h-64">
@@ -107,7 +104,7 @@ function ServiceCard({
           {description}
         </p>
 
-        {/* Arrow link — bottom right */}
+        {/* Arrow — goes to /services page */}
         <div className="mt-5 flex items-center justify-end">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-50 text-purple-600 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-accent-600 group-hover:to-purple-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-purple-600/30 group-hover:translate-x-1">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -117,29 +114,12 @@ function ServiceCard({
           </span>
         </div>
       </div>
-    </button>
+    </Link>
   );
 }
 
 export default function ServicesSection() {
   const { t } = useTranslation();
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
-  const closeModal = useCallback(() => setSelectedIndex(null), []);
-  const goPrev = useCallback(
-    () =>
-      setSelectedIndex((i) =>
-        i === null ? null : (i - 1 + serviceDefs.length) % serviceDefs.length,
-      ),
-    [],
-  );
-  const goNext = useCallback(
-    () =>
-      setSelectedIndex((i) => (i === null ? null : (i + 1) % serviceDefs.length)),
-    [],
-  );
-
-  const selected = selectedIndex !== null ? serviceDefs[selectedIndex] : null;
 
   return (
     <section id="services" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
@@ -174,26 +154,11 @@ export default function ServicesSection() {
                 title={t(service.titleKey)}
                 description={t(service.descKey)}
                 image={service.image}
-                onClick={() => setSelectedIndex(index)}
               />
             </AnimatedSection>
           ))}
         </div>
       </div>
-
-      {/* Modal */}
-      {selected && (
-        <ServiceModal
-          isOpen={selectedIndex !== null}
-          onClose={closeModal}
-          icon={selected.icon}
-          title={t(selected.titleKey)}
-          description={t(selected.descKey)}
-          image={selected.image}
-          onPrev={serviceDefs.length > 1 ? goPrev : undefined}
-          onNext={serviceDefs.length > 1 ? goNext : undefined}
-        />
-      )}
     </section>
   );
 }

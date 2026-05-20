@@ -116,6 +116,7 @@ const nl: Translations = {
     cta: 'Stuur uw briefing',
     ctaDescription:
       'Eén dringende vacature of een langetermijnplan : wij staan klaar om u te helpen.',
+    getInTouch: 'Contact opnemen',
   },
   form: {
     title: 'Vertel ons wie u aanwerft',

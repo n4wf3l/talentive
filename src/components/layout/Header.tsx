@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
+import { PHONE_NUMBER } from '../../constants';
 import LanguageSwitcher from './LanguageSwitcher';
 import MobileMenu from './MobileMenu';
 import logo from '../../assets/images/talentive.png';
@@ -151,8 +152,21 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Desktop right */}
-        <div className="hidden items-center gap-4 md:flex">
+        {/* Desktop right — phone pill + language switcher */}
+        <div className="hidden items-center gap-3 md:flex">
+          {/* Phone number pill (matches the reference design) */}
+          <a
+            href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-2 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:border-accent-400/60 hover:bg-white/[0.04] hover:shadow-md hover:shadow-purple-600/20"
+            aria-label={`Call ${PHONE_NUMBER}`}
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 transition-colors duration-300 group-hover:border-accent-400/60 group-hover:text-accent-400">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+            </span>
+            <span>{PHONE_NUMBER}</span>
+          </a>
           <LanguageSwitcher variant="dark" />
         </div>
 

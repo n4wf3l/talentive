@@ -75,6 +75,7 @@ export interface Translations {
     addressValue: string;
     cta: string;
     ctaDescription: string;
+    getInTouch: string;
   };
   form: {
     title: string;
