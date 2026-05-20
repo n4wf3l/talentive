@@ -205,14 +205,6 @@ const nl: Translations = {
           role: 'Recruitment Consultant',
           bio: 'Ahrar staat dagelijks in voor sourcing en screening van kandidaten. Hij voert de eerste gesprekken, stelt de shortlist samen en blijft in contact met kandidaten van intake tot onboarding. De persoon die effectief opneemt als u over een profiel belt.',
         },
-        recruiter: {
-          role: 'Senior Recruiter',
-          bio: 'Sophie focust zich op senior profielen en sleutelposities. Met jarenlange ervaring in headhunting weet ze precies hoe ze topkandidaten benadert en hen overtuigt om mee te bouwen aan het verhaal van onze klanten.',
-        },
-        clientrelations: {
-          role: 'Client Relation Manager',
-          bio: 'Michael zorgt ervoor dat elk klantcontact strak loopt. Van eerste briefing tot lange-termijnopvolging: hij bewaakt de service-kwaliteit en zorgt ervoor dat klanten zich begrepen, ondersteund en goed bediend voelen.',
-        },
       },
     },
   },

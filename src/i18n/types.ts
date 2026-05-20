@@ -124,8 +124,6 @@ export interface Translations {
         founder: { role: string; bio: string };
         partner: { role: string; bio: string };
         consultant: { role: string; bio: string };
-        recruiter: { role: string; bio: string };
-        clientrelations: { role: string; bio: string };
       };
     };
   };

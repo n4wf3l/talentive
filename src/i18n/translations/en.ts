@@ -205,14 +205,6 @@ const en: Translations = {
           role: 'Recruitment Consultant',
           bio: 'Ahrar handles candidate sourcing and screening day-to-day. He runs the first calls, builds the shortlist, and stays in touch with candidates from intake through onboarding. The person who actually picks up when you call about a profile.',
         },
-        recruiter: {
-          role: 'Senior Recruiter',
-          bio: 'Sophie focuses on senior profiles and key positions. With years of headhunting experience, she knows how to approach top candidates and convince them to join the journey of our clients.',
-        },
-        clientrelations: {
-          role: 'Client Relation Manager',
-          bio: 'Michael keeps every client relationship running smoothly. From the first briefing through long-term follow-up, he safeguards service quality and makes sure clients feel heard, supported and well served.',
-        },
       },
     },
   },

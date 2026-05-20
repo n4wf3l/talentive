@@ -205,14 +205,6 @@ const fr: Translations = {
           role: 'Consultant en Recrutement',
           bio: 'Ahrar gère le sourcing et la pré-sélection des candidats au quotidien. Il mène les premiers entretiens, construit la shortlist et reste en contact avec les candidats de l\'intake jusqu\'à l\'onboarding. C\'est la personne qui décroche quand vous appelez à propos d\'un profil.',
         },
-        recruiter: {
-          role: 'Senior Recruiter',
-          bio: 'Sophie se concentre sur les profils seniors et les postes-clés. Forte de plusieurs années en chasse de tête, elle sait approcher les meilleurs candidats et les convaincre de rejoindre le projet de nos clients.',
-        },
-        clientrelations: {
-          role: 'Client Relation Manager',
-          bio: 'Michael veille à la fluidité de chaque relation client. Du premier brief au suivi long terme, il garantit la qualité de service et s\'assure que chaque client se sente écouté, accompagné et bien servi.',
-        },
       },
     },
   },

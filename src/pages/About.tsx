@@ -139,7 +139,7 @@ function EmailIconSmall() {
 /* ─── Data ─── */
 
 interface TeamMember {
-  key: 'founder' | 'partner' | 'consultant' | 'recruiter' | 'clientrelations';
+  key: 'founder' | 'partner' | 'consultant';
   name: string;
   image: string;
   phone: string;
@@ -175,24 +175,6 @@ const teamMembers: TeamMember[] = [
     whatsapp: '+32 472 17 30 90',
     email: 'Ahrar@talentivegroup.be',
     languages: ['English', 'Dutch'],
-  },
-  {
-    key: 'recruiter',
-    name: 'Sophie Janssens',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&auto=format&fit=crop',
-    phone: '+32 468 25 19 88',
-    whatsapp: '+32 468 25 19 88',
-    email: 'sophie.janssens@talentivegroup.be',
-    languages: ['English', 'Dutch', 'French'],
-  },
-  {
-    key: 'clientrelations',
-    name: 'Michael Mensah',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop',
-    phone: '+32 470 65 43 21',
-    whatsapp: '+32 470 65 43 21',
-    email: 'michael.mensah@talentivegroup.be',
-    languages: ['English', 'French', 'Dutch'],
   },
 ];
 
@@ -468,8 +450,8 @@ export default function About() {
             </div>
           </AnimatedSection>
 
-          {/* 5 team cards */}
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {/* Team cards */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {teamMembers.map((member, index) => (
               <AnimatedSection
                 key={member.key}
