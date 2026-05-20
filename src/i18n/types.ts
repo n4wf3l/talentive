@@ -11,8 +11,14 @@ export interface Translations {
     ctaEmployee: string;
     ctaJob: string;
     scrollDown: string;
+    badges: {
+      reach: string;
+      vetted: string;
+      security: string;
+    };
   };
   services: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     permanent: { title: string; description: string };
@@ -20,10 +26,17 @@ export interface Translations {
     payroll: { title: string; description: string };
   };
   about: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     description: string;
     mission: string;
+    benefits: {
+      expertise: string;
+      placements: string;
+      tailored: string;
+      results: string;
+    };
     stats: {
       years: string;
       yearsLabel: string;

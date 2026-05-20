@@ -14,8 +14,14 @@ const en: Translations = {
     ctaEmployee: 'I\'m hiring',
     ctaJob: 'Find a job',
     scrollDown: 'Our services',
+    badges: {
+      reach: 'Global reach',
+      vetted: 'Vetted talent',
+      security: 'Data secured',
+    },
   },
   services: {
+    eyebrow: 'Our services',
     title: 'What we deliver',
     subtitle:
       'Three staffing solutions, one reliable partner. No fluff, just the right people at the right time.',
@@ -36,6 +42,13 @@ const en: Translations = {
     },
   },
   about: {
+    eyebrow: 'About us',
+    benefits: {
+      expertise: 'Deep industry expertise',
+      placements: 'Fast & reliable placements',
+      tailored: 'Tailored hiring approach',
+      results: 'Real people. Real results.',
+    },
     title: 'Why Talentive',
     subtitle: 'The recruitment partner you can actually trust.',
     description:

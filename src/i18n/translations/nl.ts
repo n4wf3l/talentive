@@ -14,8 +14,14 @@ const nl: Translations = {
     ctaEmployee: 'Ik werf aan',
     ctaJob: 'Zoek een werk',
     scrollDown: 'Onze diensten',
+    badges: {
+      reach: 'Wereldwijd bereik',
+      vetted: 'Gescreend talent',
+      security: 'Veilige data',
+    },
   },
   services: {
+    eyebrow: 'Onze diensten',
     title: 'Wat wij leveren',
     subtitle:
       'Drie staffingoplossingen, één betrouwbare partner. Geen gezwets, gewoon de juiste mensen op het juiste moment.',
@@ -36,10 +42,17 @@ const nl: Translations = {
     },
   },
   about: {
+    eyebrow: 'Over ons',
     title: 'Waarom Talentive',
     subtitle: 'De aanwervingspartner die u écht kunt vertrouwen.',
     description:
       'Talentive is een internationaal rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen, of het nu vast, contractueel of payroll is, helder en snel.',
+    benefits: {
+      expertise: 'Diepgaande sectorexpertise',
+      placements: 'Snelle, betrouwbare plaatsingen',
+      tailored: 'Aanpak op maat',
+      results: 'Echte mensen. Echte resultaten.',
+    },
     mission:
       'Wij nemen de tijd om uw functie te begrijpen, shortlisten enkel relevante kandidaten en blijven verantwoordelijk tot de plaatsing. Geen templates, geen druk, geen verrassingen.',
     stats: {

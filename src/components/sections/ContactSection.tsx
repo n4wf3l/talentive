@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
 import AnimatedSection from '../ui/AnimatedSection';
-import antwerpTower from '../../assets/images/antwerp-tower.png';
+import Button from '../ui/Button';
+import HiringModal from '../ui/HiringModal';
 
 function PhoneIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   );
@@ -13,7 +15,7 @@ function PhoneIcon() {
 
 function EmailIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
     </svg>
@@ -22,7 +24,7 @@ function EmailIcon() {
 
 function LocationIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
@@ -30,118 +32,140 @@ function LocationIcon() {
 }
 
 export default function ContactSection() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const [isHiringOpen, setIsHiringOpen] = useState(false);
 
-  const contactItems = [
-    {
-      icon: <PhoneIcon />,
-      label: t('contact.phone'),
-      value: PHONE_NUMBER,
-      subtitle: undefined as string | undefined,
-      href: `tel:${PHONE_NUMBER.replace(/\s/g, '')}`,
-    },
-    {
-      icon: <EmailIcon />,
-      label: t('contact.email'),
-      value: INFO_EMAIL,
-      subtitle: undefined as string | undefined,
-      href: `mailto:${INFO_EMAIL}`,
-    },
-    {
-      icon: <LocationIcon />,
-      label: t('contact.address'),
-      value: t('contact.addressVenue'),
-      subtitle: t('contact.addressValue'),
-      href: 'https://maps.google.com/?q=Frankrijklei+5+Antwerpen',
-    },
-  ];
+  const eyebrowText =
+    language === 'fr' ? 'Contact' : language === 'nl' ? 'Contact' : 'Contact';
 
   return (
-    <section id="contact" className="relative bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl text-center">
-          <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
-            {t('contact.title')}
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            {t('contact.subtitle')}
-          </p>
-        </AnimatedSection>
+    <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-primary-950 via-primary-900 to-primary-950 py-24 sm:py-28">
+      {/* Decorative dots pattern (right side) */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/3 opacity-[0.06]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, white 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Image left + Cards right */}
-        <div className="mt-16 grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12">
-          {/* Antwerp Tower image */}
-          <AnimatedSection animation="slide-right">
-            <div className="relative h-full min-h-[420px] overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/15">
-              <img
-                src={antwerpTower}
-                alt="Antwerp Tower"
-                className="h-full w-full object-cover"
-              />
-              {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-primary-950/10 to-transparent" />
-              {/* Location badge */}
-              <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-md shadow-purple-600/25">
-                  <LocationIcon />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
-                    {t('contact.address')}
-                  </p>
-                  <p className="text-sm font-bold text-primary-800">
-                    {t('contact.addressVenue')}
-                  </p>
-                </div>
+      {/* Decorative purple glow */}
+      <div className="pointer-events-none absolute -right-24 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-purple-600/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-32 top-1/3 h-[300px] w-[300px] rounded-full bg-accent-600/10 blur-3xl" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          {/* ── Left: title + subtitle ── */}
+          <AnimatedSection animation="fade-up">
+            <div className="flex items-center gap-3">
+              <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-accent-400 to-purple-400" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
+                {eyebrowText}
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              {t('contact.title')}
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/50 sm:text-lg">
+              {t('contact.subtitle')}
+            </p>
+          </AnimatedSection>
+
+          {/* ── Right: structured contact info + CTA ── */}
+          <AnimatedSection animation="fade-up" delay={150}>
+            <div className="lg:pl-8">
+              {/* Contact items */}
+              <ul className="space-y-4">
+                {/* Address */}
+                <li>
+                  <a
+                    href="https://maps.google.com/?q=Frankrijklei+5+Antwerpen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-4 rounded-xl p-2 -ml-2 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <span className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-500/15 to-purple-500/15 text-accent-300 ring-1 ring-white/10 transition-all duration-300 group-hover:from-accent-500/30 group-hover:to-purple-500/30 group-hover:text-accent-200">
+                      <LocationIcon />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold text-white">
+                        {t('contact.addressVenue')}
+                      </p>
+                      <p className="mt-0.5 text-sm text-white/45">
+                        {t('contact.addressValue')}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Phone */}
+                <li>
+                  <a
+                    href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
+                    className="group flex items-start gap-4 rounded-xl p-2 -ml-2 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <span className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-500/15 to-purple-500/15 text-accent-300 ring-1 ring-white/10 transition-all duration-300 group-hover:from-accent-500/30 group-hover:to-purple-500/30 group-hover:text-accent-200">
+                      <PhoneIcon />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold text-white">{PHONE_NUMBER}</p>
+                      <p className="mt-0.5 text-sm text-white/45">
+                        {language === 'fr'
+                          ? 'Lun - Ven, 9h - 18h'
+                          : language === 'nl'
+                            ? 'Ma - Vr, 9u - 18u'
+                            : 'Mon - Fri, 9am - 6pm'}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+
+                {/* Email */}
+                <li>
+                  <a
+                    href={`mailto:${INFO_EMAIL}`}
+                    className="group flex items-start gap-4 rounded-xl p-2 -ml-2 transition-colors hover:bg-white/[0.04]"
+                  >
+                    <span className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-500/15 to-purple-500/15 text-accent-300 ring-1 ring-white/10 transition-all duration-300 group-hover:from-accent-500/30 group-hover:to-purple-500/30 group-hover:text-accent-200">
+                      <EmailIcon />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="break-all text-sm font-bold text-white">{INFO_EMAIL}</p>
+                      <p className="mt-0.5 text-sm text-white/45">
+                        {language === 'fr'
+                          ? 'Réponse sous 24h'
+                          : language === 'nl'
+                            ? 'Antwoord binnen 24u'
+                            : 'Reply within 24h'}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              {/* CTA button */}
+              <div className="mt-8 flex">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => setIsHiringOpen(true)}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  {t('hero.ctaEmployee')}
+                </Button>
               </div>
             </div>
           </AnimatedSection>
-
-          {/* Contact cards stacked */}
-          <div className="flex flex-col gap-5 lg:justify-center">
-            {contactItems.map((item, index) => {
-              const Inner = (
-                <div className="card-premium group flex items-start gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:p-7">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/25 transition-all duration-300 group-hover:from-accent-500 group-hover:to-purple-500 group-hover:scale-110 group-hover:shadow-purple-600/40">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
-                      {item.label}
-                    </h3>
-                    <p className="mt-1.5 text-lg font-semibold text-primary-800 transition-colors group-hover:text-accent-600 break-words">
-                      {item.value}
-                    </p>
-                    {item.subtitle && (
-                      <p className="mt-1 text-sm text-gray-500">{item.subtitle}</p>
-                    )}
-                  </div>
-                </div>
-              );
-
-              return (
-                <AnimatedSection key={item.label} animation="fade-up" delay={index * 120}>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith('http') ? '_blank' : undefined}
-                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="block"
-                    >
-                      {Inner}
-                    </a>
-                  ) : (
-                    Inner
-                  )}
-                </AnimatedSection>
-              );
-            })}
-          </div>
         </div>
-
       </div>
+
+      <HiringModal isOpen={isHiringOpen} onClose={() => setIsHiringOpen(false)} />
     </section>
   );
 }

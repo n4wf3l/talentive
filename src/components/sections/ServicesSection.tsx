@@ -78,26 +78,44 @@ function ServiceCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-800/10 hover:-translate-y-2"
+      className="group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-3xl bg-white text-left shadow-lg shadow-gray-200/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/15 hover:-translate-y-2"
     >
-      <div className="relative h-64 shrink-0 overflow-hidden sm:h-72 lg:h-80">
+      {/* Image */}
+      <div className="relative h-56 shrink-0 overflow-hidden sm:h-64">
         <img
           src={image}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-        <div className="absolute bottom-4 left-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+      </div>
+
+      {/* Icon badge — overlapping image and content border */}
+      <div className="relative -mt-7 px-7">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-600 via-accent-600 to-purple-600 text-white shadow-lg shadow-purple-600/30 ring-4 ring-white transition-transform duration-300 group-hover:scale-110">
           {icon}
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-7">
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col px-7 pt-4 pb-7">
         <h3 className="text-xl font-bold text-primary-800 transition-colors duration-300 group-hover:text-accent-600">
           {title}
         </h3>
-        <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-[15px] leading-relaxed text-gray-500">{description}</p>
-        <div className="mt-auto h-0.5 w-8 rounded-full bg-gradient-to-r from-accent-500 to-purple-500 transition-all duration-500 group-hover:w-16" />
+        <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-[15px] leading-relaxed text-gray-500">
+          {description}
+        </p>
+
+        {/* Arrow link — bottom right */}
+        <div className="mt-5 flex items-center justify-end">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-50 text-purple-600 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-accent-600 group-hover:to-purple-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-purple-600/30 group-hover:translate-x-1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+        </div>
       </div>
     </button>
   );
@@ -126,9 +144,15 @@ export default function ServicesSection() {
   return (
     <section id="services" className="relative bg-gray-50 py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
-        <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl text-center">
-          <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
+        <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3">
+            <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-accent-500 to-purple-500" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-purple-600">
+              {t('services.eyebrow')}
+            </span>
+          </div>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl">
             {t('services.title')}
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-gray-600">

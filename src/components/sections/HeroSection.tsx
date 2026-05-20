@@ -104,6 +104,47 @@ export default function HeroSection() {
               <span className="truncate min-w-0">{t('hero.ctaJob')}</span>
             </Button>
           </div>
+
+          {/* Trust badges */}
+          <div className="hero-cta-animate mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:mt-10 sm:gap-x-10 [@media(max-height:500px)]:mt-4">
+            {/* Global reach */}
+            <div className="flex items-center gap-2 text-white/55">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 backdrop-blur-sm">
+                <svg className="h-4 w-4 text-accent-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </span>
+              <span className="text-xs font-semibold tracking-wide sm:text-sm">
+                {t('hero.badges.reach')}
+              </span>
+            </div>
+            {/* Vetted talent */}
+            <div className="flex items-center gap-2 text-white/55">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 backdrop-blur-sm">
+                <svg className="h-4 w-4 text-accent-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </span>
+              <span className="text-xs font-semibold tracking-wide sm:text-sm">
+                {t('hero.badges.vetted')}
+              </span>
+            </div>
+            {/* Data security */}
+            <div className="flex items-center gap-2 text-white/55">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 backdrop-blur-sm">
+                <svg className="h-4 w-4 text-accent-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </span>
+              <span className="text-xs font-semibold tracking-wide sm:text-sm">
+                {t('hero.badges.security')}
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* ── Scroll down indicator (desktop only) ── */}

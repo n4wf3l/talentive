@@ -14,8 +14,14 @@ const fr: Translations = {
     ctaEmployee: 'Je recrute',
     ctaJob: 'Chercher un emploi',
     scrollDown: 'Nos services',
+    badges: {
+      reach: 'Couverture mondiale',
+      vetted: 'Talents vérifiés',
+      security: 'Données sécurisées',
+    },
   },
   services: {
+    eyebrow: 'Nos services',
     title: 'Nos solutions',
     subtitle:
       'Trois solutions de staffing, un seul partenaire fiable. Sans blabla, juste les bonnes personnes au bon moment.',
@@ -36,6 +42,13 @@ const fr: Translations = {
     },
   },
   about: {
+    eyebrow: 'À propos',
+    benefits: {
+      expertise: 'Expertise sectorielle approfondie',
+      placements: 'Placements rapides et fiables',
+      tailored: 'Approche sur mesure',
+      results: 'De vraies personnes. De vrais résultats.',
+    },
     title: 'Pourquoi Talentive',
     subtitle: 'Le partenaire de recrutement à qui vous pouvez vraiment faire confiance.',
     description:
