@@ -21,9 +21,39 @@ export interface Translations {
     eyebrow: string;
     title: string;
     subtitle: string;
-    permanent: { title: string; description: string };
-    contract: { title: string; description: string };
-    payroll: { title: string; description: string };
+    heroEyebrow: string;
+    heroTitleLead: string;
+    heroTitleAccent: string;
+    heroSubtitle: string;
+    deliverEyebrow: string;
+    deliverTitle: string;
+    deliverSubtitle: string;
+    learnMore: string;
+    processEyebrow: string;
+    processTitle: string;
+    processSubtitle: string;
+    permanent: {
+      title: string;
+      description: string;
+      bullets: [string, string, string, string];
+    };
+    contract: {
+      title: string;
+      description: string;
+      bullets: [string, string, string, string];
+    };
+    payroll: {
+      title: string;
+      description: string;
+      bullets: [string, string, string, string];
+    };
+    process: {
+      step1: { title: string; description: string };
+      step2: { title: string; description: string };
+      step3: { title: string; description: string };
+      step4: { title: string; description: string };
+      step5: { title: string; description: string };
+    };
   };
   about: {
     eyebrow: string;
@@ -81,6 +111,11 @@ export interface Translations {
     title: string;
     subtitle: string;
     viewFullPage: string;
+    steps: {
+      yourDetails: string;
+      roleDetails: string;
+      additionalInfo: string;
+    };
     firstName: string;
     lastName: string;
     phone: string;

@@ -139,11 +139,80 @@ export default function JobSeekerForm() {
     );
   }
 
+  /* ─── Step progression ─── */
+  // Step 1 (Your details): firstName, lastName, phone, email
+  // Step 2 (Role details): city, jobType, availability
+  // Step 3 (Additional info): message
+  const step1Filled =
+    formData.firstName.trim() !== '' &&
+    formData.lastName.trim() !== '' &&
+    formData.phone.trim() !== '' &&
+    formData.email.trim() !== '';
+  const step2Filled =
+    formData.city.trim() !== '' && formData.jobType.trim() !== '';
+  const step3Filled = formData.message.trim() !== '';
+
+  // Current active step: the first one not yet complete
+  const currentStep = !step1Filled ? 1 : !step2Filled ? 2 : 3;
+
+  const steps = [
+    { id: 1, label: t('form.steps.yourDetails'), done: step1Filled },
+    { id: 2, label: t('form.steps.roleDetails'), done: step1Filled && step2Filled },
+    { id: 3, label: t('form.steps.additionalInfo'), done: step1Filled && step2Filled && step3Filled },
+  ];
+
   return (
     <>
       {toast && (
         <Toast message={toast.message} type={toast.type} onClose={dismissToast} />
       )}
+
+      {/* ─── 3-step indicator ─── */}
+      <ol className="mb-6 flex items-center gap-1 sm:mb-8 sm:gap-3" aria-label="Form progress">
+        {steps.map((step, index) => {
+          const isActive = currentStep === step.id;
+          const isDone = step.done;
+          return (
+            <li key={step.id} className="flex flex-1 items-center gap-2 sm:gap-3">
+              {/* Step number badge */}
+              <span
+                className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold transition-all duration-300 sm:h-8 sm:w-8 sm:text-sm ${
+                  isDone
+                    ? 'bg-gradient-to-br from-accent-600 to-purple-600 text-white shadow-md shadow-purple-600/25 ring-2 ring-purple-100'
+                    : isActive
+                      ? 'bg-gradient-to-br from-accent-600 to-purple-600 text-white shadow-md shadow-purple-600/25 ring-2 ring-purple-100'
+                      : 'border border-gray-300 bg-white text-gray-400'
+                }`}
+              >
+                {isDone ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                ) : (
+                  step.id
+                )}
+              </span>
+              {/* Label */}
+              <span
+                className={`hidden text-xs font-semibold tracking-wide sm:inline sm:text-[13px] ${
+                  isActive || isDone ? 'text-primary-800' : 'text-gray-400'
+                }`}
+              >
+                {step.label}
+              </span>
+              {/* Connector line */}
+              {index < steps.length - 1 && (
+                <span
+                  className={`h-px flex-1 transition-colors duration-300 ${
+                    step.done ? 'bg-gradient-to-r from-purple-300 to-purple-200' : 'bg-gray-200'
+                  }`}
+                />
+              )}
+            </li>
+          );
+        })}
+      </ol>
+
       <form onSubmit={handleSubmit} noValidate className="space-y-3">
         {/* Name row */}
         <div className="grid gap-3 sm:grid-cols-2">

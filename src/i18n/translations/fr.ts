@@ -22,6 +22,42 @@ const fr: Translations = {
   },
   services: {
     eyebrow: 'Nos services',
+    heroEyebrow: 'Nos services',
+    heroTitleLead: 'Solutions de staffing',
+    heroTitleAccent: 'pensées pour vos besoins.',
+    heroSubtitle:
+      'Talent permanent, experts flexibles ou solution payroll complète : nous livrons exactement ce dont votre entreprise a besoin pour croître.',
+    deliverEyebrow: 'Ce que nous livrons',
+    deliverTitle: 'Ce que nous livrons',
+    deliverSubtitle:
+      'Trois solutions de staffing essentielles. Un partenaire fiable. Pas de bla-bla, juste les bonnes personnes au bon moment.',
+    learnMore: 'En savoir plus',
+    processEyebrow: 'Notre processus',
+    processTitle: 'Notre processus',
+    processSubtitle:
+      'Un processus simple et éprouvé pour vous amener plus vite au bon talent.',
+    process: {
+      step1: {
+        title: 'Comprendre',
+        description: 'Nous écoutons vos objectifs, votre équipe et vos besoins de recrutement.',
+      },
+      step2: {
+        title: 'Trouver',
+        description: 'Nous sourçons et présélectionnons les meilleurs candidats.',
+      },
+      step3: {
+        title: 'Évaluer',
+        description: 'Vous interviewez. Nous vous aidons à faire le bon choix.',
+      },
+      step4: {
+        title: 'Onboarder',
+        description: 'Nous gérons l\'intégration, les contrats et les documents.',
+      },
+      step5: {
+        title: 'Accompagner',
+        description: 'Nous restons à vos côtés pour le succès à long terme.',
+      },
+    },
     title: 'Nos solutions',
     subtitle:
       'Trois solutions de staffing, un seul partenaire fiable. Sans blabla, juste les bonnes personnes au bon moment.',
@@ -29,16 +65,34 @@ const fr: Translations = {
       title: 'Personnel Permanent',
       description:
         'Nous trouvons et intégrons les talents durables dont votre entreprise a besoin. Vous n\'avez plus qu\'à signer l\'offre finale.',
+      bullets: [
+        'Accès aux meilleurs profils permanents',
+        'Screening & évaluation rigoureux',
+        'Onboarding fluide',
+        'Rétention long terme',
+      ],
     },
     contract: {
       title: 'Personnel Contractuel',
       description:
         'Des professionnels flexibles, déployés rapidement. Renforcez ou réduisez votre équipe sans l\'engagement d\'un CDI.',
+      bullets: [
+        'Experts contractuels hautement qualifiés',
+        'Délai de mise en poste rapide',
+        'Modèles d\'engagement flexibles',
+        'Vous payez uniquement ce dont vous avez besoin',
+      ],
     },
     payroll: {
       title: 'Payroll / EOR',
       description:
         'Vous choisissez le talent, nous l\'employons. Contrats, paie et conformité, tout est géré de notre côté, en toute légalité.',
+      bullets: [
+        'Gestion complète de la paie',
+        'Conformité & couverture juridique',
+        'Emploi à l\'international (EOR)',
+        'Sans risque & 100% conforme',
+      ],
     },
   },
   about: {
@@ -123,6 +177,11 @@ const fr: Translations = {
     subtitle:
       'Remplissez votre brief de recrutement ci-dessous. Nous vous répondons dans les 24 heures avec des candidats adaptés.',
     viewFullPage: 'Ouvrir la page complète',
+    steps: {
+      yourDetails: 'Vos coordonnées',
+      roleDetails: 'Détails du poste',
+      additionalInfo: 'Infos complémentaires',
+    },
     firstName: 'Prénom',
     lastName: 'Nom',
     phone: 'Téléphone',

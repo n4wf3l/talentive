@@ -22,6 +22,42 @@ const en: Translations = {
   },
   services: {
     eyebrow: 'Our services',
+    heroEyebrow: 'Our services',
+    heroTitleLead: 'Staffing solutions',
+    heroTitleAccent: 'built around your needs.',
+    heroSubtitle:
+      'Whether you need long-term talent, flexible experts, or full-service payroll support — we deliver exactly what your business needs to grow.',
+    deliverEyebrow: 'What we deliver',
+    deliverTitle: 'What we deliver',
+    deliverSubtitle:
+      'Three core staffing solutions. One reliable partner. No fluff, just the right people at the right time.',
+    learnMore: 'Learn more',
+    processEyebrow: 'Our process',
+    processTitle: 'Our process',
+    processSubtitle:
+      'A simple, proven process that gets you the right talent, faster.',
+    process: {
+      step1: {
+        title: 'Understand',
+        description: 'We learn about your goals, team and hiring needs.',
+      },
+      step2: {
+        title: 'Find',
+        description: 'We source and screen the best candidates.',
+      },
+      step3: {
+        title: 'Evaluate',
+        description: 'You interview. We help you make the right choice.',
+      },
+      step4: {
+        title: 'Onboard',
+        description: 'We handle onboarding, contracts and docs.',
+      },
+      step5: {
+        title: 'Support',
+        description: 'We stay with you for long-term success and support.',
+      },
+    },
     title: 'What we deliver',
     subtitle:
       'Three staffing solutions, one reliable partner. No fluff, just the right people at the right time.',
@@ -29,16 +65,34 @@ const en: Translations = {
       title: 'Permanent Staffing',
       description:
         'We find and onboard the long-term talent your business needs. You just sign the final offer.',
+      bullets: [
+        'Access to top-tier permanent talent',
+        'Rigorous screening & assessment',
+        'Smooth onboarding',
+        'Long-term retention focus',
+      ],
     },
     contract: {
       title: 'Contract Staffing',
       description:
         'Flexible professionals, deployed fast. Scale your team up or down without the overhead of a permanent hire.',
+      bullets: [
+        'Highly skilled contract experts',
+        'Quick turnaround',
+        'Flexible engagement models',
+        'Pay only for what you need',
+      ],
     },
     payroll: {
       title: 'Payroll / EOR',
       description:
         'You pick the talent, we employ them. Contracts, payroll and compliance, all managed on our side, fully legal.',
+      bullets: [
+        'Full payroll management',
+        'Compliance & legal coverage',
+        'Global employment (EOR)',
+        'Risk-free & fully compliant',
+      ],
     },
   },
   about: {
@@ -123,6 +177,11 @@ const en: Translations = {
     subtitle:
       'Fill in your hiring brief below. We\'ll respond within 24 hours with suitable candidates.',
     viewFullPage: 'Open full page',
+    steps: {
+      yourDetails: 'Your details',
+      roleDetails: 'Role details',
+      additionalInfo: 'Additional info',
+    },
     firstName: 'First Name',
     lastName: 'Last Name',
     phone: 'Phone',

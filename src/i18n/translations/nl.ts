@@ -25,20 +25,74 @@ const nl: Translations = {
     title: 'Wat wij leveren',
     subtitle:
       'Drie staffingoplossingen, één betrouwbare partner. Geen gezwets, gewoon de juiste mensen op het juiste moment.',
+    heroEyebrow: 'Onze diensten',
+    heroTitleLead: 'Staffingoplossingen',
+    heroTitleAccent: 'op maat van uw behoeften.',
+    heroSubtitle:
+      'Of u nu langetermijntalent, flexibele experts of volledige payroll-ondersteuning nodig heeft, wij leveren precies wat uw bedrijf nodig heeft om te groeien.',
+    deliverEyebrow: 'Wat wij leveren',
+    deliverTitle: 'Wat wij leveren',
+    deliverSubtitle:
+      'Drie kernoplossingen voor staffing. Eén betrouwbare partner. Geen gezwets, gewoon de juiste mensen op het juiste moment.',
+    learnMore: 'Meer info',
+    processEyebrow: 'Ons proces',
+    processTitle: 'Ons proces',
+    processSubtitle:
+      'Een eenvoudig, beproefd proces dat u sneller bij het juiste talent brengt.',
     permanent: {
       title: 'Vast Personeel',
       description:
         'Wij vinden en onboarden het langetermijntalent dat uw bedrijf nodig heeft. U tekent enkel het uiteindelijke aanbod.',
+      bullets: [
+        'Toegang tot top-vasttalent',
+        'Grondige screening & beoordeling',
+        'Vlotte onboarding',
+        'Focus op langetermijnretentie',
+      ],
     },
     contract: {
       title: 'Contractueel Personeel',
       description:
         'Flexibele professionals, snel inzetbaar. Schaal uw team op of neer zonder de verplichting van een vast contract.',
+      bullets: [
+        'Hooggekwalificeerde contract-experts',
+        'Snelle doorlooptijd',
+        'Flexibele engagement-modellen',
+        'Betaal enkel voor wat u nodig heeft',
+      ],
     },
     payroll: {
       title: 'Payroll / EOR',
       description:
         'U kiest het talent, wij zijn de werkgever. Contracten, loonadministratie en compliance, wij regelen alles, volledig in orde.',
+      bullets: [
+        'Volledig loonbeheer',
+        'Compliance & juridische dekking',
+        'Wereldwijde tewerkstelling (EOR)',
+        'Risicovrij & volledig conform',
+      ],
+    },
+    process: {
+      step1: {
+        title: 'Begrijpen',
+        description: 'Wij luisteren naar uw doelen, team en aanwervingsbehoeften.',
+      },
+      step2: {
+        title: 'Vinden',
+        description: 'Wij sourcen en screenen de beste kandidaten voor u.',
+      },
+      step3: {
+        title: 'Evalueren',
+        description: 'U interviewt. Wij helpen u de juiste keuze maken.',
+      },
+      step4: {
+        title: 'Onboarden',
+        description: 'Wij regelen onboarding, contracten en documenten.',
+      },
+      step5: {
+        title: 'Ondersteunen',
+        description: 'Wij blijven aan uw zijde voor langetermijn succes.',
+      },
     },
   },
   about: {
@@ -123,6 +177,11 @@ const nl: Translations = {
     subtitle:
       'Vul hieronder uw aanwervingsbriefing in. Wij reageren binnen 24 uur met geschikte kandidaten.',
     viewFullPage: 'Volledige pagina openen',
+    steps: {
+      yourDetails: 'Uw gegevens',
+      roleDetails: 'Rolgegevens',
+      additionalInfo: 'Extra info',
+    },
     firstName: 'Voornaam',
     lastName: 'Achternaam',
     phone: 'Telefoon',
