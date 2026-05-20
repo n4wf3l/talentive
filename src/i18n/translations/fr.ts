@@ -97,6 +97,49 @@ const fr: Translations = {
   },
   about: {
     eyebrow: 'À propos',
+    heroEyebrow: 'À propos de Talentive',
+    heroTitleLead: 'Les personnes derrière',
+    heroTitleAccent: 'un meilleur recrutement.',
+    heroSubtitle:
+      'Nous sommes un partenaire de recrutement qui place l\'humain en premier. Des vraies personnes, une communication claire et des résultats sur lesquels vous pouvez compter.',
+    whyEyebrow: 'Pourquoi Talentive',
+    whyTitle: 'Pourquoi Talentive',
+    whySubtitle: 'Le partenaire de recrutement à qui vous pouvez vraiment faire confiance.',
+    learnMoreCta: 'En savoir plus sur nous',
+    chooseUs: {
+      title: 'Pourquoi nous choisir',
+      cards: {
+        trustworthy: {
+          title: 'Fiable',
+          description:
+            'Nous engageons notre nom sur chaque placement. Communication directe, honoraires justes, transparence totale.',
+        },
+        responsive: {
+          title: 'Réactif',
+          description:
+            'Un interlocuteur dédié qui répond vite et comprend vraiment votre activité.',
+        },
+        quality: {
+          title: 'La qualité avant la quantité',
+          description:
+            'Nous ne shortlistons que les candidats les plus pertinents pour que vous recrutiez en confiance.',
+        },
+        longterm: {
+          title: 'Partenaire long terme',
+          description:
+            'Nous nous soucions de vos objectifs business, pas seulement du poste à pourvoir aujourd\'hui.',
+        },
+      },
+    },
+    bottom: {
+      title: 'Une équipe à vos côtés, à chaque étape.',
+      features: {
+        global: 'Réseau de talents mondial',
+        industry: 'Spécialistes secteur',
+        communication: 'Communication rapide et fiable',
+        clientFocused: 'Approche centrée client',
+      },
+    },
     benefits: {
       expertise: 'Expertise sectorielle approfondie',
       placements: 'Placements rapides et fiables',
@@ -139,9 +182,16 @@ const fr: Translations = {
       },
     },
     team: {
+      eyebrow: 'L\'équipe',
+      titleLead: 'Les personnes derrière',
+      titleAccent: 'un meilleur recrutement.',
       title: 'L\'équipe',
-      subtitle: 'Les visages derrière Talentive : des recruteurs qui décrochent vraiment le téléphone.',
+      subtitle:
+        'Notre équipe d\'experts en recrutement est là pour comprendre vos besoins, trouver les bons talents et accompagner votre croissance.',
       readMore: 'En savoir plus',
+      viewAll: 'Voir tous les membres',
+      available: 'Disponible',
+      languages: 'Langues',
       members: {
         founder: {
           role: 'Managing Director',
@@ -149,11 +199,19 @@ const fr: Translations = {
         },
         partner: {
           role: 'Business Development Manager',
-          bio: 'Fatima Zzahra pilote le développement commercial chez Talentive : ouvrir de nouvelles relations clients, cartographier leurs besoins de recrutement, et s\'assurer que chaque brief est prêt à réussir avant que le recrutement ne démarre. Elle couvre la logistique, l\'industrie et la tech, et est régulièrement sur le terrain.',
+          bio: 'Fatim Zahra pilote le développement commercial chez Talentive : ouvrir de nouvelles relations clients, cartographier leurs besoins de recrutement, et s\'assurer que chaque brief est prêt à réussir avant que le recrutement ne démarre. Elle couvre la logistique, l\'industrie et la tech, et est régulièrement sur le terrain.',
         },
         consultant: {
           role: 'Consultant en Recrutement',
           bio: 'Ahrar gère le sourcing et la pré-sélection des candidats au quotidien. Il mène les premiers entretiens, construit la shortlist et reste en contact avec les candidats de l\'intake jusqu\'à l\'onboarding. C\'est la personne qui décroche quand vous appelez à propos d\'un profil.',
+        },
+        recruiter: {
+          role: 'Senior Recruiter',
+          bio: 'Sophie se concentre sur les profils seniors et les postes-clés. Forte de plusieurs années en chasse de tête, elle sait approcher les meilleurs candidats et les convaincre de rejoindre le projet de nos clients.',
+        },
+        clientrelations: {
+          role: 'Client Relation Manager',
+          bio: 'Michael veille à la fluidité de chaque relation client. Du premier brief au suivi long terme, il garantit la qualité de service et s\'assure que chaque client se sente écouté, accompagné et bien servi.',
         },
       },
     },

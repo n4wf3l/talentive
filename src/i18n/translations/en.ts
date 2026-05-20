@@ -97,6 +97,49 @@ const en: Translations = {
   },
   about: {
     eyebrow: 'About us',
+    heroEyebrow: 'About Talentive',
+    heroTitleLead: 'The people behind',
+    heroTitleAccent: 'better hiring.',
+    heroSubtitle:
+      'We\'re a recruitment partner that puts people first. Real people, clear communication, and results you can count on.',
+    whyEyebrow: 'Why Talentive',
+    whyTitle: 'Why Talentive',
+    whySubtitle: 'The recruitment partner you can actually trust.',
+    learnMoreCta: 'Learn more about us',
+    chooseUs: {
+      title: 'Why choose us',
+      cards: {
+        trustworthy: {
+          title: 'Trustworthy',
+          description:
+            'We put our name on every placement. Straightforward communication, fair fees, full transparency.',
+        },
+        responsive: {
+          title: 'Responsive',
+          description:
+            'One dedicated contact who answers fast and actually understands your business.',
+        },
+        quality: {
+          title: 'Quality over quantity',
+          description:
+            'We shortlist only the most relevant candidates so you can hire with confidence.',
+        },
+        longterm: {
+          title: 'Long-term partner',
+          description:
+            'We care about your business goals, not just filling today\'s vacancy.',
+        },
+      },
+    },
+    bottom: {
+      title: 'A team that\'s with you, every step of the way.',
+      features: {
+        global: 'Global talent network',
+        industry: 'Industry specialists',
+        communication: 'Fast & reliable communication',
+        clientFocused: 'Client-focused approach',
+      },
+    },
     benefits: {
       expertise: 'Deep industry expertise',
       placements: 'Fast & reliable placements',
@@ -139,9 +182,16 @@ const en: Translations = {
       },
     },
     team: {
+      eyebrow: 'Meet the team',
+      titleLead: 'The people behind',
+      titleAccent: 'better hiring.',
       title: 'Meet the Team',
-      subtitle: 'The people behind Talentive: recruiters who actually pick up the phone.',
+      subtitle:
+        'Our team of recruitment experts is here to understand your needs, find the right talent, and support your growth.',
       readMore: 'Read more',
+      viewAll: 'View all team members',
+      available: 'Available',
+      languages: 'Languages',
       members: {
         founder: {
           role: 'Managing Director',
@@ -149,11 +199,19 @@ const en: Translations = {
         },
         partner: {
           role: 'Business Development Manager',
-          bio: 'Fatima Zzahra leads business development at Talentive: opening new client relationships, mapping their hiring needs, and making sure every brief is set up to succeed before recruitment kicks in. She works across logistics, industry and tech, on-site with clients regularly.',
+          bio: 'Fatim Zahra leads business development at Talentive: opening new client relationships, mapping their hiring needs, and making sure every brief is set up to succeed before recruitment kicks in. She works across logistics, industry and tech, on-site with clients regularly.',
         },
         consultant: {
           role: 'Recruitment Consultant',
           bio: 'Ahrar handles candidate sourcing and screening day-to-day. He runs the first calls, builds the shortlist, and stays in touch with candidates from intake through onboarding. The person who actually picks up when you call about a profile.',
+        },
+        recruiter: {
+          role: 'Senior Recruiter',
+          bio: 'Sophie focuses on senior profiles and key positions. With years of headhunting experience, she knows how to approach top candidates and convince them to join the journey of our clients.',
+        },
+        clientrelations: {
+          role: 'Client Relation Manager',
+          bio: 'Michael keeps every client relationship running smoothly. From the first briefing through long-term follow-up, he safeguards service quality and makes sure clients feel heard, supported and well served.',
         },
       },
     },

@@ -101,6 +101,49 @@ const nl: Translations = {
     subtitle: 'De aanwervingspartner die u écht kunt vertrouwen.',
     description:
       'Talentive is een internationaal rekruteringsbureau gebouwd op één principe: aanwerven hoeft niet ingewikkeld te zijn. Wij brengen bedrijven en professionals samen, of het nu vast, contractueel of payroll is, helder en snel.',
+    heroEyebrow: 'Over Talentive',
+    heroTitleLead: 'De mensen achter',
+    heroTitleAccent: 'beter aanwerven.',
+    heroSubtitle:
+      'Wij zijn een rekruteringspartner die mensen op de eerste plaats zet. Echte mensen, heldere communicatie en resultaten waarop u kunt rekenen.',
+    whyEyebrow: 'Waarom Talentive',
+    whyTitle: 'Waarom Talentive',
+    whySubtitle: 'De aanwervingspartner die u écht kunt vertrouwen.',
+    learnMoreCta: 'Meer over ons',
+    chooseUs: {
+      title: 'Waarom voor ons kiezen',
+      cards: {
+        trustworthy: {
+          title: 'Betrouwbaar',
+          description:
+            'Wij zetten onze naam onder elke plaatsing. Directe communicatie, eerlijke tarieven, volledige transparantie.',
+        },
+        responsive: {
+          title: 'Responsief',
+          description:
+            'Eén vast aanspreekpunt dat snel antwoordt en uw bedrijf écht begrijpt.',
+        },
+        quality: {
+          title: 'Kwaliteit boven kwantiteit',
+          description:
+            'Wij shortlisten enkel de meest relevante kandidaten zodat u met vertrouwen kunt aanwerven.',
+        },
+        longterm: {
+          title: 'Langetermijnpartner',
+          description:
+            'Wij geven om uw bedrijfsdoelen, niet alleen om de vacature van vandaag.',
+        },
+      },
+    },
+    bottom: {
+      title: 'Een team dat naast u staat, bij elke stap.',
+      features: {
+        global: 'Wereldwijd talentnetwerk',
+        industry: 'Sectorspecialisten',
+        communication: 'Snelle, betrouwbare communicatie',
+        clientFocused: 'Klantgerichte aanpak',
+      },
+    },
     benefits: {
       expertise: 'Diepgaande sectorexpertise',
       placements: 'Snelle, betrouwbare plaatsingen',
@@ -139,9 +182,16 @@ const nl: Translations = {
       },
     },
     team: {
+      eyebrow: 'Ontmoet het team',
+      titleLead: 'De mensen achter',
+      titleAccent: 'beter aanwerven.',
       title: 'Ontmoet het Team',
-      subtitle: 'De mensen achter Talentive: recruiters die de telefoon écht opnemen.',
+      subtitle:
+        'Ons team van rekruteringsexperts staat klaar om uw behoeften te begrijpen, het juiste talent te vinden en uw groei te ondersteunen.',
       readMore: 'Meer lezen',
+      viewAll: 'Alle teamleden bekijken',
+      available: 'Beschikbaar',
+      languages: 'Talen',
       members: {
         founder: {
           role: 'Managing Director',
@@ -149,11 +199,19 @@ const nl: Translations = {
         },
         partner: {
           role: 'Business Development Manager',
-          bio: 'Fatima Zzahra leidt de business development bij Talentive: nieuwe klantenrelaties opbouwen, hun aanwervingsbehoeften in kaart brengen en ervoor zorgen dat elke briefing klaar is om te slagen voordat de rekrutering start. Zij werkt in logistiek, industrie en tech, en is regelmatig op locatie bij klanten.',
+          bio: 'Fatim Zahra leidt de business development bij Talentive: nieuwe klantenrelaties opbouwen, hun aanwervingsbehoeften in kaart brengen en ervoor zorgen dat elke briefing klaar is om te slagen voordat de rekrutering start. Zij werkt in logistiek, industrie en tech, en is regelmatig op locatie bij klanten.',
         },
         consultant: {
           role: 'Recruitment Consultant',
           bio: 'Ahrar staat dagelijks in voor sourcing en screening van kandidaten. Hij voert de eerste gesprekken, stelt de shortlist samen en blijft in contact met kandidaten van intake tot onboarding. De persoon die effectief opneemt als u over een profiel belt.',
+        },
+        recruiter: {
+          role: 'Senior Recruiter',
+          bio: 'Sophie focust zich op senior profielen en sleutelposities. Met jarenlange ervaring in headhunting weet ze precies hoe ze topkandidaten benadert en hen overtuigt om mee te bouwen aan het verhaal van onze klanten.',
+        },
+        clientrelations: {
+          role: 'Client Relation Manager',
+          bio: 'Michael zorgt ervoor dat elk klantcontact strak loopt. Van eerste briefing tot lange-termijnopvolging: hij bewaakt de service-kwaliteit en zorgt ervoor dat klanten zich begrepen, ondersteund en goed bediend voelen.',
         },
       },
     },

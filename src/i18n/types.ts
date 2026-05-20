@@ -61,6 +61,32 @@ export interface Translations {
     subtitle: string;
     description: string;
     mission: string;
+    heroEyebrow: string;
+    heroTitleLead: string;
+    heroTitleAccent: string;
+    heroSubtitle: string;
+    whyEyebrow: string;
+    whyTitle: string;
+    whySubtitle: string;
+    learnMoreCta: string;
+    chooseUs: {
+      title: string;
+      cards: {
+        trustworthy: { title: string; description: string };
+        responsive: { title: string; description: string };
+        quality: { title: string; description: string };
+        longterm: { title: string; description: string };
+      };
+    };
+    bottom: {
+      title: string;
+      features: {
+        global: string;
+        industry: string;
+        communication: string;
+        clientFocused: string;
+      };
+    };
     benefits: {
       expertise: string;
       placements: string;
@@ -85,13 +111,21 @@ export interface Translations {
       efficiency: { title: string; description: string; details: string };
     };
     team: {
+      eyebrow: string;
+      titleLead: string;
+      titleAccent: string;
       title: string;
       subtitle: string;
       readMore: string;
+      viewAll: string;
+      available: string;
+      languages: string;
       members: {
         founder: { role: string; bio: string };
         partner: { role: string; bio: string };
         consultant: { role: string; bio: string };
+        recruiter: { role: string; bio: string };
+        clientrelations: { role: string; bio: string };
       };
     };
   };
