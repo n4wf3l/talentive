@@ -3,6 +3,7 @@ import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
 import JobSeekerForm from '../components/forms/JobSeekerForm';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import findEmployeeHeroBg from '../assets/images/find-employee.png';
 
 function FastIcon() {
   return (
@@ -76,7 +77,7 @@ export default function FindEmployee() {
         {/* Background image, only really visible on the right (desktop) */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format&fit=crop"
+            src={findEmployeeHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
           />

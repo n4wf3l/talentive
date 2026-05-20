@@ -3,6 +3,7 @@ import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
 import Button from '../components/ui/Button';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import contactHeroBg from '../assets/images/contact.png';
 
 /* ── Validation messages (inline, locale-aware) ── */
 const v = {
@@ -333,7 +334,7 @@ export default function Contact() {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format&fit=crop"
+            src={contactHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
           />

@@ -2,6 +2,7 @@ import { useEffect, type ReactNode } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import servicesHeroBg from '../assets/images/services.png';
 
 /* ─── Service icons ─── */
 function PermanentIcon() {
@@ -191,7 +192,7 @@ export default function Services() {
       <section className="relative w-full overflow-hidden bg-primary-950">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop"
+            src={servicesHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
           />

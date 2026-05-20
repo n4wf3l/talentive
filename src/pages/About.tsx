@@ -6,6 +6,7 @@ import TeamMemberModal from '../components/ui/TeamMemberModal';
 import aizazPhoto from '../assets/images/aizaz.png';
 import fatimaPhoto from '../assets/images/fatima.png';
 import ahrarPhoto from '../assets/images/ahrar.png';
+import aboutHeroBg from '../assets/images/about-us.png';
 
 /* ─── Why Talentive overlay panel icons ─── */
 function ExpertiseIcon() {
@@ -250,7 +251,7 @@ export default function About() {
       <section className="relative w-full overflow-hidden bg-primary-950">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format&fit=crop"
+            src={aboutHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
           />
