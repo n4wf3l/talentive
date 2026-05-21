@@ -129,21 +129,27 @@ export default function Header() {
               <Link
                 key={key}
                 to={href}
-                className={`group relative flex items-center gap-2 px-4 py-3 text-base font-bold tracking-wide transition-colors duration-300 ${
+                className={`group relative flex items-center gap-2 rounded-xl px-4 py-3 text-base font-bold tracking-wide transition-all duration-300 ${
                   isActive
-                    ? 'text-white'
-                    : 'text-white/60 hover:text-white'
+                    ? 'bg-purple-500/10 text-white ring-1 ring-purple-400/25'
+                    : 'text-white/60 hover:bg-purple-500/[0.06] hover:text-white'
                 }`}
               >
-                {/* Icon — mauve when active or on hover */}
-                <span className={`transition-colors duration-300 ${isActive ? 'text-purple-400' : 'text-white/40 group-hover:text-purple-400'}`}>
+                {/* Icon — clearly mauve when active, mauve on hover */}
+                <span
+                  className={`transition-all duration-300 ${
+                    isActive
+                      ? 'text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]'
+                      : 'text-white/40 group-hover:text-purple-300'
+                  }`}
+                >
                   {icon}
                 </span>
                 {/* Label */}
                 {t(key)}
                 {/* Mauve underline that fills left-to-right on hover / stays on active */}
                 <span
-                  className={`pointer-events-none absolute bottom-0 left-2 right-2 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 origin-left transition-transform duration-500 ease-out ${
+                  className={`pointer-events-none absolute bottom-0 left-3 right-3 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 origin-left shadow-[0_0_12px_rgba(168,85,247,0.6)] transition-transform duration-500 ease-out ${
                     isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
