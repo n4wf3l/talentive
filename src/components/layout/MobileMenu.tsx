@@ -141,8 +141,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </button>
           </div>
 
-          {/* Decorative line */}
-          <div className="mt-3 h-px bg-gradient-to-r from-accent-500/40 via-accent-400/10 to-transparent" />
+          {/* Decorative line — mauve */}
+          <div className="mt-3 h-px bg-gradient-to-r from-purple-500/50 via-purple-400/15 to-transparent" />
 
           {/* Nav items */}
           <div className="mt-3 flex flex-col gap-1.5">
@@ -155,24 +155,26 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   onClick={onClose}
                   className={`menu-item-stagger ${isOpen ? 'menu-open' : ''} group relative flex items-start gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 ${
                     isActive
-                      ? 'bg-white/10'
+                      ? 'bg-gradient-to-r from-purple-500/15 via-purple-500/8 to-transparent ring-1 ring-purple-400/20'
                       : 'hover:bg-white/[0.06] hover:translate-x-1'
                   }`}
                   style={{ animationDelay: `${150 + index * 80}ms` }}
                 >
-                  {/* Active left bar */}
+                  {/* Active left bar — gradient mauve */}
                   <span
-                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-7 w-1 rounded-r-full transition-all duration-300 ${
-                      isActive ? 'bg-accent-400 opacity-100' : 'bg-transparent opacity-0'
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 w-1 rounded-r-full transition-all duration-300 ${
+                      isActive
+                        ? 'bg-gradient-to-b from-purple-400 to-purple-600 opacity-100 shadow-[0_0_12px_rgba(168,85,247,0.5)]'
+                        : 'bg-transparent opacity-0'
                     }`}
                   />
 
-                  {/* Icon */}
+                  {/* Icon — mauve gradient when active */}
                   <span
                     className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
                       isActive
-                        ? 'bg-accent-500/20 text-accent-400'
-                        : 'bg-white/[0.06] text-white/40 group-hover:bg-accent-500/15 group-hover:text-accent-400'
+                        ? 'bg-gradient-to-br from-purple-500/30 to-purple-600/20 text-purple-300 ring-1 ring-purple-400/30'
+                        : 'bg-white/[0.06] text-white/40 group-hover:bg-purple-500/15 group-hover:text-purple-300'
                     }`}
                   >
                     {item.icon}
@@ -196,10 +198,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     </span>
                   </div>
 
-                  {/* Arrow */}
+                  {/* Arrow — mauve */}
                   <svg
                     className={`ml-auto mt-2 h-4 w-4 flex-shrink-0 transition-all duration-300 ${
-                      isActive ? 'text-accent-400 translate-x-0' : 'text-white/20 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
+                      isActive ? 'text-purple-400 translate-x-0' : 'text-white/20 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-purple-300'
                     }`}
                     viewBox="0 0 24 24"
                     fill="none"

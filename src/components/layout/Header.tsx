@@ -135,15 +135,15 @@ export default function Header() {
                     : 'text-white/60 hover:text-white'
                 }`}
               >
-                {/* Icon */}
-                <span className={`transition-colors duration-300 ${isActive ? 'text-accent-400' : 'text-white/40 group-hover:text-accent-400'}`}>
+                {/* Icon — mauve when active or on hover */}
+                <span className={`transition-colors duration-300 ${isActive ? 'text-purple-400' : 'text-white/40 group-hover:text-purple-400'}`}>
                   {icon}
                 </span>
                 {/* Label */}
                 {t(key)}
-                {/* Purple underline that fills left-to-right on hover / stays on active */}
+                {/* Mauve underline that fills left-to-right on hover / stays on active */}
                 <span
-                  className={`pointer-events-none absolute bottom-0 left-2 right-2 h-[3px] rounded-full bg-gradient-to-r from-accent-500 via-purple-500 to-accent-500 origin-left transition-transform duration-500 ease-out ${
+                  className={`pointer-events-none absolute bottom-0 left-2 right-2 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 origin-left transition-transform duration-500 ease-out ${
                     isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
@@ -157,10 +157,10 @@ export default function Header() {
           {/* Phone number pill (matches the reference design) */}
           <a
             href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
-            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-2 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:border-accent-400/60 hover:bg-white/[0.04] hover:shadow-md hover:shadow-purple-600/20"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 px-4 py-2 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:border-purple-400/60 hover:bg-white/[0.04] hover:shadow-md hover:shadow-purple-600/30"
             aria-label={`Call ${PHONE_NUMBER}`}
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 transition-colors duration-300 group-hover:border-accent-400/60 group-hover:text-accent-400">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 transition-colors duration-300 group-hover:border-purple-400/60 group-hover:text-purple-400">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
               </svg>
