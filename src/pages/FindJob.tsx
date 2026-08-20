@@ -1,21 +1,29 @@
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
 import Layout from '../components/layout/Layout';
 import FindJobForm from '../components/forms/FindJobForm';
 import AnimatedSection from '../components/ui/AnimatedSection';
 
 export default function FindJob() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Zoek een job | Talentive',
-      fr: 'Chercher un emploi | Talentive',
-      en: 'Find a job | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () =>
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.findJob'), path: '/find-job' },
+      ]),
+    [t],
+  );
+
+  useSEO({
+    path: '/find-job',
+    titleKey: 'meta.findJob.title',
+    descriptionKey: 'meta.findJob.description',
+    jsonLd,
+  });
 
   return (
     <Layout>
@@ -25,6 +33,8 @@ export default function FindJob() {
             src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1920&q=80&auto=format&fit=crop"
             alt=""
             className="h-full w-full object-cover opacity-[0.04]"
+            decoding="async"
+            loading="lazy"
           />
         </div>
         <div className="pointer-events-none absolute inset-0">

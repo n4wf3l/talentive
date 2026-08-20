@@ -82,8 +82,10 @@ export default function ContactSection() {
               <div className="relative min-h-[360px] overflow-hidden sm:min-h-[420px] lg:min-h-[460px]">
                 <img
                   src={antwerpTower}
-                  alt="Antwerp Tower"
+                  alt="Antwerp Tower — Talentive HQ at Frankrijklei 5, Antwerpen"
                   className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Gradient overlay for contrast — fades to right (where dark panel meets) */}
                 <div

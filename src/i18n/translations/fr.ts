@@ -1,6 +1,52 @@
 import type { Translations } from '../types';
 
 const fr: Translations = {
+  meta: {
+    home: {
+      title: 'Talentive | Personnel Permanent, Contractuel & Payroll à l\'international',
+      description:
+        'Personnel permanent, contractuel et payroll pour entreprises à l\'international. Dites-nous qui vous recrutez, on vous livre la shortlist en 24h.',
+    },
+    services: {
+      title: 'Services — Recrutement Permanent, Contractuel & Payroll | Talentive',
+      description:
+        'Découvrez nos services de staffing : recrutement permanent, contractuel et payroll/EOR pour la logistique, l\'industrie, l\'IT et le bureau. Shortlist en 24h.',
+    },
+    findEmployee: {
+      title: 'Recruter — Trouver des Talents Rapidement | Talentive',
+      description:
+        'Recrutez rapidement du personnel permanent, contractuel ou payroll. Candidats pré-qualifiés, shortlist en 24h, accompagnement tout au long du recrutement.',
+    },
+    findJob: {
+      title: 'Chercher un Emploi — Trouvez Votre Prochain Poste en Belgique | Talentive',
+      description:
+        'Postulez à des postes permanents, contractuels et payroll en logistique, industrie, IT et bureau. Envoyez votre CV, on trouve un match en quelques jours.',
+    },
+    about: {
+      title: 'À Propos — Votre Partenaire Staffing en Belgique | Talentive',
+      description:
+        'Talentive est une agence de recrutement à Anvers. Découvrez notre équipe, nos valeurs et pourquoi les entreprises belges nous font confiance pour le talent international.',
+    },
+    contact: {
+      title: 'Contact — Contactez l\'équipe Talentive Anvers',
+      description:
+        'Des questions sur le recrutement ou le payroll ? Contactez l\'équipe Talentive à Anvers par téléphone, WhatsApp ou e-mail. Réponse sous 24h.',
+    },
+    privacy: {
+      title: 'Politique de Confidentialité | Talentive',
+      description:
+        'Découvrez comment Talentive collecte, utilise et protège vos données personnelles conformément au RGPD.',
+    },
+  },
+  breadcrumb: {
+    home: 'Accueil',
+    services: 'Services',
+    findEmployee: 'Recruter',
+    findJob: 'Chercher un Emploi',
+    about: 'À Propos',
+    contact: 'Contact',
+    privacy: 'Confidentialité',
+  },
   nav: {
     home: 'Accueil',
     services: 'Services',

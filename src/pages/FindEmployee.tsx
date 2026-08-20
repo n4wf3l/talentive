@@ -1,5 +1,6 @@
-import { useEffect, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
 import Layout from '../components/layout/Layout';
 import JobSeekerForm from '../components/forms/JobSeekerForm';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -57,16 +58,23 @@ const benefits: Benefit[] = [
 ];
 
 export default function FindEmployee() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Ik werf aan | Talentive',
-      fr: 'Je recrute | Talentive',
-      en: 'I\'m hiring | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () =>
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.findEmployee'), path: '/find-employee' },
+      ]),
+    [t],
+  );
+
+  useSEO({
+    path: '/find-employee',
+    titleKey: 'meta.findEmployee.title',
+    descriptionKey: 'meta.findEmployee.description',
+    jsonLd,
+  });
 
   return (
     <Layout>
@@ -80,6 +88,8 @@ export default function FindEmployee() {
             src={findEmployeeHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
+            fetchPriority="high"
+            decoding="async"
           />
           {/* Mobile: dark overlay on top of the image so the text stays readable */}
           <div className="absolute inset-0 bg-primary-950/60 lg:hidden" />

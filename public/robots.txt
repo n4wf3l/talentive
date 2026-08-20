@@ -1,4 +1,44 @@
+# Talentive — robots.txt
+
 User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /*.json$
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI / LLM crawlers — allowed so Talentive gets cited in AI Overviews,
+# ChatGPT Search, Perplexity and Claude answers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://talentivegroup.com/sitemap.xml

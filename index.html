@@ -1,77 +1,131 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#060e1f" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
 
-    <!-- Favicon -->
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%logo.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="%BASE_URL%logo.png" />
     <link rel="shortcut icon" type="image/png" href="%BASE_URL%logo.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.json" />
 
-    <!-- Primary SEO -->
+    <!-- Primary SEO — page-level useSEO() overrides these at runtime.
+         The static fallback covers first-paint, no-JS crawlers and social scrapers. -->
     <title>Talentive | Vast, Contractueel & Payroll Personeel wereldwijd</title>
     <meta name="description" content="Vast, contractueel en payroll personeel voor bedrijven wereldwijd. Vertel ons wie u aanwerft, wij leveren de shortlist binnen 24 uur." />
-    <meta name="keywords" content="vast personeel, contractueel personeel, payroll, EOR, rekrutering, staffing, aanwerving, internationaal, wereldwijd" />
     <meta name="author" content="Talentive Group" />
-    <meta name="robots" content="index, follow" />
+    <meta name="publisher" content="Talentive Group" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="geo.region" content="BE-VAN" />
+    <meta name="geo.placename" content="Antwerpen" />
+    <meta name="geo.position" content="51.2213;4.4051" />
+    <meta name="ICBM" content="51.2213, 4.4051" />
+
     <link rel="canonical" href="https://talentivegroup.com/" />
     <link rel="alternate" hreflang="nl-BE" href="https://talentivegroup.com/" />
     <link rel="alternate" hreflang="fr-BE" href="https://talentivegroup.com/" />
     <link rel="alternate" hreflang="en"    href="https://talentivegroup.com/" />
     <link rel="alternate" hreflang="x-default" href="https://talentivegroup.com/" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Talentive" />
     <meta property="og:url" content="https://talentivegroup.com/" />
     <meta property="og:title" content="Talentive | Vast, Contractueel & Payroll Personeel wereldwijd" />
     <meta property="og:description" content="Vast, contractueel en payroll personeel voor bedrijven wereldwijd. Shortlist binnen 24 uur." />
     <meta property="og:image" content="https://talentivegroup.com/logo.png" />
+    <meta property="og:image:alt" content="Talentive — Belgian staffing agency" />
     <meta property="og:locale" content="nl_BE" />
     <meta property="og:locale:alternate" content="fr_BE" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:site_name" content="Talentive" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card — twitter:* auto-fills from og:* when absent, only card type needed. -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Talentive | Vast, Contractueel & Payroll Personeel wereldwijd" />
-    <meta name="twitter:description" content="Vast, contractueel en payroll personeel voor bedrijven wereldwijd. Shortlist binnen 24 uur." />
-    <meta name="twitter:image" content="https://talentivegroup.com/logo.png" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Sitemap discovery hint (Google/Bing use robots.txt primarily). -->
+    <link rel="sitemap" type="application/xml" href="%BASE_URL%sitemap.xml" />
+
+    <!-- Structured Data: Organization + EmploymentAgency + WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "EmploymentAgency",
-      "name": "Talentive",
-      "legalName": "Talentive Group",
-      "url": "https://talentivegroup.com",
-      "logo": "https://talentivegroup.com/logo.png",
-      "sameAs": [
-        "https://talentivegroup.com",
-        "https://talentivegroup.com"
-      ],
-      "description": "Vast, contractueel en payroll personeel voor bedrijven wereldwijd.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Frankrijklei 5",
-        "addressLocality": "Antwerpen",
-        "postalCode": "2000",
-        "addressCountry": "BE"
-      },
-      "areaServed": "Worldwide",
-      "email": "info@talentivegroup.com",
-      "serviceType": ["Permanent Staffing", "Contract Staffing", "Payroll / EOR"],
-      "availableLanguage": ["Dutch", "French", "English"]
+      "@graph": [
+        {
+          "@type": "EmploymentAgency",
+          "@id": "https://talentivegroup.com/#organization",
+          "name": "Talentive",
+          "legalName": "Talentive Group",
+          "url": "https://talentivegroup.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://talentivegroup.com/logo.png",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://talentivegroup.com/logo.png",
+          "description": "Belgische rekruteringspartner voor vast, contract en payroll personeel — logistiek, industrie, IT en kantoor.",
+          "foundingLocation": {
+            "@type": "Place",
+            "name": "Antwerpen, Belgium"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Frankrijklei 5",
+            "addressLocality": "Antwerpen",
+            "postalCode": "2000",
+            "addressCountry": "BE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.2213,
+            "longitude": 4.4051
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Belgium" },
+            { "@type": "Place", "name": "Worldwide" }
+          ],
+          "email": "info@talentivegroup.com",
+          "serviceType": ["Permanent Staffing", "Contract Staffing", "Payroll / EOR"],
+          "availableLanguage": ["Dutch", "French", "English"],
+          "knowsLanguage": ["nl", "fr", "en"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://talentivegroup.com/#website",
+          "url": "https://talentivegroup.com/",
+          "name": "Talentive",
+          "publisher": { "@id": "https://talentivegroup.com/#organization" },
+          "inLanguage": ["nl-BE", "fr-BE", "en"]
+        }
+      ]
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- Fonts: preconnect + display=swap keeps CLS at 0 and FCP low -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    />
   </head>
   <body class="bg-primary-900 text-gray-900 antialiased">
+    <noscript>
+      <p style="padding:2rem;font-family:system-ui;text-align:center">
+        Talentive vereist JavaScript. Schakel het in om verder te gaan — of contacteer ons via
+        <a href="mailto:info@talentivegroup.com">info@talentivegroup.com</a>.
+      </p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,5 +1,7 @@
-import { useEffect, useState, useCallback, type ReactNode } from 'react';
+import { useState, useCallback, useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
+import { SITE_URL } from '../seo/seoConfig';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import TeamMemberModal from '../components/ui/TeamMemberModal';
@@ -206,17 +208,41 @@ const bottomFeatures: BottomFeature[] = [
 /* ─── Page ─── */
 
 export default function About() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Over Ons | Talentive',
-      fr: 'À Propos | Talentive',
-      en: 'About Us | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.about'), path: '/about' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        url: `${SITE_URL}/about`,
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'Talentive',
+          url: SITE_URL,
+          member: teamMembers.map((m) => ({
+            '@type': 'Person',
+            name: m.name,
+            email: m.email,
+            telephone: m.phone,
+          })),
+        },
+      },
+    ],
+    [t],
+  );
+
+  useSEO({
+    path: '/about',
+    titleKey: 'meta.about.title',
+    descriptionKey: 'meta.about.description',
+    jsonLd,
+  });
 
   const closeMember = useCallback(() => setSelectedIndex(null), []);
   const goPrev = useCallback(
@@ -244,6 +270,8 @@ export default function About() {
             src={aboutHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-primary-950/60 lg:hidden" />
           <div
@@ -337,8 +365,12 @@ export default function About() {
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/15">
                   <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop"
-                    alt="Team collaboration"
+                    alt="Talentive recruiters collaborating with clients in Antwerp"
+                    width={900}
+                    height={600}
                     className="h-[420px] w-full object-cover sm:h-[480px] lg:h-[540px]"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-950/60 via-primary-950/20 to-transparent" />
                 </div>
@@ -458,9 +490,10 @@ export default function About() {
                   <div className="relative aspect-square overflow-hidden bg-gray-100">
                     <img
                       src={member.image}
-                      alt={member.name}
+                      alt={`${member.name} — Talentive team member`}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <span className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold text-primary-800 shadow-sm backdrop-blur-sm">
                       <span className="relative flex h-1.5 w-1.5">

@@ -140,8 +140,12 @@ export default function AboutSection() {
               <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/15">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop"
-                  alt="Team collaboration"
+                  alt="Talentive recruiters collaborating with clients in Antwerp"
+                  width={900}
+                  height={600}
                   className="h-[420px] w-full object-cover sm:h-[480px] lg:h-[540px]"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Dark gradient overlay for legibility */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-950/60 via-primary-950/20 to-transparent" />

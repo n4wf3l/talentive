@@ -1,6 +1,52 @@
 import type { Translations } from '../types';
 
 const nl: Translations = {
+  meta: {
+    home: {
+      title: 'Talentive | Vast, Contractueel & Payroll Personeel wereldwijd',
+      description:
+        'Vast, contractueel en payroll personeel voor bedrijven wereldwijd. Vertel ons wie u aanwerft, wij leveren de shortlist binnen 24 uur.',
+    },
+    services: {
+      title: 'Diensten — Vast, Contract & Payroll Staffing | Talentive',
+      description:
+        'Ontdek onze staffing diensten: vaste rekrutering, contractwerk en payroll/EOR voor logistiek, industrie, IT en kantoor. Shortlist binnen 24 uur.',
+    },
+    findEmployee: {
+      title: 'Personeel Zoeken — Vind Snel Getalenteerde Kandidaten | Talentive',
+      description:
+        'Werf snel vast, contract of payroll personeel aan. Vooraf gescreende kandidaten, shortlist binnen 24 uur, ondersteuning tijdens de hele hire.',
+    },
+    findJob: {
+      title: 'Werk Zoeken — Vind Uw Volgende Job in België | Talentive',
+      description:
+        'Solliciteer op vaste, contract en payroll functies in logistiek, industrie, IT en kantoor. Upload uw CV en wij vinden een match binnen dagen.',
+    },
+    about: {
+      title: 'Over Ons — Uw Belgische Staffing Partner | Talentive',
+      description:
+        'Talentive is een Antwerps rekruteringsbureau. Leer ons team kennen, onze waarden en waarom Belgische bedrijven ons vertrouwen voor internationaal talent.',
+    },
+    contact: {
+      title: 'Contact — Neem Contact Op Met Talentive Antwerpen',
+      description:
+        'Vragen over rekrutering of payroll? Bereik het Talentive team in Antwerpen via telefoon, WhatsApp of e-mail. Antwoord binnen 24 uur.',
+    },
+    privacy: {
+      title: 'Privacybeleid | Talentive',
+      description:
+        'Lees hoe Talentive uw persoonlijke gegevens verzamelt, gebruikt en beschermt in overeenstemming met de GDPR.',
+    },
+  },
+  breadcrumb: {
+    home: 'Home',
+    services: 'Diensten',
+    findEmployee: 'Personeel Zoeken',
+    findJob: 'Werk Zoeken',
+    about: 'Over Ons',
+    contact: 'Contact',
+    privacy: 'Privacy',
+  },
   nav: {
     home: 'Home',
     services: 'Diensten',

@@ -84,6 +84,7 @@ function ServiceCard({
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
       </div>

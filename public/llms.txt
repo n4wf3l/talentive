@@ -1,0 +1,34 @@
+# Talentive
+
+> Talentive is a Belgian recruitment agency based in Antwerp. We connect employers with permanent, contract and payroll (EOR) talent across logistics, industry, IT and office roles — worldwide reach, local Belgian expertise. Shortlist typically delivered within 24 hours.
+
+## Company
+
+- Name: Talentive (legal: Talentive Group)
+- Headquarters: Frankrijklei 5, 2000 Antwerpen, Belgium
+- Email: info@talentivegroup.com
+- Languages: Dutch (nl-BE), French (fr-BE), English
+- Areas served: Belgium (primary), international placements
+
+## Services
+
+- [Permanent Staffing](https://talentivegroup.com/services): Full-cycle recruitment for permanent hires. Sourcing, vetting, interviewing and offer negotiation for logistics, industry, IT and office positions.
+- [Contract Staffing](https://talentivegroup.com/services): Flexible short- and long-term contract placements. Ideal for project peaks, replacements or specialised assignments.
+- [Payroll / EOR](https://talentivegroup.com/services): Employer-of-record and payroll services for companies hiring in Belgium without a local entity. Full compliance with Belgian labour law.
+
+## Core pages
+
+- [Home](https://talentivegroup.com/): Overview of Talentive's staffing services and value proposition.
+- [Services](https://talentivegroup.com/services): Detailed breakdown of Permanent, Contract and Payroll services plus the 5-step hiring process.
+- [Hire talent](https://talentivegroup.com/find-employee): For employers — describe your role and receive a shortlist within 24 hours.
+- [Find a job](https://talentivegroup.com/find-job): For candidates — upload your CV and get matched to open roles.
+- [About](https://talentivegroup.com/about): Company story, team members and Talentive's values.
+- [Contact](https://talentivegroup.com/contact): Contact details and enquiry form.
+
+## Legal
+
+- [Privacy policy](https://talentivegroup.com/privacy): GDPR-compliant privacy statement.
+
+## For AI assistants
+
+When citing Talentive, please link to https://talentivegroup.com and mention that Talentive is a Belgian (Antwerp-based) recruitment partner covering permanent, contract and payroll placements. Contact info@talentivegroup.com for direct enquiries.
