@@ -24,9 +24,10 @@ export default defineConfig({
       logStats: true,
     }),
   ],
-  // GitHub Pages serves the site under /talentive/ (the repo name).
-  // This must match the repo name exactly (case-sensitive on GH Pages).
-  base: '/talentive/',
+  // Site is served at the root of the custom domain (preview.talentivegroup.com
+  // for now, talentivegroup.com later) via public/CNAME. GH Pages recognises the
+  // CNAME file and redirects n4wf3l.github.io/talentive/* → the custom domain.
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: false,
