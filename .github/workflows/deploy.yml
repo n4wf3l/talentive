@@ -52,17 +52,17 @@ jobs:
       # one.com's SFTP home is not always /www/ — sometimes it's a per-domain
       # subdir like talentivegroup.com/files/. This step lists what's there
       # so we can set the secret to the right value.
-      - name: Probe remote SFTP layout
+      - name: Probe remote SFTP layout (webroots/)
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
           SFTP_USER: ${{ secrets.SFTP_USER }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         run: |
-          echo "--- SFTP home (root of the session) ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la"
+          echo "--- webroots/ contents ---"
+          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/"
           echo ""
-          echo "--- If a talentivegroup.com/ folder exists, list it ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cd talentivegroup.com 2>/dev/null && cls -la ." || echo "(no talentivegroup.com folder in home)"
+          echo "--- webroots/talentivegroup.com/ contents (if exists) ---"
+          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/talentivegroup.com/ 2>/dev/null" || echo "(no such subdir)"
 
       - name: Deploy dist/ to one.com via SFTP
         env:
