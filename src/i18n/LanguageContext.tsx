@@ -27,10 +27,18 @@ function getNestedValue(obj: unknown, path: string): string {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(() => {
+  // Start with the prerender default (nl) so React hydration matches the static
+  // HTML produced by scripts/prerender.mjs. The saved-language check runs in an
+  // effect below, after mount — users with a stored preference see one brief
+  // switch instead of a hydration mismatch.
+  const [language, setLanguageState] = useState<Language>('nl');
+
+  useEffect(() => {
     const saved = localStorage.getItem('talentive-lang') as Language | null;
-    return saved && translationsMap[saved] ? saved : 'nl';
-  });
+    if (saved && translationsMap[saved] && saved !== 'nl') {
+      setLanguageState(saved);
+    }
+  }, []);
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);

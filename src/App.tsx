@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Home from './pages/Home';
@@ -13,8 +13,15 @@ import SplashScreen, { shouldShowSplash } from './components/ui/SplashScreen';
 import OnboardingOverlay, { shouldShowOnboarding } from './components/ui/OnboardingOverlay';
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(shouldShowSplash);
+  // Splash and onboarding start OFF so the initial React tree matches the
+  // prerendered HTML (which has neither). An effect flips them on after mount
+  // if the user should actually see them — avoids a hydration mismatch.
+  const [showSplash, setShowSplash] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    if (shouldShowSplash()) setShowSplash(true);
+  }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
