@@ -48,6 +48,22 @@ jobs:
       # `--delete` = drop remote files no longer in dist/ (keeps /www/ clean).
       # `--parallel=5` = 5 concurrent transfers, big speed win on ~30-40 files.
       # `--exclude .well-known/` = leave any ACME/webmaster verifications alone.
+      # DEBUG: print the remote layout so we can lock in SFTP_REMOTE_PATH.
+      # one.com's SFTP home is not always /www/ — sometimes it's a per-domain
+      # subdir like talentivegroup.com/files/. This step lists what's there
+      # so we can set the secret to the right value.
+      - name: Probe remote SFTP layout
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          echo "--- SFTP home (root of the session) ---"
+          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la"
+          echo ""
+          echo "--- If a talentivegroup.com/ folder exists, list it ---"
+          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cd talentivegroup.com 2>/dev/null && cls -la ." || echo "(no talentivegroup.com folder in home)"
+
       - name: Deploy dist/ to one.com via SFTP
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
