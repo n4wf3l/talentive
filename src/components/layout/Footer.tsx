@@ -1,7 +1,41 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
 import logo from '../../assets/images/footer-logo.png';
+
+// Social profiles — not live yet. Rendered disabled with a "Soon" tooltip
+// on hover so the icons still communicate presence without leading nowhere.
+interface Social {
+  label: string;
+  path: ReactNode;
+}
+const socials: Social[] = [
+  {
+    label: 'LinkedIn',
+    path: (
+      <>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </>
+    ),
+  },
+  {
+    label: 'Facebook',
+    path: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
+  },
+  {
+    label: 'Instagram',
+    path: (
+      <>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </>
+    ),
+  },
+];
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -38,6 +72,40 @@ export default function Footer() {
               {t('footer.description')}
             </p>
 
+            {/* Socials — disabled with a Soon tooltip until real profiles exist */}
+            <div className="mt-5 flex items-center gap-2.5">
+              {socials.map((s) => (
+                <div
+                  key={s.label}
+                  className="group relative"
+                >
+                  <span
+                    aria-disabled="true"
+                    aria-label={`${s.label} — coming soon`}
+                    className="flex h-9 w-9 cursor-not-allowed items-center justify-center rounded-full border border-gray-200 text-gray-400 opacity-60 transition-all duration-300 group-hover:border-purple-200 group-hover:opacity-80"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      {s.path}
+                    </svg>
+                  </span>
+                  <span
+                    role="tooltip"
+                    className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-primary-900 px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100"
+                  >
+                    Soon
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Quick links */}
