@@ -20,8 +20,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 
-// Must match the Vite `base` — GH Pages serves the site under /talentive/.
-const BASE = '/talentive/';
+// Must match the Vite `base`. With a custom domain (public/CNAME) the site
+// is served at the root, so BASE = '/'.
+const BASE = '/';
 
 const ROUTES = [
   '/',
