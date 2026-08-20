@@ -624,7 +624,8 @@ textarea {
 .onboarding-tooltip {
   z-index: 10;
   width: max-content;
-  max-width: 320px;
+  max-width: min(320px, calc(100vw - 24px));
+  box-sizing: border-box;
   padding: 24px;
   border-radius: 20px;
   background: rgba(15, 23, 42, 0.95);
@@ -637,6 +638,12 @@ textarea {
   transform: translateY(12px);
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: auto;
+}
+
+@media (max-width: 400px) {
+  .onboarding-tooltip {
+    padding: 18px;
+  }
 }
 
 .onboarding-tooltip-on {
