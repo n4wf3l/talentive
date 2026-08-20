@@ -52,24 +52,6 @@ jobs:
       # one.com's SFTP home is not always /www/ — sometimes it's a per-domain
       # subdir like talentivegroup.com/files/. This step lists what's there
       # so we can set the secret to the right value.
-      - name: Probe deeper (by-route + hashed webroot)
-        env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_USER: ${{ secrets.SFTP_USER }}
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-        run: |
-          echo "--- webroots/by-route/ ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/by-route/"
-          echo ""
-          echo "--- webroots/9aebec7e/ (real docroot?) ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/9aebec7e/"
-          echo ""
-          echo "--- webroots/by-route/talentivegroup.com/ (if exists) ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/by-route/talentivegroup.com/ 2>/dev/null" || echo "(no such subdir)"
-          echo ""
-          echo "--- webroots/by-route/talentivegroup.com/files/ (matches file manager URL?) ---"
-          lftp -c "set sftp:auto-confirm yes; open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_HOST; cls -la webroots/by-route/talentivegroup.com/files/ 2>/dev/null" || echo "(no such subdir)"
-
       - name: Deploy dist/ to one.com via SFTP
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
