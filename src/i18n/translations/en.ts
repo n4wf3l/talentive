@@ -243,10 +243,6 @@ const en: Translations = {
           role: 'Managing Director',
           bio: 'Aizaz runs Talentive day-to-day. Based in Antwerp and very active in Brussels, he splits his week between the two cities to stay close to clients and candidates. He owns every key account personally and still reads every brief that comes in.',
         },
-        partner: {
-          role: 'Business Development Manager',
-          bio: 'Fatim Zahra leads business development at Talentive: opening new client relationships, mapping their hiring needs, and making sure every brief is set up to succeed before recruitment kicks in. She works across logistics, industry and tech, on-site with clients regularly.',
-        },
         consultant: {
           role: 'Recruitment Consultant',
           bio: 'Ahrar handles candidate sourcing and screening day-to-day. He runs the first calls, builds the shortlist, and stays in touch with candidates from intake through onboarding. The person who actually picks up when you call about a profile.',

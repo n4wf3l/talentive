@@ -243,10 +243,6 @@ const nl: Translations = {
           role: 'Managing Director',
           bio: 'Aizaz leidt Talentive dagelijks. Gevestigd in Antwerpen en zeer actief in Brussel, verdeelt hij zijn week tussen beide steden om dicht bij klanten en kandidaten te blijven. Hij volgt elk sleutelaccount persoonlijk op en leest elke briefing die binnenkomt.',
         },
-        partner: {
-          role: 'Business Development Manager',
-          bio: 'Fatim Zahra leidt de business development bij Talentive: nieuwe klantenrelaties opbouwen, hun aanwervingsbehoeften in kaart brengen en ervoor zorgen dat elke briefing klaar is om te slagen voordat de rekrutering start. Zij werkt in logistiek, industrie en tech, en is regelmatig op locatie bij klanten.',
-        },
         consultant: {
           role: 'Recruitment Consultant',
           bio: 'Ahrar staat dagelijks in voor sourcing en screening van kandidaten. Hij voert de eerste gesprekken, stelt de shortlist samen en blijft in contact met kandidaten van intake tot onboarding. De persoon die effectief opneemt als u over een profiel belt.',

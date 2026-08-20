@@ -243,10 +243,6 @@ const fr: Translations = {
           role: 'Managing Director',
           bio: 'Aizaz dirige Talentive au quotidien. Basé à Anvers et très actif à Bruxelles, il partage sa semaine entre les deux villes pour rester proche des clients et des candidats. Il suit personnellement chaque compte clé et lit chaque brief qui arrive.',
         },
-        partner: {
-          role: 'Business Development Manager',
-          bio: 'Fatim Zahra pilote le développement commercial chez Talentive : ouvrir de nouvelles relations clients, cartographier leurs besoins de recrutement, et s\'assurer que chaque brief est prêt à réussir avant que le recrutement ne démarre. Elle couvre la logistique, l\'industrie et la tech, et est régulièrement sur le terrain.',
-        },
         consultant: {
           role: 'Consultant en Recrutement',
           bio: 'Ahrar gère le sourcing et la pré-sélection des candidats au quotidien. Il mène les premiers entretiens, construit la shortlist et reste en contact avec les candidats de l\'intake jusqu\'à l\'onboarding. C\'est la personne qui décroche quand vous appelez à propos d\'un profil.',

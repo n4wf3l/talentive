@@ -140,7 +140,6 @@ export interface Translations {
       languages: string;
       members: {
         founder: { role: string; bio: string };
-        partner: { role: string; bio: string };
         consultant: { role: string; bio: string };
       };
     };

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
-import { FIND_JOB_URL } from '../../constants';
 import QuickContactModal from '../ui/QuickContactModal';
 
 export default function BottomBar() {
@@ -36,10 +35,8 @@ export default function BottomBar() {
               <span className="truncate">{t('bottomBar.worker')}</span>
             </Link>
 
-            <a
-              href={FIND_JOB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/find-job"
               className="btn-hover inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/10 sm:px-6 sm:py-3"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 sm:w-[18px] sm:h-[18px]">
@@ -47,7 +44,7 @@ export default function BottomBar() {
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
               <span className="truncate">{t('bottomBar.job')}</span>
-            </a>
+            </Link>
           </div>
 
           {/* Separator */}

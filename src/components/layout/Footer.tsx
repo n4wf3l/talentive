@@ -3,36 +3,6 @@ import { useTranslation } from '../../i18n/LanguageContext';
 import { PHONE_NUMBER, INFO_EMAIL } from '../../constants';
 import logo from '../../assets/images/footer-logo.png';
 
-const socials = [
-  {
-    href: 'https://www.linkedin.com/',
-    label: 'LinkedIn',
-    path: (
-      <>
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect x="2" y="9" width="4" height="12" />
-        <circle cx="4" cy="4" r="2" />
-      </>
-    ),
-  },
-  {
-    href: 'https://www.facebook.com/',
-    label: 'Facebook',
-    path: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
-  },
-  {
-    href: 'https://www.instagram.com/',
-    label: 'Instagram',
-    path: (
-      <>
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </>
-    ),
-  },
-];
-
 export default function Footer() {
   const { t } = useTranslation();
 
@@ -51,7 +21,7 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-4 pt-14 pb-8 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-          {/* Brand + socials */}
+          {/* Brand */}
           <div className="md:col-span-5">
             <Link to="/" className="inline-block">
               <img
@@ -68,32 +38,6 @@ export default function Footer() {
               {t('footer.description')}
             </p>
 
-            {/* Socials */}
-            <div className="mt-5 flex items-center gap-2.5">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-all duration-300 hover:border-purple-300 hover:bg-purple-50 hover:text-purple-600 hover:-translate-y-0.5"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    {s.path}
-                  </svg>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick links */}
