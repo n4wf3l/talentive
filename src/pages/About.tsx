@@ -4,7 +4,6 @@ import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import TeamMemberModal from '../components/ui/TeamMemberModal';
 import aizazPhoto from '../assets/images/aizaz.png';
-import fatimaPhoto from '../assets/images/fatima.png';
 import ahrarPhoto from '../assets/images/ahrar.png';
 import aboutHeroBg from '../assets/images/about-us.png';
 
@@ -140,7 +139,7 @@ function EmailIconSmall() {
 /* ─── Data ─── */
 
 interface TeamMember {
-  key: 'founder' | 'partner' | 'consultant';
+  key: 'founder' | 'consultant';
   name: string;
   image: string;
   phone: string;
@@ -154,27 +153,18 @@ const teamMembers: TeamMember[] = [
     key: 'founder',
     name: 'Aizaz Khan',
     image: aizazPhoto,
-    phone: '+32 490 08 08 00',
-    whatsapp: '+32 490 08 08 00',
-    email: 'Aizaz@talentivegroup.be',
+    phone: '+32 472 17 30 90',
+    whatsapp: '+32 472 17 30 90',
+    email: 'Aizaz@talentivegroup.com',
     languages: ['English', 'Dutch'],
-  },
-  {
-    key: 'partner',
-    name: 'Fatim Zahra El Maite',
-    image: fatimaPhoto,
-    phone: '+32 485 60 06 35',
-    whatsapp: '+32 485 60 06 35',
-    email: 'FatimZahra@talentivegroup.be',
-    languages: ['English', 'French'],
   },
   {
     key: 'consultant',
     name: 'Ahrar Yousafzai',
     image: ahrarPhoto,
-    phone: '+32 472 17 30 90',
-    whatsapp: '+32 472 17 30 90',
-    email: 'Ahrar@talentivegroup.be',
+    phone: '+32 490 08 08 00',
+    whatsapp: '+32 490 08 08 00',
+    email: 'Ahrar@talentivegroup.com',
     languages: ['English', 'Dutch'],
   },
 ];

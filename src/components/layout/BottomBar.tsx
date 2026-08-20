@@ -25,7 +25,7 @@ export default function BottomBar() {
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               to="/find-employee"
-              className="btn-hover inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-600 via-accent-600 to-purple-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 transition-all hover:from-accent-500 hover:via-accent-500 hover:to-purple-500 hover:shadow-xl hover:shadow-purple-600/40 sm:px-6 sm:py-3"
+              className="btn-hover inline-flex items-center justify-center gap-2 rounded-xl bg-accent-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-600/25 transition-all hover:bg-accent-500 hover:shadow-xl hover:shadow-accent-600/40 sm:px-6 sm:py-3"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 sm:w-[18px] sm:h-[18px]">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />

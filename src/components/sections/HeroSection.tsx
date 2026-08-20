@@ -4,7 +4,7 @@ import Button from '../ui/Button';
 import SectionNavigator from '../ui/SectionNavigator';
 import HiringModal from '../ui/HiringModal';
 import FindJobModal from '../ui/FindJobModal';
-import coverBg from '../../assets/images/home.png';
+import coverBg from '../../assets/images/cover-bg.png';
 
 export default function HeroSection() {
   const { t } = useTranslation();

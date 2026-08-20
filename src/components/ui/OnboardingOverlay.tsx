@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
 
@@ -25,7 +25,9 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
   const [rect, setRect] = useState<DOMRect | null>(null);
   const [cloneHtml, setCloneHtml] = useState('');
   const [phase, setPhase] = useState<'entering' | 'visible' | 'transitioning' | 'exiting'>('entering');
+  const [tooltipPos, setTooltipPos] = useState<{ top: number; left: number; maxWidth: number } | null>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   const measure = useCallback((stepIndex: number) => {
     const el = document.querySelector(steps[stepIndex]!.selector) as HTMLElement | null;
@@ -108,13 +110,50 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
   const step = steps[current]!;
   const padding = 12;
 
-  // Tooltip position: below the target, centered
-  const tooltipStyle: React.CSSProperties = rect
+  // Measure the tooltip and clamp its position inside the viewport.
+  // Placed below the target if room, otherwise above; horizontally clamped
+  // to a safe 12px margin so it never overflows on narrow screens.
+  useLayoutEffect(() => {
+    if (!rect || !tooltipRef.current) return;
+    const el = tooltipRef.current;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const safe = 12;
+    const gap = 16;
+    const maxWidth = Math.min(320, vw - safe * 2);
+
+    // Force the width used for measurement to match what we'll render with.
+    el.style.maxWidth = `${maxWidth}px`;
+    const tw = Math.min(el.offsetWidth, maxWidth);
+    const th = el.offsetHeight;
+
+    const centerX = rect.left + rect.width / 2;
+    const left = Math.max(safe + tw / 2, Math.min(vw - safe - tw / 2, centerX));
+
+    const spaceBelow = vh - rect.bottom - gap;
+    const spaceAbove = rect.top - gap;
+    const placeBelow = th + safe <= spaceBelow || spaceBelow >= spaceAbove;
+    const rawTop = placeBelow ? rect.bottom + gap : rect.top - gap - th;
+    const top = Math.max(safe, Math.min(vh - th - safe, rawTop));
+
+    setTooltipPos({ top, left, maxWidth });
+  }, [rect, current, phase]);
+
+  const tooltipStyle: React.CSSProperties = tooltipPos
     ? {
         position: 'absolute',
-        top: rect.bottom + padding + 20,
-        left: rect.left + rect.width / 2,
+        top: tooltipPos.top,
+        left: tooltipPos.left,
+        maxWidth: tooltipPos.maxWidth,
         transform: 'translateX(-50%)',
+      }
+    : rect
+    ? {
+        // First paint before measurement: place off-screen to avoid a flash.
+        position: 'absolute',
+        top: -9999,
+        left: -9999,
+        maxWidth: Math.min(320, (typeof window !== 'undefined' ? window.innerWidth : 320) - 24),
       }
     : { position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' };
 
@@ -160,6 +199,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
 
       {/* Tooltip card */}
       <div
+        ref={tooltipRef}
         className={`onboarding-tooltip ${phase === 'visible' ? 'onboarding-tooltip-on' : ''}`}
         style={tooltipStyle}
       >
