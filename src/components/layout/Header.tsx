@@ -121,9 +121,9 @@ export default function Header() {
           <img
             src={logo}
             alt="Talentive"
-            width={160}
-            height={40}
-            className="h-8 w-auto sm:h-9 md:h-10"
+            width={256}
+            height={64}
+            className="h-12 w-auto sm:h-14 md:h-16"
             fetchPriority="high"
             decoding="async"
           />
