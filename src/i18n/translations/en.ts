@@ -1,6 +1,52 @@
 import type { Translations } from '../types';
 
 const en: Translations = {
+  meta: {
+    home: {
+      title: 'Talentive | Permanent, Contract & Payroll Staffing Worldwide',
+      description:
+        'Permanent, contract, and payroll staffing for businesses worldwide. Tell us who you\'re hiring — we deliver the shortlist within 24 hours.',
+    },
+    services: {
+      title: 'Services — Permanent, Contract & Payroll Staffing | Talentive',
+      description:
+        'Discover our staffing services: permanent recruitment, contract and payroll/EOR for logistics, industry, IT and office roles. Shortlist within 24 hours.',
+    },
+    findEmployee: {
+      title: 'Hire Talent — Find Skilled Candidates Fast | Talentive',
+      description:
+        'Hire permanent, contract or payroll staff fast. Pre-vetted candidates, shortlist in 24 hours, full support across the entire hiring process.',
+    },
+    findJob: {
+      title: 'Find a Job — Discover Your Next Role in Belgium | Talentive',
+      description:
+        'Apply for permanent, contract and payroll roles in logistics, industry, IT and office. Upload your CV and we match you in days.',
+    },
+    about: {
+      title: 'About Us — Your Belgian Staffing Partner | Talentive',
+      description:
+        'Talentive is an Antwerp-based recruitment agency. Meet the team, our values and why Belgian companies trust us for international talent.',
+    },
+    contact: {
+      title: 'Contact — Get In Touch with Talentive Antwerp',
+      description:
+        'Questions about recruitment or payroll? Reach the Talentive team in Antwerp by phone, WhatsApp or email. Reply within 24 hours.',
+    },
+    privacy: {
+      title: 'Privacy Policy | Talentive',
+      description:
+        'Learn how Talentive collects, uses and protects your personal data in accordance with the GDPR.',
+    },
+  },
+  breadcrumb: {
+    home: 'Home',
+    services: 'Services',
+    findEmployee: 'Hire Talent',
+    findJob: 'Find a Job',
+    about: 'About Us',
+    contact: 'Contact',
+    privacy: 'Privacy',
+  },
   nav: {
     home: 'Home',
     services: 'Services',

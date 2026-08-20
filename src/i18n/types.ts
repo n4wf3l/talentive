@@ -1,4 +1,22 @@
 export interface Translations {
+  meta: {
+    home: { title: string; description: string };
+    services: { title: string; description: string };
+    findEmployee: { title: string; description: string };
+    findJob: { title: string; description: string };
+    about: { title: string; description: string };
+    contact: { title: string; description: string };
+    privacy: { title: string; description: string };
+  };
+  breadcrumb: {
+    home: string;
+    services: string;
+    findEmployee: string;
+    findJob: string;
+    about: string;
+    contact: string;
+    privacy: string;
+  };
   nav: {
     home: string;
     services: string;

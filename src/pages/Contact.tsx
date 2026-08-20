@@ -1,5 +1,7 @@
-import { useEffect, useState, type ReactNode, type FormEvent } from 'react';
+import { useState, useMemo, type ReactNode, type FormEvent } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
+import { SITE_URL } from '../seo/seoConfig';
 import Layout from '../components/layout/Layout';
 import Button from '../components/ui/Button';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -307,16 +309,51 @@ function ContactForm() {
 }
 
 export default function Contact() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Contact | Talentive',
-      fr: 'Contact | Talentive',
-      en: 'Contact | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.contact'), path: '/contact' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        url: `${SITE_URL}/contact`,
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'Talentive',
+          url: SITE_URL,
+          contactPoint: [
+            {
+              '@type': 'ContactPoint',
+              telephone: '+32 472 17 30 90',
+              contactType: 'customer service',
+              email: 'info@talentivegroup.com',
+              areaServed: 'BE',
+              availableLanguage: ['Dutch', 'French', 'English'],
+            },
+          ],
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Frankrijklei 5',
+            addressLocality: 'Antwerpen',
+            postalCode: '2000',
+            addressCountry: 'BE',
+          },
+        },
+      },
+    ],
+    [t],
+  );
+
+  useSEO({
+    path: '/contact',
+    titleKey: 'meta.contact.title',
+    descriptionKey: 'meta.contact.description',
+    jsonLd,
+  });
 
   // Split the contact title to apply a gradient on the last word
   // ("Contactez-nous" / "Contacteer ons" / "Contact us")
@@ -337,6 +374,8 @@ export default function Contact() {
             src={contactHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-primary-950/60 lg:hidden" />
           <div

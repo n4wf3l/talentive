@@ -19,6 +19,8 @@ export default function BriefCTASection() {
                 src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80&auto=format&fit=crop"
                 alt=""
                 className="h-full w-full object-cover opacity-70"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="hero-mesh absolute inset-0" />

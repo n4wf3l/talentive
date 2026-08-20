@@ -1,0 +1,27 @@
+{
+  "name": "Talentive",
+  "short_name": "Talentive",
+  "description": "Belgian staffing partner for permanent, contract and payroll placements worldwide.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060e1f",
+  "theme_color": "#060e1f",
+  "lang": "nl-BE",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

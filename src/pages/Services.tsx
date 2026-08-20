@@ -1,5 +1,7 @@
-import { useEffect, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
+import { SITE_URL } from '../seo/seoConfig';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
 const servicesHeroBg = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop';
@@ -165,16 +167,33 @@ const processSteps: ProcessStep[] = [
 ];
 
 export default function Services() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Diensten | Internationale Staffing | Talentive',
-      fr: 'Services | Staffing International | Talentive',
-      en: 'Services | International Staffing | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.services'), path: '/services' },
+      ]),
+      ...serviceDefs.map((s) => ({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: t(s.titleKey),
+        description: t(s.descKey),
+        provider: { '@type': 'EmploymentAgency', name: 'Talentive', url: SITE_URL },
+        areaServed: { '@type': 'Country', name: 'Belgium' },
+        serviceType: t(s.titleKey),
+      })),
+    ],
+    [t],
+  );
+
+  useSEO({
+    path: '/services',
+    titleKey: 'meta.services.title',
+    descriptionKey: 'meta.services.description',
+    jsonLd,
+  });
 
   // Direct import of the translation files for the bullet arrays (avoiding string-only t())
   /* eslint-disable @typescript-eslint/no-require-imports */
@@ -195,6 +214,8 @@ export default function Services() {
             src={servicesHeroBg}
             alt=""
             className="h-full w-full object-cover opacity-50 lg:opacity-80"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-primary-950/60 lg:hidden" />
           <div
@@ -379,6 +400,7 @@ function ServiceDetailCard({
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
       </div>

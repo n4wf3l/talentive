@@ -1,19 +1,27 @@
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from '../i18n/LanguageContext';
+import { useSEO, buildBreadcrumbLd } from '../hooks/useSEO';
 import Layout from '../components/layout/Layout';
 import AnimatedSection from '../components/ui/AnimatedSection';
 
 export default function Privacy() {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const titles: Record<string, string> = {
-      nl: 'Privacybeleid | Talentive',
-      fr: 'Politique de Confidentialité | Talentive',
-      en: 'Privacy Policy | Talentive',
-    };
-    document.title = titles[language] ?? titles.nl!;
-  }, [language]);
+  const jsonLd = useMemo(
+    () =>
+      buildBreadcrumbLd([
+        { name: t('breadcrumb.home'), path: '/' },
+        { name: t('breadcrumb.privacy'), path: '/privacy' },
+      ]),
+    [t],
+  );
+
+  useSEO({
+    path: '/privacy',
+    titleKey: 'meta.privacy.title',
+    descriptionKey: 'meta.privacy.description',
+    jsonLd,
+  });
 
   const sections = [
     { title: t('privacy.dataTitle'), content: t('privacy.dataContent') },

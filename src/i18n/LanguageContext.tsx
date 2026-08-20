@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import type { Translations } from './types';
 import fr from './translations/fr';
 import nl from './translations/nl';
@@ -36,6 +36,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLanguageState(lang);
     localStorage.setItem('talentive-lang', lang);
   }, []);
+
+  // Keep <html lang> in sync so screen readers and crawlers see the right language
+  // even before a page-level useSEO effect runs.
+  useEffect(() => {
+    const htmlLang = language === 'nl' ? 'nl-BE' : language === 'fr' ? 'fr-BE' : 'en';
+    document.documentElement.lang = htmlLang;
+  }, [language]);
 
   const t = useCallback(
     (key: string): string => {
