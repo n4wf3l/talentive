@@ -29,14 +29,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Fix Vite permissions
-        run: chmod +x node_modules/.bin/vite
+      - name: Fix bin permissions
+        run: chmod +x node_modules/.bin/vite node_modules/.bin/tsc 2>/dev/null || true
 
-      - name: Build
+      - name: Cache Puppeteer Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Ensure Chromium is installed for Puppeteer
+        run: npx puppeteer browsers install chrome
+
+      - name: Build (vite + prerender)
         run: npm run build
-
-      - name: Copy index.html to 404.html for SPA routing
-        run: cp dist/index.html dist/404.html
+        # The build script runs `tsc && vite build && node scripts/prerender.mjs`.
+        # 404.html is written by the prerender step (copy of home) — no separate step needed.
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
