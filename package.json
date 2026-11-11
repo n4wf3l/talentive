@@ -22,7 +22,7 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "puppeteer": "^25.8.0",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.5",
     "sirv": "^3.0.2",
     "svgo": "^4.0.2",
     "tailwindcss": "^3.4.17",
